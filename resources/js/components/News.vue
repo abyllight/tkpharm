@@ -62,7 +62,7 @@ export default {
             axios
             .get('/news-all')
             .then(response => {
-                this.news = response.data
+                this.news = response.data.data
                 console.log(response)
             })
             .catch(error => {

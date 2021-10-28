@@ -94,5 +94,5 @@ Route::get('/search', function () {
 });
 
 Route::get('/news-all', function () {
-    return NewsCollection::collection(News::take(2)->get());
+    return NewsCollection::collection(News::orderBy('id', 'desc')->get());
 });

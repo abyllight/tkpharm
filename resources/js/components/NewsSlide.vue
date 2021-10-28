@@ -52,7 +52,7 @@ export default {
             axios
                 .get('/news-all')
                 .then(response => {
-                    this.news = response.data.data
+                    this.news = response.data.data.slice(0,2)
                 })
                 .catch(error => {
                     console.log(error)

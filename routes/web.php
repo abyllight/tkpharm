@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\NewsController;
 use App\Http\Resources\NewsCollection;
 use App\Models\News;
 use Illuminate\Support\Facades\App;
@@ -16,83 +18,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/locale/{locale}', function ($locale) {
-    if (! in_array($locale, ['ru', 'kz', 'en'])) {
-        abort(400);
-    }
+Route::get('/locale/{locale}', [LocaleController::class, 'setLocale']);
+Route::get('/locale', [LocaleController::class, 'getLocale']);
 
-    session()->put('app_locale', $locale);
-    return response()->json($locale);
-});
+Route::view('/', 'welcome');
 
-Route::get('/locale', function () {
-    $locale = [
-        'name' => 'ru',
-        'flag' => '/img/ru.png'
-    ];
+Route::view('/about', 'about');
 
-    if (App::currentLocale() === 'kz') {
-        $locale = [
-            'name' => 'kz',
-            'flag' => '/img/kz.png'
-        ];
-    }
+Route::view('/history', 'history');
 
-    if (App::currentLocale() === 'en') {
-        $locale = [
-            'name' => 'en',
-            'flag' => '/img/en.png'
-        ];
-    }
+Route::view('/certificates', 'certificates');
 
-    return response()->json($locale);
-});
+Route::view('/management', 'management');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/news', 'news');
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news_content');
 
-Route::get('/history', function () {
-    return view('history');
-});
+Route::view('/products', 'products');
 
-Route::get('/certificates', function () {
-    return view('certificates');
-});
-
-Route::get('/management', function () {
-    return view('management');
-});
-
-Route::get('/news', function () {
-    return view('news');
-});
-
-Route::get('/news/{id}', function ($id) {
-    $news = News::find($id);
-    if (!$news) abort(404);
-
-    $related_news = News::take(2)->get();
-
-    return view('news_content', ['news' => $news, 'related_news' => $related_news]);
-})->name('news_content');
-
-Route::get('/products', function () {
-    return view('products');
-});
-
-Route::get('/gallery', function () {
-    return view('gallery');
-});
+Route::view('/gallery', 'gallery');
 
 Route::get('/search', function () {
     return view('search_results');
 });
 
-Route::get('/news-all', function () {
-    return NewsCollection::collection(News::orderBy('id', 'desc')->get());
-});
+Route::get('/news-slide', [NewsController::class, 'slide']);
+
+Route::get('/news-all', [NewsController::class, 'index']);
+Route::get('/news-load/{id}', [NewsController::class, 'loadMore']);

@@ -164,7 +164,7 @@ export default {
             axios
                 .get('/locale')
                 .then(response => {
-                    this.lang = response.data
+                    this.lang = response.data.locale
                 })
                 .catch(error => {
                     console.log(error)

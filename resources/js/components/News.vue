@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <button @click="showMore" class="bg-white font-semibold text-black mt-10 w-full py-3 md:w-64 block mx-auto">Показать больше</button>
+            <button @click="loadMore" class="bg-white font-semibold text-black mt-10 w-full py-3 md:w-64 block mx-auto">Показать больше</button>
         </div>
     </div>
 </template>
@@ -47,6 +47,7 @@ export default {
     name: "News",
     data: () => ({
         news: [],
+        id: 0,
         backgroundStyle: {
             backgroundImage: '',
             backgroundColor: '#0390B4',
@@ -62,7 +63,7 @@ export default {
             axios
             .get('/news-all')
             .then(response => {
-                this.news = response.data.data
+                this.news = response.data
                 console.log(response)
             })
             .catch(error => {
@@ -75,8 +76,17 @@ export default {
         nullBg(){
             this.backgroundStyle.backgroundImage = ''
         },
-        showMore(){
-
+        loadMore(){
+            let id = this.news[this.news.length - 1].id
+            axios
+                .get('/news-load/'+ id)
+                .then(response => {
+                    let more = response.data
+                    this.news.push(...more)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         }
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NewsController;
-use App\Http\Resources\NewsCollection;
-use App\Models\News;
-use Illuminate\Support\Facades\App;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,11 +31,14 @@ Route::view('/certificates', 'certificates');
 
 Route::view('/management', 'management');
 
-Route::view('/news', 'news');
-
+Route::get('/news', [NewsController::class, 'index']);
+Route::get('/news-slide', [NewsController::class, 'slide']);
+Route::get('/news-all', [NewsController::class, 'all']);
+Route::get('/news-load/{id}', [NewsController::class, 'loadMore']);
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('news_content');
 
 Route::view('/products', 'products');
+Route::get('/products-all', [ProductCategoryController::class, 'all']);
 
 Route::view('/gallery', 'gallery');
 
@@ -43,7 +46,28 @@ Route::get('/search', function () {
     return view('search_results');
 });
 
-Route::get('/news-slide', [NewsController::class, 'slide']);
+Route::view('/login', 'admin.login')->middleware('guest');
 
-Route::get('/news-all', [NewsController::class, 'index']);
-Route::get('/news-load/{id}', [NewsController::class, 'loadMore']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+Route::middleware('auth')->prefix('admin')->group(function () {
+    Route::resource('product-categories', ProductCategoryController::class)->except(['show']);
+    Route::resource('products', ProductController::class)->except(['show']);
+
+    /*Route::get('/product/create', 'ProductController@create')->name('product.create');
+    Route::post('/product/create', 'ProductController@store')->name('product.store');
+
+    Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
+    Route::post('/product/{id}/edit', 'ProductController@update')->name('product.update');
+    Route::post('/product/{id}/deactivate', 'ProductController@deactivate')->name('product.deactivate');
+    Route::post('/product/{id}/activate', 'ProductController@activate')->name('product.activate');*/
+
+    Route::get('/pwd', 'LoginController@pwd')->name('pwd');
+    Route::post('/pwd', 'LoginController@pwdUpdate')->name('pwd.update');
+
+    Route::get('/list', 'ListController@index')->name('list');
+    Route::post('/list', 'ListController@fetchOrders')->name('fetch');
+
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
+

@@ -12,5 +12,6 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'hero' => 'ONE OF THE LARGEST PHARMOCEUTIC COMPANIES IN ALL KAZAKHSTAN'
+    'hero' => 'ONE OF THE LARGEST PHARMOCEUTIC COMPANIES IN ALL KAZAKHSTAN',
+    'news_plural' => 'news'
 ];

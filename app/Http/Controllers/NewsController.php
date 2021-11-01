@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Resources\NewsCollection;
 use App\Models\News;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\JsonResource;
 
 class NewsController extends Controller
 {
-    public function index(): JsonResponse
+    public function index()
+    {
+        $count = News::all()->count();
+
+        return view('news', ['total' => $count]);
+    }
+
+    public function all(): JsonResponse
     {
         return response()->json(NewsCollection::collection(News::orderBy('id', 'desc')->take(4)->get()));
     }

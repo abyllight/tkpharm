@@ -1,16 +1,6 @@
 <template>
-    <div class="bg-news py-32 lg:py-48">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex items-center mb-8 lg:mb-12">
-                <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
-                    Новости
-                </div>
-                <div class="border border-top w-full"></div>
-                <div class="flex-shrink-0 ml-4 font-light">
-                    {{news.length}}
-                </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+   <div>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div
                     v-for="n in news"
                     class="font-light md:h-80 relative"
@@ -37,8 +27,7 @@
                 </div>
             </div>
 
-            <button @click="loadMore" class="bg-white font-semibold text-black mt-10 w-full py-3 md:w-64 block mx-auto">Показать больше</button>
-        </div>
+       <button v-if="showBtn" @click="loadMore" class="bg-white font-semibold text-black mt-10 w-full py-3 md:w-64 block mx-auto">Показать больше</button>
     </div>
 </template>
 
@@ -48,6 +37,7 @@ export default {
     data: () => ({
         news: [],
         id: 0,
+        showBtn: true,
         backgroundStyle: {
             backgroundImage: '',
             backgroundColor: '#0390B4',
@@ -64,7 +54,6 @@ export default {
             .get('/news-all')
             .then(response => {
                 this.news = response.data
-                console.log(response)
             })
             .catch(error => {
                 console.log(error)
@@ -83,6 +72,7 @@ export default {
                 .then(response => {
                     let more = response.data
                     this.news.push(...more)
+                    if (more.length === 0) this.showBtn = false
                 })
                 .catch(error => {
                     console.log(error)

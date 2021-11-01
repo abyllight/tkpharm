@@ -50,7 +50,7 @@
                 <div class="border-t border-footer-divider my-8 md:hidden"></div>
                 <div class="w-full md:w-72">
                     <h3 class="font-semibold uppercase text-2xl mb-3">Свяжитесь с нами</h3>
-                    <div class="w-full border uppercase bg-footer-color text-white flex justify-center py-2.5 text-sm">
+                    <div @click="popUp = true" class="w-full border uppercase bg-footer-color text-white flex justify-center py-2.5 text-sm">
                         Связаться
                     </div>
                 </div>
@@ -60,9 +60,51 @@
                 <p>Все права защищены</p>
             </div>
         </div>
+        <transition name="bounce">
+            <div v-if="popUp" class="h-screen w-full fixed top-0 left-0 z-30 flex items-center justify-center px-3 py-2 text-white">
+                <div class="w-full max-w-md bg-black bg-opacity-70 rounded-xl shadow-xl relative">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-5">
+                            <p class="uppercase font-semibold text-lg">Свяжитесь с нами</p>
+                            <div class="flex justify-center items-center w-10 h-10 bg-white rounded-full cursor-pointer" @click="popUp=false">
+                                <img src="/img/close_black.svg" class="w-5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <input type="text" class="bg-transparent w-full border-b mb-6" placeholder="FIO">
+                            <input type="text" class="bg-transparent w-full border-b mb-6" placeholder="FIO">
+                            <input type="text" class="bg-transparent w-full border-b mb-6" placeholder="FIO">
+                            <input type="text" class="bg-transparent w-full border-b mb-8" placeholder="FIO">
+                            <button type="submit" class="py-2.5 bg-submit w-full">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
     </div>
 </template>
-
+<style>
+.bounce-enter-active {
+    animation: bounce-in .5s;
+}
+.bounce-leave-active {
+    animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+</style>
 <script>
 export default {
     name: "FooterSection",
@@ -70,7 +112,8 @@ export default {
         first: true,
         second: true,
         up: '/img/up.svg',
-        down: '/img/down.svg'
+        down: '/img/down.svg',
+        popUp: false
     }),
     computed:{
         isLarge() {

@@ -21,7 +21,8 @@ module.exports = {
                 'news-gray': '#9D9D9D',
                 'products': '#20B287',
                 'gallery': '#EB8444',
-                'slide': '#03728D'
+                'slide': '#03728D',
+                'submit': '#26B7E4'
             },
             fontFamily: {
                 'body': ['Montserrat']

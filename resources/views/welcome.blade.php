@@ -194,7 +194,7 @@
                 </div>
 
                 <div class="flex flex-col md:flex-row md:justify-between gap-8">
-                    <a class="border cursor-pointer rounded w-1/2 w-full p-6 relative hover:bg-cover hover:bg-opacity-40 hover:border-transparent"
+                    <a class="border cursor-pointer rounded w-1/2 w-full p-6 relative hover:bg-cover hover:bg-opacity-40 hover:border-transparent transition-all ease-in-out duration-300"
                         href="#">
                         <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
                             <img src="/img/right.svg" width="24">
@@ -202,7 +202,7 @@
                         <p class="uppercase text-xs">Millenium.kz</p>
                         <p class="uppercase font-bold md:text-lg">Приобрести наши товары</p>
                     </a>
-                    <a class="border cursor-pointer rounded w-1/2 w-full p-6 relative hover:bg-cover hover:bg-opacity-40 hover:border-transparent"
+                    <a class="border cursor-pointer rounded w-1/2 w-full p-6 relative hover:bg-cover hover:bg-opacity-40 hover:border-transparent transition-all ease-in-out duration-300"
                         href="#">
                         <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
                             <img src="/img/right.svg" width="24">

@@ -50,7 +50,7 @@
                 <div class="border-t border-footer-divider my-8 md:hidden"></div>
                 <div class="w-full md:w-72">
                     <h3 class="font-semibold uppercase text-2xl mb-3">Свяжитесь с нами</h3>
-                    <div @click="popUp = true" class="w-full border uppercase bg-footer-color text-white flex justify-center py-2.5 text-sm">
+                    <div @click="popUp = true" class="cursor-pointer w-full border uppercase bg-footer-color text-white flex justify-center py-2.5 text-sm">
                         Связаться
                     </div>
                 </div>

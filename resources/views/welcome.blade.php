@@ -25,7 +25,7 @@
                 </div>
                 <div class="border border-top w-full"></div>
             </div>
-            <div class="flex flex-nowrap gap-10 md:gap-16 overflow-x-auto overflow-hidden py-20">
+            <div class="flex flex-nowrap gap-10 md:gap-16 overflow-x-auto py-20 no-scrollbar">
                 <div class="w-4/5 flex-shrink-0">
                     <h1 class="font-bold text-2xl md:text-5xl uppercase tracking-wider xl:leading-tight mb-5">
                         Мы производим лекарственные препараты и медицинские изделия
@@ -90,7 +90,10 @@
                 </div>
                 <div class="relative">
                     <div class="flex justify-between">
-                        <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
+                        <div data-aos="fade-right"
+                            data-aos-delay="600"
+                            data-aos-duration="1000"
+                            class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
                             <p class="text-4xl font-semibold mb-4">2012</p>
                             <h3 class="font-bold uppercase text-lg md:text-xl mb-3">Построение завода ТОО «ТК Фарм Актобе»</h3>
                             <p class="text-sm md:text-base">
@@ -101,7 +104,9 @@
                                 для использования в косметологии и фармацевтике.
                             </p>
                         </div>
-                        <div class="hidden lg:flex flex-col items-center">
+                        <div data-aos="fade-down"
+                             data-aos-delay="200"
+                             data-aos-duration="1000" class="hidden lg:flex flex-col items-center">
                             <div class="border-l h-64"></div>
                             <div class="flex items-center border w-20 h-20 rounded-full flex-shrink-0">
                                 <h1 class="mx-auto text-3xl font-light">1</h1>
@@ -111,7 +116,10 @@
                         <div class="hidden lg:block max-w-md xl:max-w-lg w-full lg:flex-shrink-0"></div>
                     </div>
                     <div class="flex justify-between">
-                        <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
+                        <div data-aos="fade-left"
+                             data-aos-delay="600"
+                             data-aos-duration="1000"
+                             class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
                             <p class="text-4xl font-semibold mb-4">2014 - 2016</p>
                             <h3 class="font-bold uppercase text-lg md:text-xl mb-3">Запуск Цеха жидких и твердых лекарственных форм</h3>
                             <p class="text-sm md:text-base">
@@ -122,7 +130,10 @@
                                 для использования в косметологии и фармацевтике.
                             </p>
                         </div>
-                        <div class="hidden lg:flex flex-col items-center lg:order-2">
+                        <div data-aos="fade-down"
+                             data-aos-delay="200"
+                             data-aos-duration="1000"
+                             class="hidden lg:flex flex-col items-center lg:order-2">
                             <div class="border-l h-4/5"></div>
                             <div class="flex items-center border w-20 h-20 rounded-full flex-shrink-0">
                                 <h1 class="mx-auto text-3xl font-light">2</h1>
@@ -132,7 +143,11 @@
                         <div class="hidden lg:block max-w-md xl:max-w-lg w-full lg:flex-shrink-0 lg:order-1"></div>
                     </div>
                     <div class="flex justify-between">
-                        <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
+                        <div
+                            data-aos="fade-right"
+                            data-aos-delay="600"
+                            data-aos-duration="1000"
+                            class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
                             <p class="text-4xl font-semibold mb-4">2019</p>
                             <h3 class="font-bold uppercase text-lg md:text-xl mb-3">
                                 Лауреат в номинации «Лучший товар для населения»
@@ -145,7 +160,11 @@
                                 для использования в косметологии и фармацевтике.
                             </p>
                         </div>
-                        <div class="hidden lg:flex flex-col items-center">
+                        <div
+                            data-aos="fade-down"
+                            data-aos-delay="200"
+                            data-aos-duration="1000"
+                            class="hidden lg:flex flex-col items-center">
                             <div class="border-l h-4/5"></div>
                             <div class="flex items-center border w-20 h-20 rounded-full flex-shrink-0">
                                 <h1 class="mx-auto text-3xl font-light">3</h1>
@@ -155,7 +174,11 @@
                         <div class="hidden lg:block max-w-md xl:max-w-lg w-full lg:flex-shrink-0"></div>
                     </div>
                     <div class="flex justify-between">
-                        <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
+                        <div
+                            data-aos="fade-left"
+                            data-aos-delay="600"
+                            data-aos-duration="1000"
+                            class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
                             <p class="text-4xl font-semibold mb-4">2020</p>
                             <h3 class="font-bold uppercase text-lg md:text-xl mb-3">
                                 Covid-19 ЧС: Лидеры по обеспечению масками и лекарственными препаратами населения Актюбинской области
@@ -168,7 +191,11 @@
                                 для использования в косметологии и фармацевтике.
                             </p>
                         </div>
-                        <div class="hidden lg:flex flex-col items-center lg:order-2">
+                        <div
+                            data-aos="fade-down"
+                            data-aos-delay="200"
+                            data-aos-duration="1000"
+                            class="hidden lg:flex flex-col items-center lg:order-2">
                             <div class="border-l h-4/5"></div>
                             <div class="flex items-center border w-20 h-20 rounded-full flex-shrink-0">
                                 <h1 class="mx-auto text-3xl font-light">4</h1>

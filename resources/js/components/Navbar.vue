@@ -27,10 +27,10 @@
                                 @mouseleave="collapseCompany(link)"
                             >
                                 <div>
-                                    <span v-for="(word,index) in createSpans(link.title)" class="menu-item-text" :style="{'--index': index}">{{word}}</span>
+                                    <span v-for="(word,index) in createSpans(link.title)" class="menu-item-text" :style="{'--index': index, margin: word===' ' ? '3px' : ''}">{{word}}</span>
                                 </div>
                                 <div class="absolute top-0">
-                                    <span v-for="(word,index) in createSpans(link.title)" class="menu-item-text" :style="{'--index': index}">{{word}}</span>
+                                    <span v-for="(word,index) in createSpans(link.title)" class="menu-item-text" :style="{'--index': index, margin: word===' ' ? '3px' : ''}">{{word}}</span>
                                 </div>
                                 <div v-if="link.sub_links">
                                     <img :src="isExpanded ? '/img/up_white.svg' : '/img/down_white.svg'" width="18" class="cursor-pointer">
@@ -91,25 +91,6 @@
                             >{{s.name}}</a>
                         </div>
                     </a>
-<!--                    <a class="py-1 block" href="/">Главная</a>
-                    <div @click="isExpanded =!isExpanded">
-                        <div class="flex">
-                            <p class="cursor-pointer">Компания</p>
-                            <img src="/img/down_white.svg" width="18" class="ml-1 cursor-pointer">
-                        </div>
-                        <div v-if="isExpanded"
-                             class="px-3 py-4 flex flex-col gap-4"
-                        >
-                            <a
-                                v-for="s in sub"
-                                :href="s.href"
-                                class="cursor-pointer"
-                            >{{s.name}}</a>
-                        </div>
-                    </div>
-                    <a class="py-1" href="/news">Новости</a>
-                    <a class="py-1" href="/products">Наша продукция</a>
-                    <a class="py-1" href="/gallery">Галерея</a>-->
                 </div>
             </div>
         </div>
@@ -123,9 +104,17 @@
                 <p class="uppercase font-bold text-2xl mb-4">Компания</p>
                 <a
                     v-for="s in sub"
+                    :key="s.id"
                     :href="s.href"
-                    class="cursor-pointer"
-                >{{s.name}}</a>
+                    class="cursor-pointer menu-item"
+                >
+                    <div>
+                        <span v-for="(word,index) in createSpans(s.name)" class="menu-item-text" :style="{'--index': index, margin: word===' ' ? '3px' : ''}">{{word}}</span>
+                    </div>
+                    <div class="absolute top-0">
+                        <span v-for="(word,index) in createSpans(s.name)" class="menu-item-text" :style="{'--index': index, margin: word===' ' ? '3px' : ''}">{{word}}</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -213,7 +202,7 @@ export default {
             },
             {
                 id: 3,
-                title: 'Продукция',
+                title: 'Наша Продукция',
                 href: '/products',
                 sub_links: false
             },

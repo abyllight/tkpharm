@@ -4,6 +4,7 @@ window.axios = require('axios');
 import Navbar from './components/Navbar'
 import FooterSection from "./components/FooterSection";
 
+Vue.component('partners', require('./components/Partners.vue').default);
 Vue.component('news', require('./components/News.vue').default);
 Vue.component('news-slide', require('./components/NewsSlide.vue').default);
 Vue.component('products', require('./components/Products.vue').default);

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <!--    Section Hero-->
-    <div class="bg-hero bg-cover bg-center">
-        <div class="max-w-6xl mx-auto px-4 flex w-full h-screen items-center">
+    <div class="bg-hero bg-cover bg-center py-32 lg:py-60">
+        <div class="max-w-6xl mx-auto px-4 flex w-full items-center">
             <div class="md:w-2/3 md:border-l md:pl-4">
                 <h1 class="font-black text-xl md:text-4xl uppercase md:leading-snug mb-5">
                     {{ __('welcome.hero') }}
@@ -210,7 +210,7 @@
     </section>
 
     <!--    Section Partners-->
-    <section id="partners">
+    <section>
         <div class="bg-partner bg-cover bg-center py-16 lg:py-40">
             <div class="max-w-6xl mx-auto px-4">
                 <div class="flex items-center justify-between mb-16">
@@ -219,24 +219,8 @@
                     </div>
                     <div class="border border-top w-full"></div>
                 </div>
-
-                <div class="flex flex-col md:flex-row md:justify-between gap-8">
-                    <a class="border cursor-pointer rounded w-1/2 w-full p-6 relative hover:bg-cover hover:bg-opacity-40 hover:border-transparent transition-all ease-in-out duration-300"
-                        href="#">
-                        <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                            <img src="/img/right.svg" width="24">
-                        </div>
-                        <p class="uppercase text-xs">Millenium.kz</p>
-                        <p class="uppercase font-bold md:text-lg">Приобрести наши товары</p>
-                    </a>
-                    <a class="border cursor-pointer rounded w-1/2 w-full p-6 relative hover:bg-cover hover:bg-opacity-40 hover:border-transparent transition-all ease-in-out duration-300"
-                        href="#">
-                        <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                            <img src="/img/right.svg" width="24">
-                        </div>
-                        <p class="uppercase text-xs">Farmkazyna.kz</p>
-                        <p class="uppercase font-bold md:text-lg">Наш прямой партнер</p>
-                    </a>
+                <div id="partners">
+                    <partners></partners>
                 </div>
             </div>
         </div>
@@ -249,6 +233,10 @@
 @section('js')
     new Vue({
         el: '#news_slide'
+    });
+
+    new Vue({
+        el: '#partners'
     });
 @endsection
 

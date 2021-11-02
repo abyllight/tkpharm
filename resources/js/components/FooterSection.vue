@@ -88,10 +88,10 @@
 </template>
 <style>
 .bounce-enter-active {
-    animation: bounce-in .5s;
+    animation: bounce-in 1.5s;
 }
 .bounce-leave-active {
-    animation: bounce-in .5s reverse;
+    animation: bounce-in .9s reverse;
 }
 @keyframes bounce-in {
     0% {

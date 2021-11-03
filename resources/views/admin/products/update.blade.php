@@ -327,7 +327,7 @@
                     @enderror
                 </div>
             </div>
-            <img src="{{ asset('storage/' . $product->image) }}" class="w-32">
+            <img src="{{ asset('storage/' .$product->image) }}" class="w-32">
             <div class="mb-6">
                 <div class="mb-1">
                     <label class="text-gray-500 font-medium" for="image">

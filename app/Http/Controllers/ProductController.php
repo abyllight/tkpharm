@@ -44,7 +44,7 @@ class ProductController extends Controller
         $product->product_category_id = $request->category;
         $product->is_active = true;
         $product->link = $request->link;
-        $product->image = Storage::putFile('products', $request->file('image'));
+        $product->image = $request->file('image')->store('products', 'public');
         $product->save();
 
         foreach ($this->languages as $language){
@@ -97,7 +97,7 @@ class ProductController extends Controller
                 'image' => 'image|mimes:jpeg,jpg,png|required|max:10000',
             ]);
             Storage::delete($product->image);
-            $product->image = Storage::putFile('products', $request->file('image'));
+            $product->image = $request->file('image')->store('products', 'public');
         }
 
         $product->product_category_id = $request->category;

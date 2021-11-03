@@ -78,5 +78,16 @@
                 </button>
             </div>
         </form>
+        <div class="flex gap-8 items-center mt-8">
+            <form method="post" action="/admin/product-categories/{{$category->id}}">
+                @csrf
+                @method('delete')
+                <div>
+                    <button class="bg-red-600 rounded px-6 py-3 shadow text-white hover:bg-red-500" type="submit">
+                        Удалить
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 @endsection

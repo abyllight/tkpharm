@@ -22,6 +22,8 @@
                         class="flex flex-col gap-10 pt-8 pb-3">
                         <div
                             v-for="product in type.products"
+                            :key="product.id"
+                            v-if="product.is_active"
                             class="flex flex-col md:flex-row gap-5 md:gap-10"
                         >
                             <img :src="/storage/+product.image" class="md:w-64">

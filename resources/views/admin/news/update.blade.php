@@ -162,6 +162,27 @@
                 </button>
             </div>
         </form>
+
+        <div class="flex gap-8 items-center mt-8">
+            <form method="post" action="/admin/news/status/{{$news->id}}">
+                @csrf
+                <div>
+                    <button class="@if($news->is_active)bg-yellow-500 hover:bg-yellow-400 @else() bg-green-500 hover:bg-green-400 @endif() rounded px-6 py-3 shadow text-white" type="submit">
+                        {{$news->is_active ? 'Деактивировать' : 'Активировать'}}
+                    </button>
+                </div>
+            </form>
+
+            <form method="post" action="/admin/news/{{$news->id}}">
+                @csrf
+                @method('delete')
+                <div>
+                    <button class="bg-red-600 rounded px-6 py-3 shadow text-white hover:bg-red-500" type="submit">
+                        Удалить
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 @endsection
 @section('js_body')

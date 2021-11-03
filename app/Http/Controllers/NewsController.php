@@ -15,19 +15,19 @@ class NewsController extends Controller
 
     public function total()
     {
-        $count = News::all()->count();
+        $count = News::where('is_active', true)->count();
 
         return view('news', ['total' => $count]);
     }
 
     public function all(): JsonResponse
     {
-        return response()->json(NewsCollection::collection(News::orderBy('id', 'desc')->take(4)->get()));
+        return response()->json(NewsCollection::collection(News::where('is_active', true)->orderBy('id', 'desc')->take(4)->get()));
     }
 
     public function slide(): JsonResponse
     {
-        $collection = NewsCollection::collection(News::orderBy('id', 'desc')->get());
+        $collection = NewsCollection::collection(News::where('is_active', true)->orderBy('id', 'desc')->get());
         $chunks = $collection->chunk(2);
         return response()->json($chunks->all());
     }
@@ -35,7 +35,7 @@ class NewsController extends Controller
     public function loadMore(int $id): JsonResponse
     {
         return response()->json(
-            NewsCollection::collection(News::where('id', '<', $id)->orderBy('id', 'desc')->take(4)->get())
+            NewsCollection::collection(News::where('is_active', true)->where('id', '<', $id)->orderBy('id', 'desc')->take(4)->get())
         );
     }
 
@@ -84,7 +84,7 @@ class NewsController extends Controller
         $news = News::find($id);
         if (!$news) abort(404);
 
-        $related_news = News::take(2)->get();
+        $related_news = News::where('is_active', true)->take(2)->get();
 
         return view('news_content', ['news' => $news, 'related_news' => $related_news]);
     }
@@ -114,7 +114,7 @@ class NewsController extends Controller
             $request->validate([
                 'image' => 'image|mimes:jpeg,jpg,png|required|max:10000',
             ]);
-            Storage::delete($news->image);
+            Storage::disk('public')->delete($news->image);
             $news->image = $request->file('image')->store('news', 'public');
         }
 
@@ -131,5 +131,26 @@ class NewsController extends Controller
         $news->save();
 
         return redirect('/admin/news')->with(['message' => 'Успешно обновлено', 'alert' => 'alert-success']);
+    }
+
+    public function activate($id){
+        $news = News::find($id);
+        if (!$news) abort(404);
+
+        $news->is_active = !$news->is_active;
+        $news->save();
+
+        return redirect('/admin/news')->with(['message' => 'Статус изменен', 'alert' => 'alert-success']);
+    }
+
+    public function destroy($id){
+        $news = News::find($id);
+        if (!$news) abort(404);
+        Storage::disk('public')->delete($news->image);
+
+        $news->i18n()->delete();
+        $news->delete();
+
+        return redirect('/admin/news')->with(['message' => 'Новость удалена', 'alert' => 'alert-success']);
     }
 }

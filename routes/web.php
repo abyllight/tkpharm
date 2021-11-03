@@ -59,6 +59,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('product-categories', ProductCategoryController::class)->except(['show']);
     Route::resource('products', ProductController::class)->except(['show']);
     Route::resource('news', NewsController::class);
+    Route::post('products/status/{id}', [ProductController::class, 'activate']);
+    Route::post('news/status/{id}', [NewsController::class, 'activate']);
 
     /*Route::get('/product/create', 'ProductController@create')->name('product.create');
     Route::post('/product/create', 'ProductController@store')->name('product.store');

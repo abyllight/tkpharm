@@ -97,7 +97,7 @@ class ProductController extends Controller
             $request->validate([
                 'image' => 'image|mimes:jpeg,jpg,png|required|max:10000',
             ]);
-            Storage::delete($product->image);
+            Storage::disk('public')->delete($product->image);
             $product->image = $request->file('image')->store('products', 'public');
         }
 
@@ -121,21 +121,25 @@ class ProductController extends Controller
         return redirect('/admin/products')->with(['message' => 'Успешно обновлено', 'alert' => 'alert-success']);
     }
 
-    public function deactivate($id) {
-        $product = Product::find($id);
-
-        $product->is_active = false;
-        $product->save();
-
-        return redirect('/admin/products')->with(['message' => 'Успешно деактивирован', 'alert' => 'alert-success']);
-    }
-
     public function activate($id) {
         $product = Product::find($id);
+        if (!$product) abort(404);
 
-        $product->is_active = true;
+        $product->is_active = !$product->is_active;
         $product->save();
 
-        return redirect('/admin/products')->with(['message' => 'Успешно активирован', 'alert' => 'alert-success']);
+        return redirect('/admin/products')->with(['message' => 'Статус изменен', 'alert' => 'alert-success']);
+    }
+
+    public function destroy($id){
+        dd('del');
+        $product = Product::find($id);
+        if (!$product) abort(404);
+        Storage::disk('public')->delete($product->image);
+
+        $product->i18n()->delete();
+        $product->delete();
+
+        return redirect('/admin/products')->with(['message' => 'Продукт удален', 'alert' => 'alert-success']);
     }
 }

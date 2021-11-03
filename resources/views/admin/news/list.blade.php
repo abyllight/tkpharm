@@ -27,11 +27,11 @@
                         <td class="px-4">
                             <p>{{ $item->getTitleRu() }}</p>
                         </td>
-<!--                        <td class="px-4">
+                        <td class="px-4">
                             <p class="inline text-white rounded px-2 py-1 @if($item->is_active) bg-green-500 @else bg-gray-300 @endif">
                                 {{ $item->is_active ? 'активный' : 'не активный'}}
                             </p>
-                        </td>-->
+                        </td>
                         <td class="px-4">
                             <a class="cursor-pointer text-blue-500" href="/admin/news/{{$item->id}}/edit">Редактировать</a>
                         </td>

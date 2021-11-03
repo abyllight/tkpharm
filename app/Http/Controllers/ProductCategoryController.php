@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductCategoriesCollection;
+use App\Models\News;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductCategory_i18n;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductCategoryController extends Controller
 {
@@ -78,21 +80,18 @@ class ProductCategoryController extends Controller
         return redirect('/admin/product-categories')->with(['message' => 'Успешно обновлено', 'alert' => 'alert-success']);
     }
 
-    public function deactivate($id) {
-        $product = Product::find($id);
+    public function destroy($id){
+        $category = ProductCategory::find($id);
+        if (!$category) abort(404);
 
-        $product->is_active = false;
-        $product->save();
+        foreach ($category->products as $product){
+            $product->product_category_id = 0;
+            $product->save();
+        }
 
-        return redirect('/admin/products')->with(['message' => 'Успешно деактивирован', 'alert' => 'alert-success']);
-    }
+        $category->i18n()->delete();
+        $category->delete();
 
-    public function activate($id) {
-        $product = Product::find($id);
-
-        $product->is_active = true;
-        $product->save();
-
-        return redirect('/admin/products')->with(['message' => 'Успешно активирован', 'alert' => 'alert-success']);
+        return redirect('/admin/product-categories')->with(['message' => 'Категория удалена', 'alert' => 'alert-success']);
     }
 }

@@ -14,7 +14,7 @@
                             <p class="font-semibold uppercase text-lg mb-6 md:mb-0 md:line-clamp-2">{{n.title}}</p>
                         </div>
 
-                        <p class="hidden md:block md:line-clamp-3">{{n.description}}</p>
+                        <p class="hidden md:block md:line-clamp-3" v-html="n.description"></p>
                         <a class="flex items-center cursor-pointer" :href="'/news/'+n.id">Читать далее <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
                     </div>
 <!--                    <div

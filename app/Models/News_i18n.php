@@ -11,6 +11,12 @@ class News_i18n extends Model
 
     protected $table = 'news_i18n';
 
+    protected $fillable = [
+        'locale',
+        'title',
+        'description'
+    ];
+
     public function news(){
         return $this->belongsTo(News::class, 'news_id', 'id');
     }

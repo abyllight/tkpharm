@@ -37,7 +37,8 @@ class ProductController extends Controller
             'description_en' => 'required',
             'amount_ru' => 'required',
             'amount_kz' => 'required',
-            'amount_en' => 'required'
+            'amount_en' => 'required',
+            'image' => 'image|mimes:jpeg,jpg,png|required|max:10000'
         ]);
 
         $product = new Product();

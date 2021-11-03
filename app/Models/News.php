@@ -23,11 +23,47 @@ class News extends Model
         return $translate ? $translate->title : '';
     }
 
+    public function getTitleRu()
+    {
+        $translate = $this->i18n()->where('locale', 'ru')->first();
+        return $translate ? $translate->title : '';
+    }
+
+    public function getTitleKz()
+    {
+        $translate = $this->i18n()->where('locale', 'kz')->first();
+        return $translate ? $translate->title : '';
+    }
+
+    public function getTitleEn()
+    {
+        $translate = $this->i18n()->where('locale', 'en')->first();
+        return $translate ? $translate->title : '';
+    }
+
     public function getDescription()
     {
         $locale = App::currentLocale();
         $translate = $this->i18n()->where('locale', $locale)->first();
 
+        return $translate ? $translate->description : '';
+    }
+
+    public function getDescriptionRu()
+    {
+        $translate = $this->i18n()->where('locale', 'ru')->first();
+        return $translate ? $translate->description : '';
+    }
+
+    public function getDescriptionKz()
+    {
+        $translate = $this->i18n()->where('locale', 'kz')->first();
+        return $translate ? $translate->description : '';
+    }
+
+    public function getDescriptionEn()
+    {
+        $translate = $this->i18n()->where('locale', 'en')->first();
         return $translate ? $translate->description : '';
     }
 }

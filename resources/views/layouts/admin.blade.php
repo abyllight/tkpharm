@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <title>TKPHARM Admin Panel</title>
+    @section('js_head')
+    @show
 </head>
 <body class="font-body">
     <nav class="absolute top-0 left-0 w-full z-10 bg-black text-white">
@@ -16,6 +18,8 @@
                 <div class="flex gap-4">
                     <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/products">Продукты</a>
                     <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/product-categories">Категория</a>
+                    <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/news">Новости</a>
+                    <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/gallery">Галерея</a>
                 </div>
                 @endauth
             </div>
@@ -33,5 +37,7 @@
     <div class="max-w-6xl mx-auto px-4 py-28">
         @yield('content')
     </div>
+    @section('js_body')
+    @show
 </body>
 </html>

@@ -32,7 +32,7 @@ Route::view('/certificates', 'certificates');
 
 Route::view('/management', 'management');
 
-Route::get('/news', [NewsController::class, 'index']);
+Route::get('/news', [NewsController::class, 'total']);
 Route::get('/news-slide', [NewsController::class, 'slide']);
 Route::get('/news-all', [NewsController::class, 'all']);
 Route::get('/news-load/{id}', [NewsController::class, 'loadMore']);
@@ -47,9 +47,9 @@ Route::get('/search', function () {
     return view('search_results');
 });
 
-Route::get('/linkstorage', function () {
+/*Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
-});
+});*/
 
 Route::view('/login', 'admin.login')->middleware('guest');
 
@@ -58,6 +58,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('product-categories', ProductCategoryController::class)->except(['show']);
     Route::resource('products', ProductController::class)->except(['show']);
+    Route::resource('news', NewsController::class);
 
     /*Route::get('/product/create', 'ProductController@create')->name('product.create');
     Route::post('/product/create', 'ProductController@store')->name('product.store');

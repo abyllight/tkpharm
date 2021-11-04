@@ -48,9 +48,9 @@ Route::get('/search', function () {
     return view('search_results');
 });
 
-/*Route::get('/linkstorage', function () {
+Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
-});*/
+});
 
 Route::view('/login', 'admin.login')->middleware('guest');
 

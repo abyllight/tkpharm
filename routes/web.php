@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductCategoryController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +42,7 @@ Route::view('/products', 'products');
 Route::get('/products-all', [ProductCategoryController::class, 'all']);
 
 Route::view('/gallery', 'gallery');
+Route::get('/gallery-all', [GalleryController::class, 'all']);
 
 Route::get('/search', function () {
     return view('search_results');
@@ -59,16 +60,10 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('product-categories', ProductCategoryController::class)->except(['show']);
     Route::resource('products', ProductController::class)->except(['show']);
     Route::resource('news', NewsController::class);
+    Route::resource('gallery', GalleryController::class)->except(['index','show', 'edit', 'update']);
+
     Route::post('products/status/{id}', [ProductController::class, 'activate']);
     Route::post('news/status/{id}', [NewsController::class, 'activate']);
-
-    /*Route::get('/product/create', 'ProductController@create')->name('product.create');
-    Route::post('/product/create', 'ProductController@store')->name('product.store');
-
-    Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
-    Route::post('/product/{id}/edit', 'ProductController@update')->name('product.update');
-    Route::post('/product/{id}/deactivate', 'ProductController@deactivate')->name('product.deactivate');
-    Route::post('/product/{id}/activate', 'ProductController@activate')->name('product.activate');*/
 
     Route::get('/pwd', 'LoginController@pwd')->name('pwd');
     Route::post('/pwd', 'LoginController@pwdUpdate')->name('pwd.update');

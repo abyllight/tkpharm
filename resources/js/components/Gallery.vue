@@ -10,7 +10,7 @@
             <div>
                 <stack :column-min-width="320" :gutter-width="16" :gutter-height="16" monitor-images-loaded>
                     <stack-item v-for="(item, i) in gallery" :key="i" style="transition: transform 300ms">
-                        <img :src="item.img">
+                        <img :src="/storage/+item.image">
                     </stack-item>
                 </stack>
             </div>
@@ -24,68 +24,17 @@ export default {
     name: "Gallery",
     components: { Stack, StackItem },
     data: () => ({
-        gallery: [
-            {
-                id: 0,
-                img: '/img/gallery/g1.png'
-            },
-            {
-                id: 1,
-                img: '/img/gallery/g2.png'
-            },
-            {
-                id: 2,
-                img: '/img/gallery/g3.png'
-            },
-            {
-                id: 3,
-                img: '/img/gallery/g4.png'
-            },
-            {
-                id: 4,
-                img: '/img/gallery/g5.png'
-            },
-            {
-                id: 5,
-                img: '/img/gallery/g6.png'
-            },
-            {
-                id: 6,
-                img: '/img/gallery/g7.png'
-            },
-            {
-                id: 7,
-                img: '/img/gallery/g8.png'
-            },
-            {
-                id: 8,
-                img: '/img/gallery/g9.png'
-            },
-            {
-                id: 9,
-                img: '/img/gallery/g10.png'
-            },
-            {
-                id: 10,
-                img: '/img/gallery/g11.png'
-            },
-            {
-                id: 11,
-                img: '/img/gallery/g12.png'
-            },
-            {
-                id: 12,
-                img: '/img/gallery/g13.png'
-            },
-            {
-                id: 13,
-                img: '/img/gallery/g14.png'
-            },
-            {
-                id: 14,
-                img: '/img/gallery/g15.png'
-            },
-        ]
-    })
+        gallery: []
+    }),
+    async mounted() {
+        await axios
+            .get('gallery-all')
+            .then(response => {
+                this.gallery = response.data
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 }
 </script>

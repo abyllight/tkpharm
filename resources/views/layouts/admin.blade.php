@@ -10,7 +10,7 @@
     @section('js_head')
     @show
 </head>
-<body class="font-body">
+<body class="font-body relative">
     <nav class="absolute top-0 left-0 w-full z-10 bg-black text-white">
         <div class="max-w-6xl p-4 mx-auto flex items-center justify-between">
             <div class="flex items-center gap-10">

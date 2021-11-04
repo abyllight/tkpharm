@@ -132,7 +132,6 @@ class ProductController extends Controller
     }
 
     public function destroy($id){
-        dd('del');
         $product = Product::find($id);
         if (!$product) abort(404);
         Storage::disk('public')->delete($product->image);

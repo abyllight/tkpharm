@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductCategoriesCollection;
-use App\Models\News;
-use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductCategory_i18n;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class ProductCategoryController extends Controller
 {

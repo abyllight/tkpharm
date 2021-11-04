@@ -60,7 +60,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('product-categories', ProductCategoryController::class)->except(['show']);
     Route::resource('products', ProductController::class)->except(['show']);
     Route::resource('news', NewsController::class);
-    Route::resource('gallery', GalleryController::class)->except(['index','show', 'edit', 'update']);
+    Route::resource('gallery', GalleryController::class)->except(['show', 'edit', 'update']);
 
     Route::post('products/status/{id}', [ProductController::class, 'activate']);
     Route::post('news/status/{id}', [NewsController::class, 'activate']);

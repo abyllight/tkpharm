@@ -1,16 +1,14 @@
 @extends('layouts.app')
 @section('content')
     <!--    Section Hero-->
-    <div class="bg-hero bg-cover bg-center py-32 lg:py-60">
+    <div class="py-32 lg:py-60" style="background-image: url({{url('storage/' . $hero_bg)}})">
         <div class="max-w-6xl mx-auto px-4 flex w-full items-center">
             <div class="md:w-2/3 md:border-l md:pl-4">
                 <h1 class="font-black text-xl md:text-4xl uppercase md:leading-snug mb-5">
-                    {{ __('welcome.hero') }}
+                    {{trans('hero.title')}}
                 </h1>
                 <p class="text-sm md:text-base">
-                    «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний не
-                    только в Актюбинской области, но и по всему Казахстану. Компания производит
-                    выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин
+                    {{trans('hero.subtitle')}}
                 </p>
             </div>
         </div>
@@ -21,50 +19,35 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex items-center justify-between mb-5">
                 <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
-                    О Компании
+                    {{trans('welcome.company_section')}}
                 </div>
                 <div class="border border-top w-full"></div>
             </div>
             <div class="flex flex-nowrap gap-10 md:gap-16 overflow-x-auto py-20 no-scrollbar">
                 <div class="w-4/5 flex-shrink-0">
                     <h1 class="font-bold text-2xl md:text-5xl uppercase tracking-wider xl:leading-tight mb-5">
-                        Мы производим лекарственные препараты и медицинские изделия
+                        {{trans('company.title_1')}}
                     </h1>
                     <p class="text-sm md:text-base md:w-2/3">
-                        «ТК Фарм Актобе» является одной из крупнейших фармацевтических
-                        компаний не только в Актюбинской области, но и по всему Казахстану.
-                        Компания производит выпуск противокашлевых сиропов: солодки,
-                        солодки с термопсисом и пертуссин, а также экстракта корня солодки
-                        и глицирризиновой кислоты высокой степени очистки для использования в
-                        косметологии и фармацевтике.
+                        {{trans('company.subtitle_1')}}
                     </p>
                 </div>
                 <div class="border-r"></div>
                 <div class="w-4/5 flex-shrink-0">
                     <h1 class="font-bold text-2xl md:text-5xl uppercase tracking-wider xl:leading-tight mb-5">
-                        Являемся лучшими в сфере фармацевтики
+                        {{trans('company.title_2')}}
                     </h1>
                     <p class="text-sm md:text-base md:w-2/3">
-                        «ТК Фарм Актобе» является одной из крупнейших фармацевтических
-                        компаний <br> не только в Актюбинской области, но и по всему Казахстану.
-                        Компания производит выпуск противокашлевых сиропов: солодки,
-                        солодки с термопсисом и пертуссин, а также экстракта корня солодки
-                        и глицирризиновой кислоты высокой степени очистки для использования в
-                        косметологии и фармацевтике.
+                        {{trans('company.subtitle_2')}}
                     </p>
                 </div>
                 <div class="border-r"></div>
                 <div class="w-4/5 flex-shrink-0">
                     <h1 class="font-bold text-2xl md:text-5xl uppercase tracking-wider xl:leading-tight mb-5">
-                        Контролируем качество путем физико-химической лаборатории
+                        {{trans('company.title_3')}}
                     </h1>
                     <p class="text-sm md:text-base md:w-2/3">
-                        «ТК Фарм Актобе» является одной из крупнейших фармацевтических
-                        компаний <br> не только в Актюбинской области, но и по всему Казахстану.
-                        Компания производит выпуск противокашлевых сиропов: солодки,
-                        солодки с термопсисом и пертуссин, а также экстракта корня солодки
-                        и глицирризиновой кислоты высокой степени очистки для использования в
-                        косметологии и фармацевтике.
+                        {{trans('company.subtitle_3')}}
                     </p>
                 </div>
             </div>
@@ -84,7 +67,7 @@
             <div class="max-w-6xl mx-auto px-4">
                 <div class="flex items-center md:mb-12 md:mb-18">
                     <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
-                        История компании
+                        {{trans('welcome.history_section')}}
                     </div>
                     <div class="border border-top w-full"></div>
                 </div>
@@ -94,14 +77,10 @@
                             data-aos-delay="600"
                             data-aos-duration="1000"
                             class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
-                            <p class="text-4xl font-semibold mb-4">2012</p>
-                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">Построение завода ТОО «ТК Фарм Актобе»</h3>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_1') }}</p>
+                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">{{ trans('history.title_1') }}</h3>
                             <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
+                                {{ trans('history.description_1') }}
                             </p>
                         </div>
                         <div data-aos="fade-down"
@@ -120,14 +99,10 @@
                              data-aos-delay="600"
                              data-aos-duration="1000"
                              class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
-                            <p class="text-4xl font-semibold mb-4">2014 - 2016</p>
-                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">Запуск Цеха жидких и твердых лекарственных форм</h3>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_0') }}</p>
+                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">{{ trans('history.title_0') }}</h3>
                             <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
+                                {{ trans('history.description_2') }}
                             </p>
                         </div>
                         <div data-aos="fade-down"
@@ -148,17 +123,9 @@
                             data-aos-delay="600"
                             data-aos-duration="1000"
                             class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
-                            <p class="text-4xl font-semibold mb-4">2019</p>
-                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">
-                                Лауреат в номинации «Лучший товар для населения»
-                            </h3>
-                            <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
-                            </p>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_6') }}</p>
+                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">{{ trans('history.title_6') }}</h3>
+                            <p class="text-sm md:text-base">{{ trans('history.description_6') }}</p>
                         </div>
                         <div
                             data-aos="fade-down"
@@ -179,17 +146,9 @@
                             data-aos-delay="600"
                             data-aos-duration="1000"
                             class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
-                            <p class="text-4xl font-semibold mb-4">2020</p>
-                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">
-                                Covid-19 ЧС: Лидеры по обеспечению масками и лекарственными препаратами населения Актюбинской области
-                            </h3>
-                            <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
-                            </p>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_7') }}</p>
+                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">{{ trans('history.title_7') }}</h3>
+                            <p class="text-sm md:text-base">{{ trans('history.description_7') }}</p>
                         </div>
                         <div
                             data-aos="fade-down"
@@ -231,12 +190,39 @@
     </section>
 @endsection
 @section('js')
-    new Vue({
-        el: '#news_slide'
-    });
+    <script>
+        new Vue({
+            el: '#news_slide'
+        });
 
-    new Vue({
-        el: '#partners'
-    });
+        new Vue({
+            el: '#partners'
+        });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            // Global settings:
+            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+            initClassName: 'aos-init', // class applied after initialization
+            animatedClassName: 'aos-animate', // class applied on animation
+            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+            offset: 120, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 400, // values from 0 to 3000, with step 50ms
+            easing: 'ease-in', // default easing for AOS animations
+            once: true, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+        });
+    </script>
 @endsection
 

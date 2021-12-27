@@ -1,7 +1,7 @@
 window.Vue   = require('vue').default;
 window.axios = require('axios');
 
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar3'
 import FooterSection from "./components/FooterSection";
 
 Vue.component('partners', require('./components/Partners.vue').default);

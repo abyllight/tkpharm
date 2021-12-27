@@ -133,7 +133,7 @@
         will-change: transform;
         transform-style: preserve-3d;
         transition: 0.3s;
-        transition-delay: calc(0.03s * var(--index));
+        transition-delay: calc(0.02s * var(--index));
         transform-origin: bottom;
         display: inline-block;
     }
@@ -142,7 +142,7 @@
         will-change: transform;
         transform-style: preserve-3d;
         transition: 0.3s;
-        transition-delay: calc(0.03s * var(--index));
+        transition-delay: calc(0.02s * var(--index));
         transform-origin: top;
         display: inline-block;
         transform: translate3d(0, 100%, 0) rotateX(-90deg);

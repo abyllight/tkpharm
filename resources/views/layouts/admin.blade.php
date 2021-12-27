@@ -12,10 +12,11 @@
 </head>
 <body class="font-body relative">
     <nav class="absolute top-0 left-0 w-full z-10 bg-black text-white">
-        <div class="max-w-6xl p-4 mx-auto flex items-center justify-between">
+        <div class="max-w-8xl p-4 mx-auto flex items-center justify-between">
             <div class="flex items-center gap-10">
                 @auth()
                 <div class="flex gap-4">
+                    <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin">Главная</a>
                     <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/products">Продукты</a>
                     <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/product-categories">Категория</a>
                     <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/news">Новости</a>
@@ -34,7 +35,7 @@
             </div>
         </div>
     </nav>
-    <div class="max-w-6xl mx-auto px-4 py-28">
+    <div class="max-w-8xl mx-auto px-4 py-28">
         @yield('content')
     </div>
     @section('js_body')

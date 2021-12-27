@@ -16,7 +16,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)){
-            return redirect('/admin/products');
+            return redirect('/admin/');
         }
 
         return redirect()->back();

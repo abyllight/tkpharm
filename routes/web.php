@@ -3,10 +3,13 @@
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductCategoryController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use Spatie\TranslationLoader\LanguageLine;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +25,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/locale/{locale}', [LocaleController::class, 'setLocale']);
 Route::get('/locale', [LocaleController::class, 'getLocale']);
 
-Route::view('/', 'welcome');
+Route::get('/', function () {
+    $hero_bg = LanguageLine::where('group', 'hero')->where('key', 'image')->get();
+    return view('welcome', ['hero_bg' => $hero_bg[0]->text['image']]);
+});
 
 Route::view('/about', 'about');
 
@@ -57,6 +63,18 @@ Route::view('/login', 'admin.login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::middleware('auth')->prefix('admin')->group(function () {
+
+    Route::view('/', 'admin.main.main');
+
+    Route::get('/hero', [MainController::class, 'hero']);
+    Route::post('/hero', [MainController::class, 'saveHero']);
+    Route::get('/company', [MainController::class, 'company']);
+    Route::post('/company', [MainController::class, 'saveCompany']);
+    Route::get('/history', [MainController::class, 'history']);
+    Route::post('/history', [MainController::class, 'saveHistory']);
+    Route::get('/partners', [MainController::class, 'partners']);
+    Route::post('/partners', [MainController::class, 'savePartners']);
+
     Route::resource('product-categories', ProductCategoryController::class)->except(['show']);
     Route::resource('products', ProductController::class)->except(['show']);
     Route::resource('news', NewsController::class);
@@ -67,9 +85,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     Route::get('/pwd', 'LoginController@pwd')->name('pwd');
     Route::post('/pwd', 'LoginController@pwdUpdate')->name('pwd.update');
-
-    Route::get('/list', 'ListController@index')->name('list');
-    Route::post('/list', 'ListController@fetchOrders')->name('fetch');
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });

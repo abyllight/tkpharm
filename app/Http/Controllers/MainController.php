@@ -136,8 +136,8 @@ class MainController extends Controller
         $partners = LanguageLine::where('group', 'partners')->get();
 
         $partners = [
-            'title_1' => $partners[0]->text['ru'],
-            'title_2' => $partners[3]->text['kz'],
+            'title_1' => $partners[0]->text['title'],
+            'title_2' => $partners[3]->text['title'],
             'action_1_ru' => $partners[2]->text['ru'],
             'action_1_kz' => $partners[2]->text['kz'],
             'action_1_en' => $partners[2]->text['en'],
@@ -360,15 +360,11 @@ class MainController extends Controller
 
     public function savePartners(Request $request){
         $request->validate([
-            'title_1_ru' => 'required',
-            'title_1_kz' => 'required',
-            'title_1_en' => 'required',
+            'title_1' => 'required',
+            'title_2' => 'required',
             'action_1_ru' => 'required',
             'action_1_kz' => 'required',
             'action_1_en' => 'required',
-            'title_2_ru' => 'required',
-            'title_2_kz' => 'required',
-            'title_2_en' => 'required',
             'action_2_ru' => 'required',
             'action_2_kz' => 'required',
             'action_2_en' => 'required',
@@ -380,9 +376,16 @@ class MainController extends Controller
             ['group' => 'partners', 'key' => 'title_1'],
             [
                 'text' => [
-                    'ru' => $request->title_1_ru,
-                    'kz' => $request->title_1_kz,
-                    'en' => $request->title_1_en
+                    'title' => $request->title_1,
+                ]
+            ]
+        );
+
+        LanguageLine::updateOrCreate(
+            ['group' => 'partners', 'key' => 'title_2'],
+            [
+                'text' => [
+                    'title' => $request->title_2,
                 ]
             ]
         );
@@ -394,6 +397,17 @@ class MainController extends Controller
                     'ru' => $request->action_1_ru,
                     'kz' => $request->action_1_kz,
                     'en' => $request->action_1_en
+                ]
+            ]
+        );
+
+        LanguageLine::updateOrCreate(
+            ['group' => 'partners', 'key' => 'action_2'],
+            [
+                'text' => [
+                    'ru' => $request->action_2_ru,
+                    'kz' => $request->action_2_kz,
+                    'en' => $request->action_2_en
                 ]
             ]
         );

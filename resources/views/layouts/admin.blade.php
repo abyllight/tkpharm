@@ -16,11 +16,11 @@
             <div class="flex items-center gap-10">
                 @auth()
                 <div class="flex gap-4">
-                    <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin">Главная</a>
-                    <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/products">Продукты</a>
-                    <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/product-categories">Категория</a>
-                    <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/news">Новости</a>
-                    <a class="cursor-pointer text-blue-300 hover:text-blue-200" href="/admin/gallery">Галерея</a>
+                    <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin">Главная</a>
+                    <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/products">Продукты</a>
+                    <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/product-categories">Категория</a>
+                    <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/news">Новости</a>
+                    <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/gallery">Галерея</a>
                 </div>
                 @endauth
             </div>

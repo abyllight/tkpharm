@@ -6,21 +6,17 @@
             <div class="max-w-6xl mx-auto px-4">
                 <div class="flex items-center lg:mb-12">
                     <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
-                        История компании
+                        {{trans('welcome.history_section')}}
                     </div>
                     <div class="border border-top w-full"></div>
                 </div>
                 <div class="relative">
                     <div class="flex justify-between">
                         <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
-                            <p class="text-4xl font-semibold mb-4">2012</p>
-                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">Построение завода ТОО «ТК Фарм Актобе»</h3>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_1') }}</p>
+                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">{{ trans('history.title_1') }}</h3>
                             <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
+                                {{ trans('history.description_1') }}
                             </p>
                         </div>
                         <div class="hidden lg:flex flex-col items-center">
@@ -34,14 +30,10 @@
                     </div>
                     <div class="flex justify-between">
                         <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
-                            <p class="text-4xl font-semibold mb-4">2014</p>
-                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">Запуск Цеха жидких и твердых лекарственных форм</h3>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_2') }}</p>
+                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">{{ trans('history.title_2') }}</h3>
                             <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
+                                {{ trans('history.description_2') }}
                             </p>
                         </div>
                         <div class="hidden lg:flex flex-col items-center lg:order-2">
@@ -55,17 +47,12 @@
                     </div>
                     <div class="flex justify-between">
                         <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
-                            <p class="text-4xl font-semibold mb-4">2016</p>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_3') }}</p>
                             <h3 class="font-bold uppercase text-lg md:text-xl mb-3">
-                                Запуск Цеха твердых лекарственных форм и Победа в
-                                региональном этапе конкурса-выставки «Лучший товар Казахстана-2016»
+                                {{ trans('history.title_3') }}
                             </h3>
                             <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
+                                {{ trans('history.description_3') }}
                             </p>
                         </div>
                         <div class="hidden lg:flex flex-col items-center">
@@ -79,16 +66,12 @@
                     </div>
                     <div class="flex justify-between">
                         <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
-                            <p class="text-4xl font-semibold mb-4">2017</p>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_4') }}</p>
                             <h3 class="font-bold uppercase text-lg md:text-xl mb-3">
-                                Успешное прохождение инспекции Цеха ТЛФ на соответствие GMP РК
+                                {{ trans('history.title_4') }}
                             </h3>
                             <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
+                                {{ trans('history.description_4') }}
                             </p>
                         </div>
                         <div class="hidden lg:flex flex-col items-center lg:order-2">
@@ -102,18 +85,12 @@
                     </div>
                     <div class="flex justify-between">
                         <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
-                            <p class="text-4xl font-semibold mb-4">2018</p>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_5') }}</p>
                             <h3 class="font-bold uppercase text-lg md:text-xl mb-3">
-                                Запуск Цеха по производству масок;
-                                Успешная аккредитация химической и микробиологических лабораторий;
-                                Успешное прохождение инспекции Цеха ЖЛФ на соответствие GMP РК;
+                                {{ trans('history.title_5') }}
                             </h3>
                             <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
+                                {{ trans('history.description_5') }}
                             </p>
                         </div>
                         <div class="hidden lg:flex flex-col items-center">
@@ -127,16 +104,12 @@
                     </div>
                     <div class="flex justify-between">
                         <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
-                            <p class="text-4xl font-semibold mb-4">2019</p>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_6') }}</p>
                             <h3 class="font-bold uppercase text-lg md:text-xl mb-3">
-                                Лауреат в номинации «Лучший товар для населения»
+                                {{ trans('history.title_6') }}
                             </h3>
                             <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
+                                {{ trans('history.description_6') }}
                             </p>
                         </div>
                         <div class="hidden lg:flex flex-col items-center lg:order-2">
@@ -150,16 +123,12 @@
                     </div>
                     <div class="flex justify-between">
                         <div class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
-                            <p class="text-4xl font-semibold mb-4">2020</p>
+                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_7') }}</p>
                             <h3 class="font-bold uppercase text-lg md:text-xl mb-3">
-                                Covid-19 ЧС: Лидеры по обеспечению масками и лекарственными препаратами населения Актюбинской области
+                                {{ trans('history.title_7') }}
                             </h3>
                             <p class="text-sm md:text-base">
-                                «ТК Фарм Актобе» является одной из крупнейших фармацевтических компаний
-                                не только в Актюбинской области, но и по всему Казахстану. Компания производит
-                                выпуск противокашлевых сиропов: солодки, солодки с термопсисом и пертуссин,
-                                а также экстракта корня солодки и глицирризиновой кислоты высокой степени очистки
-                                для использования в косметологии и фармацевтике.
+                                {{ trans('history.description_7') }}
                             </p>
                         </div>
                         <div class="hidden lg:flex flex-col items-center">

@@ -54,13 +54,6 @@
         </div>
     </div>
 
-    <!--    Section Video-->
-<!--    <section id="video">
-        <div class="bg-bird-lg bg-cover bg-center h-96 lg:py-80 flex justify-center items-center">
-            asd
-        </div>
-    </section>-->
-
     <!--    Section History-->
     <section id="history">
         <div class="bg-gradient-to-b from-h-start to-h-end py-24">
@@ -170,16 +163,37 @@
 
     <!--    Section Partners-->
     <section>
-        <div class="bg-partner bg-cover bg-center py-16 lg:py-40">
+        <div class="bg-cover bg-center py-16 lg:py-40" style="background-image: url({{url('storage/' . $partners_bg)}})">
             <div class="max-w-6xl mx-auto px-4">
                 <div class="flex items-center justify-between mb-16">
                     <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
-                        Наши партнеры
+                        {{trans('welcome.partners_section')}}
                     </div>
                     <div class="border border-top w-full"></div>
                 </div>
                 <div id="partners">
-                    <partners></partners>
+                    <div class="flex flex-col md:flex-row md:justify-between gap-8">
+                        <a class="border cursor-pointer rounded w-1/2 w-full p-6 relative hover:bg-cover hover:bg-opacity-40 hover:border-transparent transition-all ease-in-out duration-300"
+                           href="{{ $partners_link_1 }}" target="_blank">
+                            <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                                <img src="/img/right.svg" width="24">
+                            </div>
+                            <p class="uppercase text-xs">{{ $partners_title_1 }}</p>
+                            <div class="uppercase font-bold md:text-lg">
+                                {{ trans('partners.action_1') }}
+                            </div>
+                        </a>
+                        <a class="border cursor-pointer rounded w-1/2 w-full p-6 relative hover:bg-cover hover:bg-opacity-40 hover:border-transparent transition-all ease-in-out duration-300"
+                           href="{{ $partners_link_2 }}" target="_blank">
+                            <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                                <img src="/img/right.svg" width="24">
+                            </div>
+                            <p class="uppercase text-xs">{{ $partners_title_2 }}</p>
+                            <div class="uppercase font-bold md:text-lg">
+                                {{ trans('partners.action_2') }}
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -211,8 +225,6 @@
             disableMutationObserver: false, // disables automatic mutations' detections (advanced)
             debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
             throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-
             // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
             offset: 120, // offset (in px) from the original trigger point
             delay: 0, // values from 0 to 3000, with step 50ms
@@ -221,7 +233,6 @@
             once: true, // whether animation should happen only once - while scrolling down
             mirror: false, // whether elements should animate out while scrolling past them
             anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
         });
     </script>
 @endsection

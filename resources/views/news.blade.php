@@ -18,7 +18,9 @@
     </div>
 @endsection
 @section('js')
-    new Vue({
-        el: '#news'
-    });
+    <script>
+        new Vue({
+            el: '#news'
+        });
+    </script>
 @endsection

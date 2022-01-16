@@ -274,10 +274,8 @@
                             id="description_ru"
                             rows="10"
                             name="description_ru"
-                            class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_ru') border-red-500 @enderror rounded w-full py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
-                        >
-                            {{ $product->getDescriptionRu() }}
-                        </textarea>
+                            class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_ru') border-red-500 @enderror rounded w-full p-2 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
+                        >{{ $product->getDescriptionRu() }}</textarea>
                     @error('description_ru')
                     <div class="text-red-500">{{ $message }}</div>
                     @enderror
@@ -296,10 +294,8 @@
                         id="description_kz"
                         rows="10"
                         name="description_kz"
-                        class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_kz') border-red-500 @enderror rounded w-full py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
-                    >
-                        {{ $product->getDescriptionKz() }}
-                    </textarea>
+                        class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_kz') border-red-500 @enderror rounded w-full p-2 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
+                    >{{ $product->getDescriptionKz() }}</textarea>
                     @error('description_kz')
                     <div class="text-red-500">{{ $message }}</div>
                     @enderror
@@ -318,10 +314,8 @@
                         id="description_en"
                         rows="10"
                         name="description_en"
-                        class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_en') border-red-500 @enderror rounded w-full py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
-                    >
-                        {{ $product->getDescriptionEn() }}
-                    </textarea>
+                        class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_en') border-red-500 @enderror rounded w-full p-2 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
+                    >{{ $product->getDescriptionEn() }}</textarea>
                     @error('description_en')
                     <div class="text-red-500">{{ $message }}</div>
                     @enderror

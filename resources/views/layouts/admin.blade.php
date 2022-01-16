@@ -17,6 +17,7 @@
                 @auth()
                 <div class="flex gap-4">
                     <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin">Главная</a>
+                    <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/histories">История</a>
                     <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/products">Продукты</a>
                     <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/product-categories">Категория</a>
                     <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/news">Новости</a>

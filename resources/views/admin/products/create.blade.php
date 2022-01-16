@@ -273,10 +273,8 @@
                             id="description_ru"
                             rows="10"
                             name="description_ru"
-                            class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_ru') border-red-500 @enderror rounded w-full py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
-                            value="{{ old('description_ru') }}"
-                        >
-                        </textarea>
+                            class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_ru') border-red-500 @enderror rounded w-full p-2 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
+                        >{{ old('description_ru') }}</textarea>
                         @error('description_ru')
                             <div class="text-red-500">{{ $message }}</div>
                         @enderror
@@ -295,10 +293,8 @@
                         id="description_kz"
                         rows="10"
                         name="description_kz"
-                        class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_kz') border-red-500 @enderror rounded w-full py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
-                        value="{{ old('description_kz') }}"
-                    >
-                    </textarea>
+                        class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_kz') border-red-500 @enderror rounded w-full p-2 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
+                    >{{ old('description_kz') }}</textarea>
                         @error('description_kz')
                         <div class="text-red-500">{{ $message }}</div>
                         @enderror
@@ -317,10 +313,8 @@
                         id="description_en"
                         rows="10"
                         name="description_en"
-                        class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_en') border-red-500 @enderror rounded w-full py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
-                        value="{{ old('description_en') }}"
-                    >
-                    </textarea>
+                        class="bg-gray-50 appearance-none border-2 border-gray-200 @error('description_en') border-red-500 @enderror rounded w-full p-2 leading-tight focus:outline-none focus:bg-white focus:border-blue-400"
+                    >{{ old('description_en') }}</textarea>
                         @error('description_en')
                         <div class="text-red-500">{{ $message }}</div>
                         @enderror

@@ -20,12 +20,10 @@
         scrollbar-width: none;  /* Firefox */
     }
 </style>
-<body class="font-body relative text-white overflow-y-scroll scroll-s">
+<body class="font-body relative text-white overflow-y-scroll">
     <section id="navbar"></section>
     @yield('content')
-    <section id="footer">
-        <footer-section></footer-section>
-    </section>
+    <section id="footer"></section>
     <script src="{{mix('js/app.js')}}"></script>
     @section('js')
     @show

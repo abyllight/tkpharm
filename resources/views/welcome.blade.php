@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <!--    Section History-->
+    <!--Section History-->
     <section id="history">
         <div class="bg-gradient-to-b from-h-start to-h-end py-24">
             <div class="max-w-6xl mx-auto px-4">
@@ -64,7 +64,8 @@
                     </div>
                     <div class="border border-top w-full"></div>
                 </div>
-                <div class="relative">
+                <div id="history-sample"><history-sample></history-sample></div>
+<!--                <div class="relative">
                     <div class="flex justify-between">
                         <div data-aos="fade-right"
                             data-aos-delay="600"
@@ -156,7 +157,7 @@
                         </div>
                         <div class="hidden lg:block max-w-md xl:max-w-lg w-full lg:flex-shrink-0 lg:order-1"></div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </section>
@@ -210,7 +211,7 @@
         });
 
         new Vue({
-            el: '#partners'
+            el: '#history-sample'
         });
     </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

@@ -4,7 +4,7 @@
         <div class="bg-news h-48 md:h-96"></div>
         <div class="bg-transparent max-w-6xl px-4 mx-auto md:flex md:items-center">
             <div class="max-w-xl lg:max-w-3xl mx-auto -mt-20 md:-mt-48 font-light md:mb-16 md:order-last">
-                <img src="{{asset('storage/' .$news->image)}}">
+                <img src="{{asset('storage/' .$news->image)}}" class="object-cover h-96 mx-auto">
                 <p class="text-news-gray mt-5">{{ $news->created_at->format('Y.m.d - H:i') }}</p>
                 <p class="font-semibold md:text-xl uppercase mt-2">{{ $news->getTitle() }}</p>
                 <p class="mt-6">{!! $news->getDescription() !!}</p>

@@ -7,6 +7,8 @@ import FooterSection from "./components/FooterSection";
 Vue.component('partners', require('./components/Partners.vue').default);
 Vue.component('news', require('./components/News.vue').default);
 Vue.component('news-slide', require('./components/NewsSlide.vue').default);
+Vue.component('histories', require('./components/Histories').default);
+Vue.component('history-sample', require('./components/HistorySample').default);
 Vue.component('products', require('./components/Products.vue').default);
 Vue.component('gallery', require('./components/Gallery.vue').default);
 Vue.component('search-results', require('./components/SearchResults.vue').default);

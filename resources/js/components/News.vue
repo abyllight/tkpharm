@@ -1,49 +1,42 @@
 <template>
    <div>
-       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div
-                    v-for="n in news"
-                    class="font-light md:h-80 relative"
-                >
-                    <div
-                        class="flex flex-col p-8 justify-between md:absolute border w-full h-full z-20"
-                        :style="backgroundStyle"
-                    >
-                        <div>
-                            <p class="text-sm mb-3">{{n.created_at}}</p>
-                            <p class="font-semibold uppercase text-lg mb-6 md:mb-0 md:line-clamp-2">{{n.title}}</p>
-                        </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+           <div
+               v-for="n in news"
+               class="font-light md:h-72 relative bg-cover"
+               :style="{
+                        backgroundImage: 'url(storage/'+n.image+')',
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover'
+                    }"
+           >
+               <div class="flex flex-col p-8 justify-between md:absolute w-full h-full z-20 border bg-news hover:bg-black hover:bg-opacity-70 hover:border-opacity-0">
+                   <div>
+                       <p class="text-sm mb-3">{{n.created_at}}</p>
+                       <p class="font-semibold uppercase text-lg mb-6 md:mb-2 md:line-clamp-2">{{n.title}}</p>
+                       <p class="hidden md:block md:line-clamp-3 max-h-20" v-html="n.description"></p>
+                   </div>
 
-                        <p class="hidden md:block md:line-clamp-3" v-html="n.description"></p>
-                        <a class="flex items-center cursor-pointer" :href="'/news/'+n.id">Читать далее <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
-                    </div>
-<!--                    <div
-                        class="absolute w-full h-full z-10"
-                        :style="backgroundStyle"
-                        @mouseover="changeBg(n.image)"
-                    >
-
-                    </div>-->
-                </div>
-            </div>
-
-       <button v-if="showBtn" @click="loadMore" class="bg-white font-semibold text-black mt-10 w-full py-3 md:w-64 block mx-auto">Показать больше</button>
+                   <a class="flex items-center cursor-pointer" :href="'/news/'+n.id">
+                       Читать далее <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
+               </div>
+           </div>
+       </div>
+        <loader v-if="loading"></loader>
+       <button v-if="showBtn" @click="loadMore" class="bg-white hover:bg-gray-100 font-semibold text-black w-full py-3 md:w-64 block mx-auto">Показать больше</button>
     </div>
 </template>
 
 <script>
+import Loader from "./Loader";
 export default {
     name: "News",
+    components: {Loader},
     data: () => ({
         news: [],
         id: 0,
         showBtn: true,
-        backgroundStyle: {
-            backgroundImage: '',
-            backgroundColor: '#0390B4',
-            backgroundPosition: 'center',
-            backgroundSize: 'cover'
-        }
+        loading: true
     }),
     created() {
         this.fetchNews()
@@ -54,18 +47,14 @@ export default {
             .get('/news-all')
             .then(response => {
                 this.news = response.data
+                this.loading = false
             })
             .catch(error => {
                 console.log(error)
             })
         },
-        fillBg(n){
-            this.backgroundStyle.backgroundImage = 'url('+n.image+')'
-        },
-        nullBg(){
-            this.backgroundStyle.backgroundImage = ''
-        },
         loadMore(){
+            this.loading = true
             let id = this.news[this.news.length - 1].id
             axios
                 .get('/news-load/'+ id)
@@ -73,6 +62,7 @@ export default {
                     let more = response.data
                     this.news.push(...more)
                     if (more.length === 0) this.showBtn = false
+                    this.loading = false
                 })
                 .catch(error => {
                     console.log(error)

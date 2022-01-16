@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\HelperController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
@@ -25,27 +28,13 @@ use Spatie\TranslationLoader\LanguageLine;
 Route::get('/locale/{locale}', [LocaleController::class, 'setLocale']);
 Route::get('/locale', [LocaleController::class, 'getLocale']);
 
-Route::get('/', function () {
-    $hero_bg = LanguageLine::where('group', 'hero')->where('key', 'image')->first();
-    $partners_bg = LanguageLine::where('group', 'partners')->where('key', 'image')->first();
-    $partners_title_1 = LanguageLine::where('group', 'partners')->where('key', 'title_1')->first();
-    $partners_title_2 = LanguageLine::where('group', 'partners')->where('key', 'title_2')->first();
-    $partners_link_1 = LanguageLine::where('group', 'partners')->where('key', 'link_1')->first();
-    $partners_link_2 = LanguageLine::where('group', 'partners')->where('key', 'link_2')->first();
-
-    return view('welcome', [
-        'hero_bg' => $hero_bg->text['image'],
-        'partners_bg' => $partners_bg->text['image'],
-        'partners_title_1' => $partners_title_1->text['title'],
-        'partners_title_2' => $partners_title_2->text['title'],
-        'partners_link_1' => $partners_link_1->text['link'],
-        'partners_link_2' => $partners_link_2->text['link']
-    ]);
-});
+Route::get('/', [LandingController::class, 'index']);
 
 Route::view('/about', 'about');
 
 Route::view('/history', 'history');
+Route::get('/history-sample', [HistoryController::class, 'sample']);
+Route::get('/histories', [HistoryController::class, 'all']);
 
 Route::view('/certificates', 'certificates');
 
@@ -63,16 +52,7 @@ Route::get('/products-all', [ProductCategoryController::class, 'all']);
 Route::view('/gallery', 'gallery');
 Route::get('/gallery-all', [GalleryController::class, 'all']);
 
-Route::get('/search', function () {
-    return view('search_results');
-});
-
-Route::get('/linkstorage', function () {
-    Artisan::call('storage:link');
-});
-
 Route::view('/login', 'admin.login')->middleware('guest');
-
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::middleware('auth')->prefix('admin')->group(function () {
@@ -83,14 +63,13 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post('/hero', [MainController::class, 'saveHero']);
     Route::get('/company', [MainController::class, 'company']);
     Route::post('/company', [MainController::class, 'saveCompany']);
-    Route::get('/history', [MainController::class, 'history']);
-    Route::post('/history', [MainController::class, 'saveHistory']);
     Route::get('/partners', [MainController::class, 'partners']);
     Route::post('/partners', [MainController::class, 'savePartners']);
 
     Route::resource('product-categories', ProductCategoryController::class)->except(['show']);
     Route::resource('products', ProductController::class)->except(['show']);
     Route::resource('news', NewsController::class);
+    Route::resource('histories', HistoryController::class)->except(['show']);
     Route::resource('gallery', GalleryController::class)->except(['show', 'edit', 'update']);
 
     Route::post('products/status/{id}', [ProductController::class, 'activate']);
@@ -101,4 +80,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
+
+Route::get('/linkstorage', [HelperController::class, 'storage']);
+
 

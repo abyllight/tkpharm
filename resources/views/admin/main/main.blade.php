@@ -8,9 +8,6 @@
             <a class="p-6 shadow text-center cursor-pointer" href="/admin/company">
                 О компании
             </a>
-            <a class="p-6 shadow text-center cursor-pointer" href="/admin/history">
-                История
-            </a>
             <a class="p-6 shadow text-center cursor-pointer" href="/admin/partners">
                 Партнеры
             </a>

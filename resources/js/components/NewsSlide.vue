@@ -21,6 +21,7 @@
                     </div>
                 </div>
             </div>
+            <loader v-if="loading"></loader>
             <div class="relative w-full overflow-hidden h-96 md:h-80">
                 <div
                     v-for="(slide,index) in news"
@@ -49,10 +50,13 @@
 </template>
 
 <script>
+import Loader from "./Loader";
 export default {
     name: "NewsSlide",
+    components: {Loader},
     data: () => ({
         news: [],
+        loading: true
     }),
     beforeMount() {
         this.getNews()
@@ -63,6 +67,7 @@ export default {
                 .get('/news-slide')
                 .then(response => {
                     this.news = response.data
+                    this.loading = false
                 })
                 .catch(error => {
                     console.log(error)

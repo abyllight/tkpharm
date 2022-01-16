@@ -5,22 +5,26 @@
                 <img :src="/storage/+item.image">
             </stack-item>
         </stack>
+        <loader v-if="loading"></loader>
     </div>
 </template>
 
 <script>
 import { Stack, StackItem } from "vue-stack-grid";
+import Loader from "./Loader";
 export default {
     name: "Gallery",
-    components: { Stack, StackItem },
+    components: {Loader, Stack, StackItem },
     data: () => ({
-        gallery: []
+        gallery: [],
+        loading: true
     }),
     async mounted() {
         await axios
             .get('gallery-all')
             .then(response => {
                 this.gallery = response.data
+                this.loading = false
             })
             .catch(error => {
                 console.log(error)

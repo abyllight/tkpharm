@@ -1,6 +1,13 @@
 @extends('layouts.admin')
 @section('js_head')
     <script src="https://cdn.tiny.cloud/1/q91nqw013kve18qsjavansa46rootjplj5g2su7im84ujgxy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            toolbar_mode: 'floating',
+        });
+    </script>
 @endsection
 @section('content')
     <div class="max-w-4xl p-4 mx-auto border shadow rounded text-sm">
@@ -178,16 +185,4 @@
             </form>
         </div>
     </div>
-@endsection
-@section('js_body')
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-            toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
-            toolbar_mode: 'floating',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-        });
-    </script>
 @endsection

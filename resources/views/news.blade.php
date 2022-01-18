@@ -9,7 +9,7 @@
                     </div>
                     <div class="border border-top w-full"></div>
                     <div class="flex-shrink-0 ml-4 font-light">
-                        {{$total}} {{ trans_choice('welcome.news_plural', $total) }}
+                        {{$total}} {{ trans_choice('welcome.news_plural', 17) }}
                     </div>
                 </div>
                 <div id="news"><news></news></div>

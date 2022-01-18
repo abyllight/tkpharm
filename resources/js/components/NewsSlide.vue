@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-slide py-24">
+    <div class="bg-slide py-16">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="flex items-center mm justify-between mb-5">
+            <div class="flex items-center mm justify-between mb-10">
                 <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
                     Новости
                 </div>
@@ -22,24 +22,23 @@
                 </div>
             </div>
             <loader v-if="loading"></loader>
-            <div class="relative w-full overflow-hidden h-96 md:h-80">
+            <div class="relative w-full overflow-hidden h-96 md:h-64">
                 <div
                     v-for="(slide,index) in news"
                     :key="slide.id"
-                    class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 absolute inset-0 slide transition-all ease-in-out duration-1000 transform"
+                    class="grid grid-cols-1 md:grid-cols-2 md:gap-8 px-4 absolute inset-0 slide transition-all ease-in-out duration-1000 transform"
                     :class="index === 0 ? 'translate-x-0' : 'translate-x-full'"
                 >
                     <div
                         v-for="item in slide"
-                        class="font-light md:h-80 relative"
+                        class="font-light relative"
                     >
-                        <div class="flex flex-col p-8 justify-between md:absolute border w-full h-full z-20">
+                        <div class="flex flex-col p-5 md:p-8 justify-between border w-full h-40 md:h-56">
                             <div>
-                                <p class="text-sm mb-3">{{item.created_at}}</p>
-                                <p class="font-semibold uppercase text-lg mb-6 md:mb-0 md:line-clamp-2">{{item.title}}</p>
+                                <p class="text-sm mb-2">{{item.created_at}}</p>
+                                <p class="font-semibold uppercase text-sm md:text-base lg:text-lg line-clamp-2 md:line-clamp-3">{{item.title}}</p>
                             </div>
 
-                            <p class="hidden md:block md:line-clamp-3" v-html="item.description"></p>
                             <a class="flex items-center cursor-pointer" :href="'/news/'+item.id">Читать далее <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
                         </div>
                     </div>

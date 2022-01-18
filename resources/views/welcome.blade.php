@@ -23,30 +23,30 @@
                 </div>
                 <div class="border border-top w-full"></div>
             </div>
-            <div class="flex flex-nowrap gap-10 md:gap-16 overflow-x-auto py-20 no-scrollbar">
-                <div class="w-4/5 flex-shrink-0">
-                    <h1 class="font-bold text-2xl md:text-5xl uppercase tracking-wider xl:leading-tight mb-5">
+            <div class="flex gap-10 md:gap-16 overflow-x-auto overscroll-x-auto no-scrollbar py-20">
+                <div class="w-3/4 flex-shrink-0">
+                    <h1 class="font-bold text-2xl md:text-4xl uppercase tracking-wider xl:leading-tight mb-5">
                         {{trans('company.title_1')}}
                     </h1>
-                    <p class="text-sm md:text-base md:w-2/3">
+                    <p class="text-sm md:text-base md:w-3/4">
                         {{trans('company.subtitle_1')}}
                     </p>
                 </div>
                 <div class="border-r"></div>
-                <div class="w-4/5 flex-shrink-0">
-                    <h1 class="font-bold text-2xl md:text-5xl uppercase tracking-wider xl:leading-tight mb-5">
+                <div class="w-3/4 flex-shrink-0">
+                    <h1 class="font-bold text-2xl md:text-4xl uppercase tracking-wider xl:leading-tight mb-5">
                         {{trans('company.title_2')}}
                     </h1>
-                    <p class="text-sm md:text-base md:w-2/3">
+                    <p class="text-sm md:text-base md:w-3/4">
                         {{trans('company.subtitle_2')}}
                     </p>
                 </div>
                 <div class="border-r"></div>
-                <div class="w-4/5 flex-shrink-0">
-                    <h1 class="font-bold text-2xl md:text-5xl uppercase tracking-wider xl:leading-tight mb-5">
+                <div class="w-3/4 flex-shrink-0">
+                    <h1 class="font-bold text-2xl md:text-4xl uppercase tracking-wider xl:leading-tight mb-5">
                         {{trans('company.title_3')}}
                     </h1>
-                    <p class="text-sm md:text-base md:w-2/3">
+                    <p class="text-sm md:text-base md:w-3/4">
                         {{trans('company.subtitle_3')}}
                     </p>
                 </div>
@@ -65,99 +65,6 @@
                     <div class="border border-top w-full"></div>
                 </div>
                 <div id="history-sample"><history-sample></history-sample></div>
-<!--                <div class="relative">
-                    <div class="flex justify-between">
-                        <div data-aos="fade-right"
-                            data-aos-delay="600"
-                            data-aos-duration="1000"
-                            class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
-                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_1') }}</p>
-                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">{{ trans('history.title_1') }}</h3>
-                            <p class="text-sm md:text-base">
-                                {{ trans('history.description_1') }}
-                            </p>
-                        </div>
-                        <div data-aos="fade-down"
-                             data-aos-delay="200"
-                             data-aos-duration="1000" class="hidden lg:flex flex-col items-center">
-                            <div class="border-l h-64"></div>
-                            <div class="flex items-center border w-20 h-20 rounded-full flex-shrink-0">
-                                <h1 class="mx-auto text-3xl font-light">1</h1>
-                            </div>
-                            <div class="border-l h-1/3"></div>
-                        </div>
-                        <div class="hidden lg:block max-w-md xl:max-w-lg w-full lg:flex-shrink-0"></div>
-                    </div>
-                    <div class="flex justify-between">
-                        <div data-aos="fade-left"
-                             data-aos-delay="600"
-                             data-aos-duration="1000"
-                             class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
-                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_0') }}</p>
-                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">{{ trans('history.title_0') }}</h3>
-                            <p class="text-sm md:text-base">
-                                {{ trans('history.description_2') }}
-                            </p>
-                        </div>
-                        <div data-aos="fade-down"
-                             data-aos-delay="200"
-                             data-aos-duration="1000"
-                             class="hidden lg:flex flex-col items-center lg:order-2">
-                            <div class="border-l h-4/5"></div>
-                            <div class="flex items-center border w-20 h-20 rounded-full flex-shrink-0">
-                                <h1 class="mx-auto text-3xl font-light">2</h1>
-                            </div>
-                            <div class="border-l h-1/3"></div>
-                        </div>
-                        <div class="hidden lg:block max-w-md xl:max-w-lg w-full lg:flex-shrink-0 lg:order-1"></div>
-                    </div>
-                    <div class="flex justify-between">
-                        <div
-                            data-aos="fade-right"
-                            data-aos-delay="600"
-                            data-aos-duration="1000"
-                            class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3">
-                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_6') }}</p>
-                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">{{ trans('history.title_6') }}</h3>
-                            <p class="text-sm md:text-base">{{ trans('history.description_6') }}</p>
-                        </div>
-                        <div
-                            data-aos="fade-down"
-                            data-aos-delay="200"
-                            data-aos-duration="1000"
-                            class="hidden lg:flex flex-col items-center">
-                            <div class="border-l h-4/5"></div>
-                            <div class="flex items-center border w-20 h-20 rounded-full flex-shrink-0">
-                                <h1 class="mx-auto text-3xl font-light">3</h1>
-                            </div>
-                            <div class="border-l h-1/3"></div>
-                        </div>
-                        <div class="hidden lg:block max-w-md xl:max-w-lg w-full lg:flex-shrink-0"></div>
-                    </div>
-                    <div class="flex justify-between">
-                        <div
-                            data-aos="fade-left"
-                            data-aos-delay="600"
-                            data-aos-duration="1000"
-                            class="max-w-md xl:max-w-lg lg:flex-shrink-0 pt-16 lg:pb-8 lg:px-3 lg:order-last">
-                            <p class="text-4xl font-semibold mb-4">{{ trans('history.year_7') }}</p>
-                            <h3 class="font-bold uppercase text-lg md:text-xl mb-3">{{ trans('history.title_7') }}</h3>
-                            <p class="text-sm md:text-base">{{ trans('history.description_7') }}</p>
-                        </div>
-                        <div
-                            data-aos="fade-down"
-                            data-aos-delay="200"
-                            data-aos-duration="1000"
-                            class="hidden lg:flex flex-col items-center lg:order-2">
-                            <div class="border-l h-4/5"></div>
-                            <div class="flex items-center border w-20 h-20 rounded-full flex-shrink-0">
-                                <h1 class="mx-auto text-3xl font-light">4</h1>
-                            </div>
-                            <div class="border-l h-1/3"></div>
-                        </div>
-                        <div class="hidden lg:block max-w-md xl:max-w-lg w-full lg:flex-shrink-0 lg:order-1"></div>
-                    </div>
-                </div>-->
             </div>
         </div>
     </section>
@@ -179,8 +86,8 @@
                             <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
                                 <img src="/img/right.svg" width="24">
                             </div>
-                            <p class="uppercase text-xs">{{ $partners_title_1 }}</p>
-                            <div class="uppercase font-bold md:text-lg">
+                            <p class="uppercase text-xs mb-1">{{ $partners_title_1 }}</p>
+                            <div class="uppercase font-bold">
                                 {{ trans('partners.action_1') }}
                             </div>
                         </a>
@@ -189,8 +96,8 @@
                             <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
                                 <img src="/img/right.svg" width="24">
                             </div>
-                            <p class="uppercase text-xs">{{ $partners_title_2 }}</p>
-                            <div class="uppercase font-bold md:text-lg">
+                            <p class="uppercase text-xs mb-1">{{ $partners_title_2 }}</p>
+                            <div class="uppercase font-bold">
                                 {{ trans('partners.action_2') }}
                             </div>
                         </a>

@@ -3,7 +3,7 @@
        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
            <div
                v-for="n in news"
-               class="font-light md:h-72 relative bg-cover"
+               class="font-light md:h-56 relative bg-cover"
                :style="{
                         backgroundImage: 'url(storage/'+n.image+')',
                         backgroundPosition: 'center',
@@ -13,8 +13,7 @@
                <div class="flex flex-col p-8 justify-between md:absolute w-full h-full z-20 border bg-news hover:bg-black hover:bg-opacity-70 hover:border-opacity-0">
                    <div>
                        <p class="text-sm mb-3">{{n.created_at}}</p>
-                       <p class="font-semibold uppercase text-lg mb-6 md:mb-2 md:line-clamp-2">{{n.title}}</p>
-                       <p class="hidden md:block md:line-clamp-3 max-h-20" v-html="n.description"></p>
+                       <p class="font-semibold uppercase text-lg md:line-clamp-3">{{n.title}}</p>
                    </div>
 
                    <a class="flex items-center cursor-pointer" :href="'/news/'+n.id">

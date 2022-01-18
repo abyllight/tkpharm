@@ -1,6 +1,6 @@
 <template>
     <div class="fixed z-30 w-full">
-        <div class="bg-gray-800 lg:bg-transparent flex flex-row justify-between lg:justify-center items-center px-3 h-20 transform transition-all duration-300 ease-linear"
+        <div class="bg-gray-800 lg:bg-transparent flex flex-row justify-between lg:justify-center items-center px-3 h-16 md:h-20 transform transition-all duration-300 ease-linear"
              :class="slide ? '-translate-y-full' : 'translate-y-0'"
         >
             <a class="cursor-pointer" href="/"><img src="/img/logo.png" alt="logo" class="h-9"></a>
@@ -49,21 +49,25 @@
                     @mouseleave="collapseLocale"
                 >
                     <div class="flex items-center gap-x-2">
-                        {{locale.name}}
+                        <div class="flex items-center gap-2">
+                            <img :src="locale.flag" class="w-5 h-5">{{locale.name}}
+                        </div>
                         <img :src="expandLanguages ? '/img/up_white.svg' : '/img/down_white.svg'" width="18" class="lg:hidden">
                     </div>
                     <div
-                        class="lg:absolute -left-5 mt-2 transition-all duration-300 ease-in"
+                        class="lg:absolute -left-5 mt-2 transition-all duration-300 ease-in w-24"
                         :class="slideMenu"
                     >
-                        <div class="flex flex-col gap-2 bg-gray-800 bg-opacity-90 p-3">
+                        <div class="flex flex-col gap-2 bg-gray-800 bg-opacity-90 py-3 px-3">
                             <a
                                 v-for="flag in flags"
                                 :key="flag.id"
-                                class="cursor-pointer relative py-2 px-3 hover:bg-gray-900"
+                                class="cursor-pointer relative py-2 px-2 hover:bg-gray-900"
                                 @click="setLocale(flag)"
                             >
-                                {{flag.name}}
+                                <div class="flex items-center gap-2">
+                                    <img :src="flag.flag" class="w-5 h-5">{{flag.name}}
+                                </div>
                             </a>
                         </div>
                     </div>

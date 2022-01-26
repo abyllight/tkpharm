@@ -29,6 +29,7 @@ Route::get('/locale/{locale}', [LocaleController::class, 'setLocale']);
 Route::get('/locale', [LocaleController::class, 'getLocale']);
 
 Route::get('/', [LandingController::class, 'index']);
+Route::get('/about-data', [LandingController::class, 'about']);
 
 Route::view('/about', 'about');
 

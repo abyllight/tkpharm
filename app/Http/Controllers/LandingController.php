@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\App;
 use Spatie\TranslationLoader\LanguageLine;
 
 class LandingController extends Controller
@@ -26,11 +27,36 @@ class LandingController extends Controller
         ]);
     }
 
-    public function hero(): JsonResponse
+    public function about(): JsonResponse
     {
-        $hero_bg = LanguageLine::where('group', 'hero')->where('key', 'image')->first();
+        $locale = App::currentLocale();
+        $t1 = LanguageLine::where('group', 'company')->where('key', 'title_1')->first();
+        $s1 = LanguageLine::where('group', 'company')->where('key', 'subtitle_1')->first();
+        $t2 = LanguageLine::where('group', 'company')->where('key', 'title_2')->first();
+        $s2 = LanguageLine::where('group', 'company')->where('key', 'subtitle_2')->first();
+        $t3 = LanguageLine::where('group', 'company')->where('key', 'title_3')->first();
+        $s3 = LanguageLine::where('group', 'company')->where('key', 'subtitle_3')->first();
+
+        $arr = [
+            [
+                'id' => 0,
+                'title' => $t1->text[$locale],
+                'sub' => $s1->text[$locale]
+            ],
+            [
+                'id' => 1,
+                'title' => $t2->text[$locale],
+                'sub' => $s2->text[$locale]
+            ],
+            [
+                'id' => 2,
+                'title' => $t3->text[$locale],
+                'sub' => $s3->text[$locale]
+            ]
+        ];
+
         return response()->json([
-            'bg' => $hero_bg['text']
+            'data' => $arr
         ]);
     }
 }

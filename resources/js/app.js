@@ -29,6 +29,7 @@ const i18n = new VueI18n({
     }
 })
 
+Vue.component('about', require('./components/About.vue').default);
 Vue.component('partners', require('./components/Partners.vue').default);
 Vue.component('news', require('./components/News.vue').default);
 Vue.component('news-slide', require('./components/NewsSlide.vue').default);

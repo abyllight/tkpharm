@@ -23,36 +23,12 @@
                 </div>
                 <div class="border border-top w-full"></div>
             </div>
-            <div class="flex gap-10 md:gap-16 overflow-x-auto overscroll-x-auto no-scrollbar py-20">
-                <div class="w-3/4 flex-shrink-0">
-                    <h1 class="font-bold text-2xl md:text-4xl uppercase tracking-wider xl:leading-tight mb-5">
-                        {{trans('company.title_1')}}
-                    </h1>
-                    <p class="text-sm md:text-base md:w-3/4">
-                        {{trans('company.subtitle_1')}}
-                    </p>
-                </div>
-                <div class="border-r"></div>
-                <div class="w-3/4 flex-shrink-0">
-                    <h1 class="font-bold text-2xl md:text-4xl uppercase tracking-wider xl:leading-tight mb-5">
-                        {{trans('company.title_2')}}
-                    </h1>
-                    <p class="text-sm md:text-base md:w-3/4">
-                        {{trans('company.subtitle_2')}}
-                    </p>
-                </div>
-                <div class="border-r"></div>
-                <div class="w-3/4 flex-shrink-0">
-                    <h1 class="font-bold text-2xl md:text-4xl uppercase tracking-wider xl:leading-tight mb-5">
-                        {{trans('company.title_3')}}
-                    </h1>
-                    <p class="text-sm md:text-base md:w-3/4">
-                        {{trans('company.subtitle_3')}}
-                    </p>
-                </div>
-            </div>
+            <section id="about">
+                <about></about>
+            </section>
         </div>
     </div>
+
 
     <!--Section History-->
     <section id="history">
@@ -113,6 +89,10 @@
 @endsection
 @section('js')
     <script>
+        new Vue({
+            el: '#about'
+        });
+
         new Vue({
             el: '#news_slide'
         });

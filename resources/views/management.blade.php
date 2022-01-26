@@ -9,7 +9,7 @@
                 </div>
                 <div class="border border-top w-full"></div>
             </div>
-            <div class="flex flex-col md:flex-row lg:items-center gap-10 md:gap-16 mt-8 lg:mt-0">
+            <div class="flex flex-col md:flex-row lg:items-start gap-10 md:gap-16 mt-8 lg:mt-0">
                 <div class="md:w-1/3 md:flex-shrink-0">
                     <img src="/img/manager.jpg" class="bg-cover bg-center">
                 </div>

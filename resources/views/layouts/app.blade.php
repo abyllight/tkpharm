@@ -20,7 +20,7 @@
         scrollbar-width: none;  /* Firefox */
     }
 </style>
-<body class="font-body relative text-white overflow-y-scroll">
+<body class="font-body relative text-white">
     <section id="navbar"></section>
     @yield('content')
     <section id="footer"></section>

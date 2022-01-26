@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Spatie\TranslationLoader\LanguageLine;
 
 class LandingController extends Controller
@@ -22,6 +23,14 @@ class LandingController extends Controller
             'partners_title_2' => $partners_title_2->text['title'],
             'partners_link_1' => $partners_link_1->text['link'],
             'partners_link_2' => $partners_link_2->text['link']
+        ]);
+    }
+
+    public function hero(): JsonResponse
+    {
+        $hero_bg = LanguageLine::where('group', 'hero')->where('key', 'image')->first();
+        return response()->json([
+            'bg' => $hero_bg['text']
         ]);
     }
 }

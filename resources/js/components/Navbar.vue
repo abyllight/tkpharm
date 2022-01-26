@@ -1,241 +1,88 @@
 <template>
-    <div class="max-w-6xl relative mx-auto px-4 pt-4 pb-4 bg-black bg-opacity-70 lg:bg-transparent lg:hover:bg-black lg:hover:bg-opacity-70 fixed z-30 lg:absolute inset-x-0 transition-all ease-in-out duration-300">
-        <div class="lg:border-b lg:pb-3">
-            <div class="flex flex-row lg:flex-col items-center justify-between">
-                <div>
-                    <a class="cursor-pointer" href="/"><img src="/img/logo.png" alt="logo"></a>
-                </div>
-                <div class="lg:w-full lg:mt-5">
-                    <div
-                        class="lg:hidden flex items-center"
-                        @click="expandMenu =! expandMenu"
-                    >
-                        <p class="uppercase font-light text-sm mr-1">Меню</p>
-                        <img :src="!expandMenu ? '/img/menu.svg' : '/img/close.svg'" width="30" class="cursor-pointer">
-                    </div>
-                    <div class="hidden lg:flex md:justify-between md:items-center">
-                        <div class="border w-16 h-10 rounded flex items-center justify-center">
-                            <img src="/img/search.svg" width="24">
-                        </div>
-                        <div class="font-bold flex items-center divide-x">
-                            <a
-                                v-for="link in links"
-                                :key="link.id"
-                                :href="link.href"
-                                class="menu-item px-6 flex items-center gap-2"
-                                @mouseover="expandCompany(link)"
-                                @mouseleave="collapseCompany(link)"
-                            >
-                                <div>
-                                    <span v-for="(word,index) in createSpans(link.title)" class="menu-item-text" :style="{'--index': index, margin: word===' ' ? '3px' : ''}">{{word}}</span>
-                                </div>
-                                <div class="absolute top-0">
-                                    <span v-for="(word,index) in createSpans(link.title)" class="menu-item-text" :style="{'--index': index, margin: word===' ' ? '3px' : ''}">{{word}}</span>
-                                </div>
-                                <div v-if="link.sub_links">
-                                    <img :src="isExpanded ? '/img/up_white.svg' : '/img/down_white.svg'" width="18" class="cursor-pointer">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="relative">
-                            <div
-                                @click="showLang =! showLang"
-                                class="border w-16 h-10 rounded flex items-center justify-around px-2 cursor-pointer"
-                                :class="showLang ? 'border-b-0 rounded-b-none' : ''"
-                            >
-                                <img :src="lang.flag" class="w-5 h-5">
-                                <img src="/img/down_white.svg" width="20">
-                            </div>
-                            <div v-if="showLang" class="flex flex-col gap-1.5 p-1 border border-t-0 pt-4 absolute w-full">
-                                <div
-                                    v-for="flag in flags"
-                                    class="flex items-center justify-around cursor-pointer rounded hover:bg-footer-label"
-                                    @click="setLocale   (flag)"
-                                >
-                                    <img :src="flag.flag" class="w-4 h-4"/>
-                                    <p>{{flag.name}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div
-                class="overflow-y-hidden max-h-0 transition-all duration-700 ease-in-out"
-                :class="expandMenu ? 'max-h-screen' : 'max-h-0'"
-            >
-                <div class="flex flex-col gap-4 py-4">
-                    <a
-                        v-for="link in links"
-                        :key="link.id"
-
-                        class="py-1.5 block cursor-pointer"
-                        @click="expandMobile(link)"
-                    >
-                        <div class="flex items-center gap-2">
-                            {{link.title}}
-                            <div v-if="link.sub_links">
-                                <img :src="isExpandedMobile ? '/img/up_white.svg' : '/img/down_white.svg'" width="18">
-                            </div>
-                        </div>
-
-                        <div
-                            v-if="link.sub_links && isExpandedMobile"
-                            class="px-3 py-4 flex flex-col gap-4"
-                        >
-                            <a
-                                v-for="s in sub"
-                                :href="s.href"
-                                class="cursor-pointer"
-                            >{{s.name}}</a>
-                        </div>
-                    </a>
-                </div>
+    <div class="fixed z-30 w-full">
+        <div class="bg-gray-800 lg:bg-transparent flex flex-row justify-between lg:justify-center items-center px-3 h-16 md:h-20 transform transition-all duration-300 ease-linear"
+             :class="slide ? '-translate-y-full' : 'translate-y-0'"
+        >
+            <a class="cursor-pointer" href="/"><img src="/img/logo.png" alt="logo" class="h-9"></a>
+            <div class="lg:hidden" @click="openCloseMobileMenu">
+                <img :src="!expandMobileMenu ? '/img/menu.svg' : '/img/close.svg'" width="30" class="cursor-pointer">
             </div>
         </div>
         <div
-            @mouseover="isExpanded=true"
-            @mouseleave="isExpanded=false"
-            class="w-full mt-0 overflow-y-hidden max-h-0 transition-all duration-700 ease-in-out"
-            :class="isExpanded ? 'max-h-screen' : 'max-h-0'"
+            class="px-3 transform transition-all duration-700 overflow-y-hidden lg:overflow-y-visible"
+            :class="classObject"
         >
-            <div class="flex flex-col items-center gap-5 py-10">
-                <p class="uppercase font-bold text-2xl mb-4">Компания</p>
+            <div class="max-w-4xl relative mx-auto flex flex-col lg:flex-row gap-4 lg:gap-14 lg:justify-center lg:items-center lg:h-20 uppercase">
                 <a
-                    v-for="s in sub"
-                    :key="s.id"
-                    :href="s.href"
-                    class="cursor-pointer menu-item"
+                    v-for="link in links"
+                    :key="link.id"
+                    :href="link.href"
+                    @click="openCloseSubLink(link)"
+                    @mouseover="expandSubLink(link)"
+                    @mouseleave="collapseSubLink(link)"
+                    class="cursor-pointer relative py-2 inline-block link"
                 >
-                    <div>
-                        <span v-for="(word,index) in createSpans(s.name)" class="menu-item-text" :style="{'--index': index, margin: word===' ' ? '3px' : ''}">{{word}}</span>
+                    <div class="flex items-center gap-x-2">
+                        {{link.title}}
+                        <div v-if="link.sub_links" class="lg:hidden">
+                            <img :src="link.is_visible ? '/img/up_white.svg' : '/img/down_white.svg'" width="18">
+                        </div>
                     </div>
-                    <div class="absolute top-0">
-                        <span v-for="(word,index) in createSpans(s.name)" class="menu-item-text" :style="{'--index': index, margin: word===' ' ? '3px' : ''}">{{word}}</span>
+                    <div class="lg:absolute mt-2 max-h-0 overflow-y-hidden transition-all duration-300 ease-in"
+                         :class="link.is_visible ? 'max-h-screen lg:py-6' : 'max-h-0'">
+                        <div class="flex flex-col gap-2 w-72 bg-gray-800 bg-opacity-90 p-3">
+                            <a
+                                v-for="sub in link.sub_links"
+                                :key="sub.id"
+                                :href="sub.href"
+                                class="cursor-pointer px-3 relative inline-block py-2 hover:bg-gray-900"
+                            >
+                                {{sub.name}}
+                            </a>
+                        </div>
                     </div>
                 </a>
+                <div
+                    class="uppercase cursor-pointer py-2 relative inline-block link"
+                    @click="expandLanguages =! expandLanguages"
+                    @mouseover="expandLocale"
+                    @mouseleave="collapseLocale"
+                >
+                    <div class="flex items-center gap-x-2">
+                        <div class="flex items-center gap-2">
+                            <img :src="locale.flag" class="w-5 h-5">{{locale.name}}
+                        </div>
+                        <img :src="expandLanguages ? '/img/up_white.svg' : '/img/down_white.svg'" width="18" class="lg:hidden">
+                    </div>
+                    <div
+                        class="lg:absolute -left-5 mt-2 transition-all duration-300 ease-in w-24"
+                        :class="slideMenu"
+                    >
+                        <div class="flex flex-col gap-2 bg-gray-800 bg-opacity-90 py-3 px-3">
+                            <a
+                                v-for="flag in flags"
+                                :key="flag.id"
+                                class="cursor-pointer relative py-2 px-2 hover:bg-gray-900"
+                                @click="setLocale(flag)"
+                            >
+                                <div class="flex items-center gap-2">
+                                    <img :src="flag.flag" class="w-5 h-5">{{flag.name}}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
-<style scoped>
-    .menu-item{
-        position: relative;
-        cursor: pointer;
-    }
 
-    .menu-item-text{
-        position: relative;
-    }
-
-    .menu-item > div:nth-child(1) span{
-        will-change: transform;
-        transform-style: preserve-3d;
-        transition: 0.3s;
-        transition-delay: calc(0.02s * var(--index));
-        transform-origin: bottom;
-        display: inline-block;
-    }
-
-    .menu-item > div:nth-child(2) span{
-        will-change: transform;
-        transform-style: preserve-3d;
-        transition: 0.3s;
-        transition-delay: calc(0.02s * var(--index));
-        transform-origin: top;
-        display: inline-block;
-        transform: translate3d(0, 100%, 0) rotateX(-90deg);
-    }
-
-    .menu-item:hover > div:nth-child(1) span{
-        transform: translate3d(0, -100%, 0) rotateX(-90deg);
-    }
-
-    .menu-item:hover > div:nth-child(2) span{
-        transform: translate3d(0, 0%, 0) rotateX(0deg);
-    }
-</style>
 <script>
 export default {
     name: "Navbar",
-    data:() => ({
-        links: [
-            {
-                id: 0,
-                title: 'Главная',
-                href: '/',
-                sub_links: false
-            },
-            {
-                id: 1,
-                title: 'Компания',
-                href: '',
-                sub_links: [
-                    {
-                        id: 0,
-                        name: 'О компании',
-                        href: '/about'
-                    },
-                    {
-                        id: 1,
-                        name: 'История компании',
-                        href: '/history'
-                    },
-                    {
-                        id: 2,
-                        name: 'Руководство',
-                        href: '/management'
-                    },
-                    {
-                        id: 3,
-                        name: 'Наши сертификаты',
-                        href: '/certificates'
-                    }
-                ]
-            },
-            {
-                id: 2,
-                title: 'Новости',
-                href: '/news',
-                sub_links: false
-            },
-            {
-                id: 3,
-                title: 'Наша Продукция',
-                href: '/products',
-                sub_links: false
-            },
-            {
-                id: 4,
-                title: 'Галерея',
-                href: '/gallery',
-                sub_links: false
-            }
-        ],
-        sub: [
-            {
-                id: 0,
-                name: 'О компании',
-                href: '/about'
-            },
-            {
-                id: 1,
-                name: 'История компании',
-                href: '/history'
-            },
-            {
-                id: 2,
-                name: 'Руководство',
-                href: '/management'
-            },
-            {
-                id: 3,
-                name: 'Наши сертификаты',
-                href: '/certificates'
-            }
-        ],
-        flags: [
+    data: function() {
+        return {
+            flags: [
             {
                 id: 0,
                 name: 'ru',
@@ -252,73 +99,168 @@ export default {
                 flag: '/img/en.png'
             }
         ],
-        lang: {
-            name: 'ru',
-            flag: '/img/ru.png'
+            locale: {
+                name: 'ru',
+                flag: '/img/ru.png'
+            },
+            links: [
+                {
+                    id: 0,
+                    title: this.$i18n.t('message.main'),
+                    href: '/',
+                    is_visible: false
+                },
+                {
+                    id: 1,
+                    title: this.$i18n.t('message.company'),
+                    href: '#',
+                    is_visible: false,
+                    sub_links: [
+                        {
+                            id: 0,
+                            name: this.$i18n.t('message.about'),
+                            href: '/about'
+                        },
+                        {
+                            id: 1,
+                            name: this.$i18n.t('message.history'),
+                            href: '/history'
+                        },
+                        {
+                            id: 2,
+                            name: this.$i18n.t('message.management'),
+                            href: '/management'
+                        },
+                        {
+                            id: 3,
+                            name: this.$i18n.t('message.certificates'),
+                            href: '/certificates'
+                        }
+                    ]
+                },
+                {
+                    id: 2,
+                    title: this.$i18n.t('message.news'),
+                    href: '/news',
+                    is_visible: false
+                },
+                {
+                    id: 3,
+                    title: this.$i18n.t('message.products'),
+                    href: '/products',
+                    is_visible: false
+                },
+                {
+                    id: 4,
+                    title: this.$i18n.t('message.gallery'),
+                    href: '/gallery',
+                    is_visible: false
+                }
+            ],
+            expandMobileMenu: false,
+            slide: false,
+            expandLanguages: false,
+            expandSubLinks: false
+        }
+    },
+    computed: {
+        classObject: function (){
+            return {
+                'max-h-screen ease-in-out bg-gray-800 py-8': this.expandMobileMenu,
+                'max-h-0 lg:max-h-screen': !this.expandMobileMenu,
+                '-translate-y-full bg-gray-800' : this.slide,
+                'translate-y-0 bg-transparent': !this.slide
+            }
         },
-        showLang: false,
-        isExpanded: false,
-        isExpandedMobile: false,
-        expandMenu: false
-    }),
-    created() {
-        window.addEventListener('click', this.closeLang)
+        slideMenu: function (){
+            return {
+                'overflow-y-hidden max-h-0': !this.expandLanguages,
+                'max-h-screen lg:py-6': this.expandLanguages
+            }
+        }
+    },
+    mounted() {
+        window.addEventListener('scroll', this.onScroll)
         this.getLocale()
     },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.onScroll)
+    },
     methods: {
-        setLocale(flag){
-            this.lang = flag
-            this.showLang = false
+        onScroll(){
+            if (window.innerWidth < 1024) return
+            this.slide = window.scrollY > 64;
+        },
+        getLocale() {
             axios
-                .get('/locale/'+ this.lang.name)
+                .get('/locale')
                 .then(response => {
+                    this.locale = response.data.locale
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
+        setLocale(flag) {
+            this.locale = flag
+            axios
+                .get('/locale/'+ this.locale.name)
+                .then(() => {
+                    this.$store.dispatch('setLocale', flag.name)
                     location.reload()
                 })
                 .catch(error => {
                     console.log(error)
                 })
         },
-        getLocale(){
-            axios
-                .get('/locale')
-                .then(response => {
-                    this.lang = response.data.locale
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+        expandLocale(){
+            if (window.innerWidth < 1024) return
+            this.expandLanguages = true
         },
-        closeLang(e){
-            if (!this.$el.contains(e.target)) {
-                this.showLang = false
-                this.isExpanded = false
-                this.expandMenu = false
+        collapseLocale(){
+            if (window.innerWidth < 1024) return
+            this.expandLanguages = false
+        },
+        expandSubLink(link){
+            if (window.innerWidth < 1024) return
+            if (link.sub_links && link.sub_links.length > 0){
+                link.is_visible = true
             }
         },
-        expand(link){
-            if (link.sub_links){
-                this.isExpanded =! this.isExpanded
+        collapseSubLink(link){
+            if (window.innerWidth < 1024) return
+            link.is_visible = false
+        },
+        openCloseSubLink(link){
+            if (link.sub_links && link.sub_links.length > 0){
+                link.is_visible =! link.is_visible
             }
         },
-        expandMobile(link){
-            if (link.sub_links){
-                this.isExpandedMobile =! this.isExpandedMobile
-            }
-        },
-        collapse(link){
-            if (link.sub){
-                this.isExpanded = false
-            }
-        },
-        createSpans(word){
-            return word.split('');
-        },
-        expandCompany(link){
-            if (link.sub_links) this.isExpanded = true
-        },
-        collapseCompany(link){
-            if (link.sub_links) this.isExpanded = false
+        openCloseMobileMenu(){
+            this.expandLanguages = false
+            this.links.map(x => x.is_visible = false)
+            this.expandMobileMenu =! this.expandMobileMenu
         }
     }
 }
 </script>
+
+<style scoped>
+    .link:hover::after {
+        width: 100%;
+        right: 0;
+    }
+
+    .link::after {
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 4px;
+        left: 0;
+        position: absolute;
+        background: linear-gradient(to left, #f69ec4, #f9dd94 100%);
+        transition: width .5s ease 0s, right .5s ease 0s;
+        width: 0;
+    }
+</style>

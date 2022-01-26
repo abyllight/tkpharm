@@ -1,14 +1,13 @@
 <template>
     <div>
+        <Navbar3/>
     </div>
 </template>
 
 <script>
-import Hero from "./Hero";
-import Navbar from "./Navbar";
-import About from "./About";
+import Navbar3 from "./Navbar";
 export default {
     name: "App",
-    components: {About, Navbar, Hero}
+    components: {Navbar3}
 }
 </script>

@@ -40,20 +40,18 @@
             <div class="max-w-6xl px-4 mx-auto text-white">
                 <div class="flex items-center mb-8 lg:mb-12">
                     <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
-                        Читатйте также
+                        Читайте также
                     </div>
                     <div class="border border-top w-full"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     @foreach($related_news as $news)
-                        <div class="font-light md:h-80">
+                        <div class="font-light md:h-56">
                             <div class="flex flex-col p-8 justify-between border w-full h-full">
                                 <div>
                                     <p class="text-sm mb-3">{{$news->created_at}}</p>
-                                    <p class="font-semibold uppercase text-lg mb-6 md:mb-0 md:line-clamp-2">{{$news->getTitle()}}</p>
+                                    <p class="font-semibold uppercase text-lg mb-6 md:mb-0 md:line-clamp-3">{{$news->getTitle()}}</p>
                                 </div>
-
-                                <p class="hidden md:block md:line-clamp-3">{{$news->getDescription()}}</p>
                                 <a class="flex items-center cursor-pointer" href="{{route('news_content', $news->id)}}">Читать далее <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
                             </div>
                         </div>

@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Resources\NewsCollection;
-use App\Models\News;
-use Illuminate\Support\Facades\App;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +14,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('/locale/{locale}', [LocaleController::class, 'setLocale']);
+Route::get('/locale', [LocaleController::class, 'getLocale']);
+
+Route::get('/hero', [LandingController::class, 'hero']);
+

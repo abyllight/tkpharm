@@ -14,11 +14,11 @@
                         <div
                             v-if="first"
                             class="flex flex-col font-light">
-                            <a class="mb-3.5" href="/">Главная</a>
-                            <a class="mb-3.5" href="/about">О компании</a>
-                            <a class="mb-3.5" href="/news">Новости</a>
-                            <a class="mb-3.5" href="/products">Наша продукция</a>
-                            <a href="/gallery">Галерея</a>
+                            <a class="mb-3.5" href="/">{{$t('message.main')}}</a>
+                            <a class="mb-3.5" href="/about">{{$t('message.about')}}</a>
+                            <a class="mb-3.5" href="/news">{{$t('message.news')}}</a>
+                            <a class="mb-3.5" href="/products">{{$t('message.products')}}</a>
+                            <a href="/gallery">{{$t('message.gallery')}}</a>
                         </div>
                     </div>
                     <div>
@@ -26,14 +26,14 @@
                             class="flex justify-between items-start cursor-pointer md:cursor-auto"
                             @click="collapseSecond"
                         >
-                            <p class="font-semibold uppercase mb-4 text-lg">Контакты</p>
+                            <p class="font-semibold uppercase mb-4 text-lg">{{$t('message.contacts')}}</p>
                             <img :src="second ? up : down" width="32" class="md:hidden">
                         </div>
                         <div
                             v-if="second"
                             class="flex flex-col font-light">
                             <div class="mb-2">
-                                <p class="font-medium text-footer-label mb-1">Адрес</p>
+                                <p class="font-medium text-footer-label mb-1">{{$t('message.address')}}</p>
                                 <p>Фурманова 14А</p>
                             </div>
                             <div class="mb-2">
@@ -41,7 +41,7 @@
                                 <a href="mailto:tkfarm@gmail.com">TKFARM@gmail.com</a>
                             </div>
                             <div>
-                                <p class="font-medium text-footer-label mb-1">Телефон</p>
+                                <p class="font-medium text-footer-label mb-1">{{$t('message.phone')}}</p>
                                 <a href="tel:+77084224242">+7 (708) 422 - 42 - 42</a>
                             </div>
                         </div>
@@ -49,15 +49,15 @@
                 </div>
                 <div class="border-t border-footer-divider my-8 md:hidden"></div>
                 <div class="w-full md:w-72">
-                    <h3 class="font-semibold uppercase text-2xl mb-3">Свяжитесь с нами</h3>
+                    <h3 class="font-semibold uppercase text-2xl mb-3">{{$t('message.contact_us')}}</h3>
                     <div @click="popUp = true" class="cursor-pointer w-full border uppercase bg-footer-color text-white flex justify-center py-2.5 text-sm">
-                        Связаться
+                        {{$t('message.contact')}}
                     </div>
                 </div>
             </div>
             <div class="flex items-center justify-between text-sm border-t border-black md:border-0 pt-2 mt-4">
                 <p class="uppercase"><span class="font-light">2021 ©</span> <span class="font-semibold">ТК фарм</span></p>
-                <p>Все права защищены</p>
+                <p>{{$t('message.rights')}}</p>
             </div>
         </div>
         <transition name="bounce">
@@ -65,7 +65,7 @@
                 <div class="w-full max-w-md bg-black bg-opacity-70 rounded-xl shadow-xl relative">
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-5">
-                            <p class="uppercase font-semibold text-lg">Свяжитесь с нами</p>
+                            <p class="uppercase font-semibold text-lg">{{$t('message.contact_us')}}</p>
                             <div class="flex justify-center items-center w-10 h-10 bg-white rounded-full cursor-pointer" @click="popUp=false">
                                 <img src="/img/close_black.svg" class="w-5">
                             </div>

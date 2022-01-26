@@ -54,7 +54,7 @@ export default {
     font-size: 16px;
     line-height: 20px;
     position: absolute;
-    top: 56px;
+    top: 40px;
     left: 0;
     width: 20px;
     height: 20px;

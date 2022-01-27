@@ -20,6 +20,8 @@ return [
     'news_section' => 'Жаңалықтар',
     'products_section' => 'Өнімдер',
     'gallery_section' => 'Галерея',
+    'read_also' => 'Сондай-ақ оқитындарыңыз',
+    'read_more' => 'Толығырақ',
     'certificates_section' => 'Сертификаттар',
     'management_section' => 'Әкімшілік',
     'management_bio' => '<h1 class="font-semibold text-2xl mb-2">Туреханова Жанагуль Жайлыбековна</h1>

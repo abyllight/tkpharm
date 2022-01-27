@@ -21,6 +21,8 @@ return [
     'products_section' => 'Наша продукция',
     'gallery_section' => 'Галерея',
     'certificates_section' => 'Наши сертификаты',
+    'read_also' => 'Читайте также',
+    'read_more' => 'Читать далее',
     'management_section' => 'Руководство',
     'management_bio' => '<h1 class="font-semibold text-2xl mb-2">Туреханова Жанагуль Жайлыбековна</h1>
                          <div class="font-light">

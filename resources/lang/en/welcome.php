@@ -20,6 +20,8 @@ return [
     'news_section' => 'News',
     'products_section' => 'Products',
     'gallery_section' => 'Gallery',
+    'read_also' => 'Read also',
+    'read_more' => 'Read more',
     'certificates_section' => 'Certificates',
     'management_section' => 'Management',
     'management_bio' => '<h1 class="font-semibold text-2xl mb-2">Туреханова Жанагуль Жайлыбековна</h1>

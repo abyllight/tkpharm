@@ -40,7 +40,7 @@
             <div class="max-w-6xl px-4 mx-auto text-white">
                 <div class="flex items-center mb-8 lg:mb-12">
                     <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
-                        Читайте также
+                        {{trans('welcome.read_also')}}
                     </div>
                     <div class="border border-top w-full"></div>
                 </div>
@@ -52,7 +52,7 @@
                                     <p class="text-sm mb-3">{{$news->created_at}}</p>
                                     <p class="font-semibold uppercase text-lg mb-6 md:mb-0 md:line-clamp-3">{{$news->getTitle()}}</p>
                                 </div>
-                                <a class="flex items-center cursor-pointer" href="{{route('news_content', $news->id)}}">Читать далее <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
+                                <a class="flex items-center cursor-pointer" href="{{route('news_content', $news->id)}}">{{trans('welcome.read_more')}} <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
                             </div>
                         </div>
                     @endforeach

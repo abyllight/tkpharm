@@ -21,7 +21,7 @@ export default {
         mail: 'E-mail',
         subject: 'Тақырып',
         question: 'Сұрақ',
-        show_more: 'Көбірек көрсет',
+        show_more: 'Тағы',
         read_more: 'Толығырақ',
         send: 'Жіберу'
     }

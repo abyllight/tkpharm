@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Product_i18n extends Model
 {
-    use HasFactory;
+    use Searchable;
 
     protected $table = 'products_i18n';
 
@@ -18,6 +18,11 @@ class Product_i18n extends Model
         'description',
         'amount'
     ];
+
+    public function searchableAs()
+    {
+        return 'products_i18n_index';
+    }
 
     public function product()
     {

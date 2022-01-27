@@ -3,7 +3,7 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex items-center mm justify-between mb-10">
                 <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
-                    Новости
+                    {{news_title}}
                 </div>
                 <div class="border border-top w-full"></div>
                 <div class="ml-4 flex items-center gap-3 flex-shrink-0">
@@ -39,7 +39,7 @@
                                 <p class="font-semibold uppercase text-sm md:text-base lg:text-lg line-clamp-2 md:line-clamp-3">{{item.title}}</p>
                             </div>
 
-                            <a class="flex items-center cursor-pointer" :href="'/news/'+item.id">Читать далее <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
+                            <a class="flex items-center cursor-pointer" :href="'/news/'+item.id">{{read}} <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
                         </div>
                     </div>
                 </div>
@@ -55,10 +55,13 @@ export default {
     components: {Loader},
     data: () => ({
         news: [],
-        loading: true
+        loading: true,
+        news_title: '',
+        read: ''
     }),
     beforeMount() {
         this.getNews()
+        this.getAbout()
     },
     methods: {
         getNews(){
@@ -70,6 +73,13 @@ export default {
                 })
                 .catch(error => {
                     console.log(error)
+                })
+        },
+        getAbout(){
+            axios.get('/about-data')
+                .then(response => {
+                    this.news_title = response.data.news
+                    this.read = response.data.read
                 })
         },
         prev(){

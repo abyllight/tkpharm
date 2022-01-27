@@ -60,54 +60,14 @@
                 <p>{{$t('message.rights')}}</p>
             </div>
         </div>
-        <transition name="bounce">
-            <div v-if="popUp" class="h-screen w-full fixed top-0 left-0 z-30 flex items-center justify-center px-3 py-2 text-white">
-                <div class="w-full max-w-md bg-black bg-opacity-70 rounded-xl shadow-xl relative">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-5">
-                            <p class="uppercase font-semibold text-lg">{{$t('message.contact_us')}}</p>
-                            <div class="flex justify-center items-center w-10 h-10 bg-white rounded-full cursor-pointer" @click="popUp=false">
-                                <img src="/img/close_black.svg" class="w-5">
-                            </div>
-                        </div>
-
-                        <div>
-                            <input type="text" class="bg-transparent w-full border-b mb-6" placeholder="FIO">
-                            <input type="text" class="bg-transparent w-full border-b mb-6" placeholder="FIO">
-                            <input type="text" class="bg-transparent w-full border-b mb-6" placeholder="FIO">
-                            <input type="text" class="bg-transparent w-full border-b mb-8" placeholder="FIO">
-                            <button type="submit" class="py-2.5 bg-submit w-full">
-                                Submit
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </transition>
+        <PopUpForm :pop-up="popUp" @close="popUp=false"/>
     </div>
 </template>
-<style>
-.bounce-enter-active {
-    animation: bounce-in 1.3s;
-}
-.bounce-leave-active {
-    animation: bounce-in 1s reverse;
-}
-@keyframes bounce-in {
-    0% {
-        transform: scale(0);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-</style>
 <script>
+import PopUpForm from "./PopUpForm";
 export default {
     name: "FooterSection",
+    components: {PopUpForm},
     data: () => ({
         first: true,
         second: true,

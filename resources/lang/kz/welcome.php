@@ -20,7 +20,8 @@ return [
     'news_section' => 'Жаңалықтар',
     'products_section' => 'Өнімдер',
     'gallery_section' => 'Галерея',
-    'management_section' => 'Басшылық',
+    'certificates_section' => 'Сертификаттар',
+    'management_section' => 'Әкімшілік',
     'management_bio' => '<h1 class="font-semibold text-2xl mb-2">Туреханова Жанагуль Жайлыбековна</h1>
                          <div class="font-light">
                             <p class="text-xl">Директор ТОО «ТК Фарм Актобе»</p>

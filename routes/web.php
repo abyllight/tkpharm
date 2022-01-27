@@ -10,6 +10,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Spatie\TranslationLoader\LanguageLine;
@@ -83,5 +84,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 });
 
 Route::get('/linkstorage', [HelperController::class, 'storage']);
+
+Route::get('/search', [SearchController::class, 'search']);
 
 

@@ -5,10 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
+use Laravel\Scout\Searchable;
 
 class News extends Model
 {
-    use HasFactory;
+    use Searchable;
+
+    public function searchableAs()
+    {
+        return 'news_index';
+    }
 
     public function i18n()
     {

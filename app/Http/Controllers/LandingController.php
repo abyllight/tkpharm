@@ -36,7 +36,23 @@ class LandingController extends Controller
         $s2 = LanguageLine::where('group', 'company')->where('key', 'subtitle_2')->first();
         $t3 = LanguageLine::where('group', 'company')->where('key', 'title_3')->first();
         $s3 = LanguageLine::where('group', 'company')->where('key', 'subtitle_3')->first();
+        $news = [
+            'ru' => 'Новости',
+            'kz' => 'Жаңалықтар',
+            'en' => 'News'
+        ];
 
+        $read = [
+            'ru' => 'Читать далее',
+            'kz' => 'Толығырақ',
+            'en' => 'Read more'
+        ];
+
+        $show = [
+            'ru' => 'Показать больше',
+            'kz' => 'Көбірек көрсету',
+            'en' => 'Show more'
+        ];
         $arr = [
             [
                 'id' => 0,
@@ -56,7 +72,10 @@ class LandingController extends Controller
         ];
 
         return response()->json([
-            'data' => $arr
+            'data' => $arr,
+            'news' => $news[$locale],
+            'read' => $read[$locale],
+            'show' => $show[$locale]
         ]);
     }
 }

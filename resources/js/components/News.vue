@@ -17,12 +17,12 @@
                    </div>
 
                    <a class="flex items-center cursor-pointer" :href="'/news/'+n.id">
-                       Читать далее <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
+                       {{read}} <img src="/img/right.svg" class="w-5 h-4 ml-1"></a>
                </div>
            </div>
        </div>
         <loader v-if="loading"></loader>
-       <button v-if="showBtn" @click="loadMore" class="bg-white hover:bg-gray-100 font-semibold text-black w-full py-3 md:w-64 block mx-auto">Показать больше</button>
+       <button v-if="showBtn" @click="loadMore" class="bg-white hover:bg-gray-100 font-semibold text-black w-full py-3 md:w-64 block mx-auto">{{show}}</button>
     </div>
 </template>
 
@@ -35,10 +35,13 @@ export default {
         news: [],
         id: 0,
         showBtn: true,
-        loading: true
+        loading: true,
+        show: '',
+        read: ''
     }),
     created() {
         this.fetchNews()
+        this.getAbout()
     },
     methods: {
         fetchNews(){
@@ -51,6 +54,13 @@ export default {
             .catch(error => {
                 console.log(error)
             })
+        },
+        getAbout(){
+            axios.get('/about-data')
+                .then(response => {
+                    this.read = response.data.read
+                    this.show = response.data.show
+                })
         },
         loadMore(){
             this.loading = true

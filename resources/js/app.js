@@ -1,7 +1,6 @@
 window.Vue   = require('vue').default;
 window.axios = require('axios');
 
-import Vue from 'vue';
 import store from './store'
 import VueI18n from "vue-i18n"
 
@@ -11,7 +10,7 @@ import en from  './lang/en'
 import Navbar from './components/Navbar'
 import FooterSection from "./components/FooterSection";
 
-Vue.use(VueI18n)
+window.Vue.use(VueI18n)
 let locale = localStorage.getItem('locale')
 
 if (locale === null){

@@ -2,14 +2,14 @@
     <div class="py-24">
         <VueSlickCarousel id="slider" v-if="items.length > 0" v-bind="settings">
             <div
-                class="slide"
+                class="slide px-3"
                 v-for="item in items"
                 :key="item.id"
             >
-                <h1 class="font-bold text-2xl mx-auto md:w-3/4 md:text-4xl uppercase tracking-wider xl:leading-tight mb-5">
+                <h1 class="font-bold text-2xl md:w-3/4 md:text-4xl uppercase tracking-wider xl:leading-tight mb-5">
                     {{item.title}}
                 </h1>
-                <p class="text-sm md:text-base mx-auto md:w-3/4">
+                <p class="text-sm md:text-base md:w-3/4">
                     {{item.sub}}
                 </p>
             </div>
@@ -30,9 +30,11 @@ export default {
             dots: true,
             arrows: false,
             slidesToShow: 1,
-            slidesToScroll: 1,
             touchMove: true,
-            autoplay: true
+            autoplay: true,
+            centerMode: true,
+            centerPadding: '10px',
+            focusOnSelect: true
         }
     }),
     created() {

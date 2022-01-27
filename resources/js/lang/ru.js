@@ -18,9 +18,11 @@ export default {
         phone: 'Телефон',
         rights: 'Все права защищены',
         name: 'Ф.И.О',
+        mail: 'E-mail',
         subject: 'Тема запроса',
         question: 'Вопрос',
         show_more: 'Показать больше',
-        read_more: 'Читать далее'
+        read_more: 'Читать далее',
+        send: 'Отправить'
     }
 }

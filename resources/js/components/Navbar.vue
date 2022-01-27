@@ -1,85 +1,93 @@
 <template>
-    <div class="fixed z-30 w-full">
-        <div class="bg-gray-800 lg:bg-transparent flex flex-row justify-between lg:justify-center items-center px-3 h-16 md:h-20 transform transition-all duration-300 ease-linear"
-             :class="slide ? '-translate-y-full' : 'translate-y-0'"
-        >
-            <a class="cursor-pointer" href="/"><img src="/img/logo.png" alt="logo" class="h-9"></a>
-            <div class="lg:hidden" @click="openCloseMobileMenu">
-                <img :src="!expandMobileMenu ? '/img/menu.svg' : '/img/close.svg'" width="30" class="cursor-pointer">
+    <div>
+        <div class="fixed z-30 w-full">
+            <div class="bg-gray-800 lg:bg-transparent flex flex-row justify-between lg:justify-center items-center px-3 h-16 md:h-20 transform transition-all duration-300 ease-linear"
+                 :class="slide ? '-translate-y-full' : 'translate-y-0'"
+            >
+                <a class="cursor-pointer" href="/"><img src="/img/logo.png" alt="logo" class="h-9"></a>
+                <div class="lg:hidden" @click="openCloseMobileMenu">
+                    <img :src="!expandMobileMenu ? '/img/menu.svg' : '/img/close.svg'" width="30" class="cursor-pointer">
+                </div>
             </div>
-        </div>
-        <div
-            class="px-3 transform transition-all duration-700 overflow-y-hidden lg:overflow-y-visible"
-            :class="classObject"
-        >
-            <div class="max-w-4xl relative mx-auto flex flex-col lg:flex-row gap-4 lg:gap-14 lg:justify-center lg:items-center lg:h-20 uppercase">
-                <a
-                    v-for="link in links"
-                    :key="link.id"
-                    :href="link.href"
-                    @click="openCloseSubLink(link)"
-                    @mouseover="expandSubLink(link)"
-                    @mouseleave="collapseSubLink(link)"
-                    class="cursor-pointer relative py-2 inline-block link"
-                >
-                    <div class="flex items-center gap-x-2">
-                        {{link.title}}
-                        <div v-if="link.sub_links" class="lg:hidden">
-                            <img :src="link.is_visible ? '/img/up_white.svg' : '/img/down_white.svg'" width="18">
-                        </div>
+            <div
+                class="px-3 transform transition-all duration-700 overflow-y-hidden lg:overflow-y-visible"
+                :class="classObject"
+            >
+                <div class="max-w-5xl relative mx-auto flex flex-col lg:flex-row gap-4 lg:gap-14 lg:justify-center lg:items-center lg:h-20 uppercase">
+                    <div class="cursor-pointer hover:scale-110 transform" @click="searchModal=true">
+                        <img src="/img/search.svg" width="28">
                     </div>
-                    <div class="lg:absolute mt-2 max-h-0 overflow-y-hidden transition-all duration-300 ease-in"
-                         :class="link.is_visible ? 'max-h-screen lg:py-6' : 'max-h-0'">
-                        <div class="flex flex-col gap-2 w-72 bg-gray-800 bg-opacity-90 p-3">
-                            <a
-                                v-for="sub in link.sub_links"
-                                :key="sub.id"
-                                :href="sub.href"
-                                class="cursor-pointer px-3 relative inline-block py-2 hover:bg-gray-900"
-                            >
-                                {{sub.name}}
-                            </a>
-                        </div>
-                    </div>
-                </a>
-                <div
-                    class="uppercase cursor-pointer py-2 relative inline-block link"
-                    @click="expandLanguages =! expandLanguages"
-                    @mouseover="expandLocale"
-                    @mouseleave="collapseLocale"
-                >
-                    <div class="flex items-center gap-x-2">
-                        <div class="flex items-center gap-2">
-                            <img :src="locale.flag" class="w-5 h-5">{{locale.name}}
-                        </div>
-                        <img :src="expandLanguages ? '/img/up_white.svg' : '/img/down_white.svg'" width="18" class="lg:hidden">
-                    </div>
-                    <div
-                        class="lg:absolute -left-5 mt-2 transition-all duration-300 ease-in w-24"
-                        :class="slideMenu"
+                    <a
+                        v-for="link in links"
+                        :key="link.id"
+                        :href="link.href"
+                        @click="openCloseSubLink(link)"
+                        @mouseover="expandSubLink(link)"
+                        @mouseleave="collapseSubLink(link)"
+                        class="cursor-pointer relative py-2 link"
                     >
-                        <div class="flex flex-col gap-2 bg-gray-800 bg-opacity-90 py-3 px-3">
-                            <a
-                                v-for="flag in flags"
-                                :key="flag.id"
-                                class="cursor-pointer relative py-2 px-2 hover:bg-gray-900"
-                                @click="setLocale(flag)"
-                            >
-                                <div class="flex items-center gap-2">
-                                    <img :src="flag.flag" class="w-5 h-5">{{flag.name}}
-                                </div>
-                            </a>
+                        <div class="flex items-center gap-x-2">
+                            {{link.title}}
+                            <div v-if="link.sub_links" class="lg:hidden">
+                                <img :src="link.is_visible ? '/img/up_white.svg' : '/img/down_white.svg'" width="18">
+                            </div>
+                        </div>
+                        <div class="lg:absolute mt-2 max-h-0 overflow-y-hidden transition-all duration-300 ease-in"
+                             :class="link.is_visible ? 'max-h-screen lg:py-6' : 'max-h-0'">
+                            <div class="flex flex-col gap-2 w-72 bg-gray-800 bg-opacity-90 p-3">
+                                <a
+                                    v-for="sub in link.sub_links"
+                                    :key="sub.id"
+                                    :href="sub.href"
+                                    class="cursor-pointer px-3 relative inline-block py-2 hover:bg-gray-900"
+                                >
+                                    {{sub.name}}
+                                </a>
+                            </div>
+                        </div>
+                    </a>
+                    <div
+                        class="uppercase cursor-pointer py-2 relative inline-block link"
+                        @click="expandLanguages =! expandLanguages"
+                        @mouseover="expandLocale"
+                        @mouseleave="collapseLocale"
+                    >
+                        <div class="flex items-center gap-x-2">
+                            <div class="flex items-center gap-2">
+                                <img :src="locale.flag" class="w-5 h-5">{{locale.name}}
+                            </div>
+                            <img :src="expandLanguages ? '/img/up_white.svg' : '/img/down_white.svg'" width="18" class="lg:hidden">
+                        </div>
+                        <div
+                            class="lg:absolute -left-5 mt-2 transition-all duration-300 ease-in w-24"
+                            :class="slideMenu"
+                        >
+                            <div class="flex flex-col gap-2 bg-gray-800 bg-opacity-90 py-3 px-3">
+                                <a
+                                    v-for="flag in flags"
+                                    :key="flag.id"
+                                    class="cursor-pointer relative py-2 px-2 hover:bg-gray-900"
+                                    @click="setLocale(flag)"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <img :src="flag.flag" class="w-5 h-5">{{flag.name}}
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <SearchModal :is-visible="searchModal" @close="searchModal = false"/>
     </div>
 </template>
 
 <script>
+import SearchModal from "./SearchModal";
 export default {
     name: "Navbar",
+    components: {SearchModal},
     data: function() {
         return {
             flags: [
@@ -160,7 +168,8 @@ export default {
             expandMobileMenu: false,
             slide: false,
             expandLanguages: false,
-            expandSubLinks: false
+            expandSubLinks: false,
+            searchModal: false
         }
     },
     computed: {

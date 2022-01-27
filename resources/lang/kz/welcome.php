@@ -20,7 +20,7 @@ return [
     'news_section' => 'Жаңалықтар',
     'products_section' => 'Өнімдер',
     'gallery_section' => 'Галерея',
-    'read_also' => 'Сондай-ақ оқитындарыңыз',
+    'read_also' => 'Оқи отырыңыз',
     'read_more' => 'Толығырақ',
     'certificates_section' => 'Сертификаттар',
     'management_section' => 'Әкімшілік',

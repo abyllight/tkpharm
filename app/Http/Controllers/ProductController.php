@@ -35,9 +35,9 @@ class ProductController extends Controller
             'description_ru' => 'required',
             'description_kz' => 'required',
             'description_en' => 'required',
-            'amount_ru' => 'required',
+            /*'amount_ru' => 'required',
             'amount_kz' => 'required',
-            'amount_en' => 'required',
+            'amount_en' => 'required',*/
             'image' => 'image|mimes:jpeg,jpg,png|required|max:10000'
         ]);
 
@@ -88,9 +88,9 @@ class ProductController extends Controller
             'description_ru' => 'required',
             'description_kz' => 'required',
             'description_en' => 'required',
-            'amount_ru' => 'required',
-            'amount_kz' => 'required',
-            'amount_en' => 'required',
+//            'amount_ru' => 'required',
+//            'amount_kz' => 'required',
+//            'amount_en' => 'required',
         ]);
 
         if ($request->has('image')){

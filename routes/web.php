@@ -85,6 +85,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
 Route::get('/linkstorage', [HelperController::class, 'storage']);
 Route::get('/search-import', [HelperController::class, 'getNewsI18n']);
+Route::get('/scout', [HelperController::class, 'scout']);
+
 Route::get('/clear', [HelperController::class, 'clear']);
 
 

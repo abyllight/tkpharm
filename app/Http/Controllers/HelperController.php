@@ -12,6 +12,11 @@ class HelperController extends Controller
         Artisan::call('storage:link');
     }
 
+    public function scout()
+    {
+        Artisan::call('scout:import "App\Models\News_i18n"');
+    }
+
     public function clear()
     {
         Artisan::call('config:clear');

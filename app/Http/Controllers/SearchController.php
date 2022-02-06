@@ -8,8 +8,33 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
     public function search(Request $request){
-        $result = News_i18n::search($request->search)->get();
-        dd($result);
-        return News_i18n::search($request->search)->get();
+        $results = News_i18n::search($request->search)->get()->groupBy('news_id');
+
+        $arr = $this->formatSearchResult($results);
+
+        return response()->json([
+            'status' => true,
+            'data' => $arr
+        ]);
+    }
+
+    public function formatSearchResult($results): array
+    {
+        if ($results->count() === 0){
+            return [];
+        }
+
+        $arr = [];
+
+        foreach ($results as $result){
+            $first = $result->first();
+
+            $arr[] = [
+                'id' => $first->news_id,
+                'title' => $first->title
+            ];
+        }
+
+        return $arr;
     }
 }

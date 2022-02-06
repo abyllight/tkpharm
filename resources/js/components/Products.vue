@@ -4,9 +4,8 @@
             <div
                 v-for="type in product_types"
                 class="border w-full p-5"
-                @click="expand(type)"
             >
-                <div class="flex justify-between items-center cursor-pointer">
+                <div class="flex justify-between items-center cursor-pointer" @click="expand(type)">
                     <p class="uppercase font-semibold">{{type.title}}</p>
                     <img src="/img/down_white.svg" class="w-6">
                 </div>

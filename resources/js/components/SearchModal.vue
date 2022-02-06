@@ -61,7 +61,7 @@ export default {
         search(){
             this.loading = true
             axios
-                .get('/search/',{
+                .get('/search',{
                     params: {
                         search: this.query
                     }

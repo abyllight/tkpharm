@@ -12,6 +12,12 @@ class HelperController extends Controller
         Artisan::call('storage:link');
     }
 
+    public function clear()
+    {
+        Artisan::call('config:clear');
+        Artisan::call('config:cache');
+    }
+
     public function getNewsI18n()
     {
         $news = News_i18n::all();

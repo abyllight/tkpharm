@@ -5,12 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
-use Laravel\Scout\Searchable;
 
 class News extends Model
 {
-    use Searchable;
-
     public function i18n()
     {
         return $this->hasMany(News_i18n::class, 'news_id', 'id');

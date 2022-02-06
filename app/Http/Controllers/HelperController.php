@@ -14,7 +14,7 @@ class HelperController extends Controller
 
     public function scout()
     {
-        Artisan::call('scout:import "App\Models\News_i18n"');
+        Artisan::call('scout:import', ['model' => 'App\Models\News_i18n']);
     }
 
     public function clear()

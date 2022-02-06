@@ -26,6 +26,6 @@ class HelperController extends Controller
             ];
         }
 
-        return response()->json($arr);
+        return response()->json($arr, 200, [], JSON_UNESCAPED_UNICODE);
     }
 }

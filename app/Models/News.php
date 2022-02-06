@@ -11,11 +11,6 @@ class News extends Model
 {
     use Searchable;
 
-    public function searchableAs()
-    {
-        return 'news_index';
-    }
-
     public function i18n()
     {
         return $this->hasMany(News_i18n::class, 'news_id', 'id');

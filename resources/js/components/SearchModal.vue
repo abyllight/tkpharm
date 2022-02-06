@@ -13,7 +13,7 @@
         <div class="relative max-w-2xl w-full mt-8">
             <loader v-if="loading"/>
             <div v-if="empty">
-                По запросу "{{query}}" ничего не найдено
+                По Вашему запросу ничего не найдено
             </div>
             <div v-if="hasResults" class="w-full rounded-md flex flex-col gap-4 h-80 overflow-scroll">
                 <h3 class="mb-1 font-medium text-white">Результаты поиска:</h3>

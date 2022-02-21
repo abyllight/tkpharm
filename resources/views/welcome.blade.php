@@ -4,7 +4,7 @@
     <div class="py-32 lg:py-60" style="background-image: url({{url('storage/' . $hero_bg)}})">
         <div class="max-w-6xl mx-auto px-4 flex w-full items-center">
             <div class="md:w-2/3 md:border-l md:pl-4">
-                <h1 class="font-black text-xl md:text-4xl uppercase md:leading-snug mb-5">
+                <h1 class="font-black text-lg md:text-3xl uppercase md:leading-snug mb-5">
                     {{trans('hero.title')}}
                 </h1>
                 <p class="text-sm md:text-base">
@@ -15,10 +15,10 @@
     </div>
 
     <!--    Section About-->
-    <div class="bg-about bg-cover bg-center py-16">
+    <div class="bg-about py-16">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex items-center justify-between mb-5">
-                <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
+                <div class="font-bold text-lg uppercase flex-shrink-0 mr-4">
                     {{trans('welcome.company_section')}}
                 </div>
                 <div class="border border-top w-full"></div>
@@ -35,7 +35,7 @@
         <div class="bg-gradient-to-b from-h-start to-h-end py-24">
             <div class="max-w-6xl mx-auto px-4">
                 <div class="flex items-center md:mb-12 md:mb-18">
-                    <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
+                    <div class="font-bold text-lg uppercase flex-shrink-0 mr-4">
                         {{trans('welcome.history_section')}}
                     </div>
                     <div class="border border-top w-full"></div>
@@ -50,7 +50,7 @@
         <div class="bg-cover bg-center py-16 lg:py-40" style="background-image: url({{url('storage/' . $partners_bg)}})">
             <div class="max-w-6xl mx-auto px-4">
                 <div class="flex items-center justify-between mb-16">
-                    <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
+                    <div class="font-bold text-lg uppercase flex-shrink-0 mr-4">
                         {{trans('welcome.partners_section')}}
                     </div>
                     <div class="border border-top w-full"></div>

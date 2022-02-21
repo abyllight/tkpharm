@@ -2,7 +2,7 @@
     <div class="bg-slide py-16">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex items-center mm justify-between mb-10">
-                <div class="font-bold text-xl uppercase flex-shrink-0 mr-4">
+                <div class="font-bold text-lg uppercase flex-shrink-0 mr-4">
                     {{news_title}}
                 </div>
                 <div class="border border-top w-full"></div>

@@ -4,7 +4,7 @@ export default {
         company: 'Компания',
         about: 'О компании',
         history: 'История компании',
-        management: 'Руководтво',
+        management: 'Руководство',
         certificates: 'Наши сертификаты',
         news: 'Новости',
         products: 'Наша продукция',

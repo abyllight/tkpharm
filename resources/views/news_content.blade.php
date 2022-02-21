@@ -9,32 +9,6 @@
                 <p class="font-semibold md:text-xl uppercase mt-2">{{ $news->getTitle() }}</p>
                 <p class="mt-6">{!! $news->getDescription() !!}</p>
             </div>
-            <div class="flex flex-row md:flex-col gap-4 py-6">
-                <a
-                    href="http://twitter.com/share?url={{rawurlencode('https://eatandfit.kz')}}"
-                    target="_blank"
-                    class="cursor-pointer"
-                >
-                    <img src="/img/twitter.png" class="w-8">
-                </a>
-                <a
-                    href="http://vk.com/share.php?url={{rawurlencode('https://eatandfit.kz')}}"
-                    target="_blank"
-                    class="cursor-pointer"
-                ><img src="/img/vk.png" class="w-8"></a>
-                <a
-                    class="cursor-pointer"
-                    href="https://t.me/share/url?url={{rawurlencode('https://eatandfit.kz')}}"
-                    target="_blank"
-                >
-                    <img src="/img/telegram.png" class="w-8">
-                </a>
-                <a
-                    href="http://www.facebook.com/sharer.php?u={{rawurlencode('https://eatandfit.kz')}}"
-                    target="_blank"
-                    class="cursor-pointer"
-                ><img src="/img/facebook.png" class="w-8"></a>
-            </div>
         </div>
         <div class="bg-news py-20">
             <div class="max-w-6xl px-4 mx-auto text-white">

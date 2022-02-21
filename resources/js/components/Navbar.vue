@@ -13,7 +13,7 @@
                 class="px-3 transform transition-all duration-700 overflow-y-hidden lg:overflow-y-visible"
                 :class="classObject"
             >
-                <div class="max-w-5xl relative mx-auto flex flex-col lg:flex-row gap-4 lg:gap-14 lg:justify-center lg:items-center lg:h-20 uppercase">
+                <div class="max-w-5xl relative mx-auto flex flex-col lg:flex-row space-y-3 md:space-y-0 lg:space-x-10 lg:justify-center lg:items-center lg:h-20 uppercase text-sm">
                     <div class="cursor-pointer hover:scale-110 transform" @click="searchModal=true">
                         <img src="/img/search.svg" width="28">
                     </div>
@@ -26,15 +26,15 @@
                         @mouseleave="collapseSubLink(link)"
                         class="cursor-pointer relative py-2 link"
                     >
-                        <div class="flex items-center gap-x-2">
+                        <div class="flex items-center">
                             {{link.title}}
-                            <div v-if="link.sub_links" class="lg:hidden">
+                            <div v-if="link.sub_links" class="lg:hidden ml-2.5">
                                 <img :src="link.is_visible ? '/img/up_white.svg' : '/img/down_white.svg'" width="18">
                             </div>
                         </div>
                         <div class="lg:absolute mt-2 max-h-0 overflow-y-hidden transition-all duration-300 ease-in"
                              :class="link.is_visible ? 'max-h-screen lg:py-6' : 'max-h-0'">
-                            <div class="flex flex-col gap-2 w-72 bg-gray-800 bg-opacity-90 p-3">
+                            <div class="flex flex-col space-y-2 w-72 bg-gray-800 bg-opacity-90 p-3">
                                 <a
                                     v-for="sub in link.sub_links"
                                     :key="sub.id"
@@ -52,9 +52,10 @@
                         @mouseover="expandLocale"
                         @mouseleave="collapseLocale"
                     >
-                        <div class="flex items-center gap-x-2">
-                            <div class="flex items-center gap-2">
-                                <img :src="locale.flag" class="w-5 h-5">{{locale.name}}
+                        <div class="flex items-center">
+                            <div class="flex items-center mr-2">
+                                <img :src="locale.flag" class="w-5 h-5 mr-2">
+                                {{locale.name}}
                             </div>
                             <img :src="expandLanguages ? '/img/up_white.svg' : '/img/down_white.svg'" width="18" class="lg:hidden">
                         </div>
@@ -62,15 +63,16 @@
                             class="lg:absolute -left-5 mt-2 transition-all duration-300 ease-in w-24"
                             :class="slideMenu"
                         >
-                            <div class="flex flex-col gap-2 bg-gray-800 bg-opacity-90 py-3 px-3">
+                            <div class="flex flex-col bg-gray-800 bg-opacity-90 py-3 px-3">
                                 <a
                                     v-for="flag in flags"
                                     :key="flag.id"
                                     class="cursor-pointer relative py-2 px-2 hover:bg-gray-900"
                                     @click="setLocale(flag)"
                                 >
-                                    <div class="flex items-center gap-2">
-                                        <img :src="flag.flag" class="w-5 h-5">{{flag.name}}
+                                    <div class="flex items-center">
+                                        <img :src="flag.flag" class="w-5 h-5 mr-2">
+                                        {{flag.name}}
                                     </div>
                                 </a>
                             </div>
@@ -91,22 +93,22 @@ export default {
     data: function() {
         return {
             flags: [
-            {
-                id: 0,
-                name: 'ru',
-                flag: '/img/ru.png'
-            },
-            {
-                id: 1,
-                name: 'kz',
-                flag: '/img/kz.png'
-            },
-            {
-                id: 2,
-                name: 'en',
-                flag: '/img/en.png'
-            }
-        ],
+                {
+                    id: 0,
+                    name: 'ru',
+                    flag: '/img/ru.png'
+                },
+                {
+                    id: 1,
+                    name: 'kz',
+                    flag: '/img/kz.png'
+                },
+                {
+                    id: 2,
+                    name: 'en',
+                    flag: '/img/en.png'
+                }
+            ],
             locale: {
                 name: 'ru',
                 flag: '/img/ru.png'

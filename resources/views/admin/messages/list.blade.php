@@ -1,14 +1,8 @@
 @extends('layouts.admin')
 @section('content')
     <div>
-        <div class="flex items-center justify-between mb-8 border-b pb-2">
+        <div class="flex items-center mb-8 border-b pb-2">
             <h3 class="font-semibold text-xl">Сообщения</h3>
-            <a
-                class="px-6 py-2 bg-blue-500 rounded text-white text-sm cursor-pointer"
-                href="/admin/products/create"
-            >
-                Создать
-            </a>
         </div>
 
         <div>

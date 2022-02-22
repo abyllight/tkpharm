@@ -6,7 +6,7 @@
                 v-for="item in items"
                 :key="item.id"
             >
-                <h1 class="font-bold text-2xl md:w-3/4 md:text-4xl uppercase tracking-wider xl:leading-tight mb-5">
+                <h1 class="font-bold text-2xl md:w-3/4 md:text-3xl uppercase tracking-wider xl:leading-tight mb-5">
                     {{item.title}}
                 </h1>
                 <p class="text-sm md:text-base md:w-3/4">

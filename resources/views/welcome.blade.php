@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!--    Section Hero-->
-    <div class="py-32 lg:py-60" style="background-image: url({{url('storage/' . $hero_bg)}})">
+    <div class="py-32 lg:py-60 bg-black" style="background-image: url({{url('storage/' . $hero_bg)}})">
         <div class="max-w-6xl mx-auto px-4 flex w-full items-center">
             <div class="md:w-2/3 md:border-l md:pl-4">
                 <h1 class="font-black text-lg md:text-3xl uppercase md:leading-snug mb-5">

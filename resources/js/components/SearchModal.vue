@@ -15,7 +15,7 @@
             <div v-if="empty">
                 По Вашему запросу ничего не найдено
             </div>
-            <div v-if="hasResults" class="w-full rounded-md flex flex-col gap-4 h-80 overflow-scroll">
+            <div v-if="hasResults" class="w-full rounded-md flex flex-col gap-4 h-80 overflow-auto">
                 <h3 class="mb-1 font-medium text-white">Результаты поиска:</h3>
                 <div
                     v-for="result in results"

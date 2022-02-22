@@ -49,7 +49,7 @@
                 </div>
                 <div class="border-t border-footer-divider my-8 md:hidden"></div>
                 <div class="w-full md:w-72">
-                    <h3 class="font-semibold uppercase text-2xl mb-3">{{$t('message.contact_us')}}</h3>
+                    <h3 class="font-semibold uppercase text-xl text-center mb-3">{{$t('message.contact_us')}}</h3>
                     <div @click="popUp = true" class="cursor-pointer w-full border uppercase bg-footer-color text-white flex justify-center py-2.5 text-sm">
                         {{$t('message.contact')}}
                     </div>

@@ -22,6 +22,7 @@
                     <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/product-categories">Категория</a>
                     <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/news">Новости</a>
                     <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/gallery">Галерея</a>
+                    <a class="cursor-pointer text-gray-300 hover:text-gray-100" href="/admin/messages">Сообщения</a>
                 </div>
                 @endauth
             </div>

@@ -10,10 +10,12 @@
                 <div class="border border-top w-full"></div>
             </div>
             <div class="flex flex-col md:flex-row lg:items-start md:space-x-10 mt-8 lg:mt-0">
-                <div class="md:w-1/3 border md:flex-shrink-0">
-                    <img src="/img/manager.jpg" class="bg-cover bg-center">
+                <div class="md:w-1/3 md:flex-shrink-0">
+                    <img src="/img/manager.jpg" class="bg-cover bg-center mb-3">
+                    <p class="font-semibold text-lg mb-1">Туреханова Жанагуль Жайлыбековна</p>
+                    <p class="font-light">Директор ТОО «ТК Фарм Актобе»</p>
                 </div>
-                <div class="text-xs">
+                <div class="text-sm">
                     {!! trans('welcome.management_bio') !!}
                 </div>
             </div>

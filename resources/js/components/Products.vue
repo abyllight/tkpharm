@@ -10,13 +10,15 @@
                     <img src="/img/down_white.svg" class="w-6">
                 </div>
                 <div
-                    v-if="type.expand"
-                    class="flex flex-col gap-10 pt-8 pb-3">
+                    class="flex flex-col gap-10 transform transition-all duration-300 ease-out"
+                    :class="type.expand ? 'pt-8 pb-3' : 'max-h-0'"
+                >
                     <div
                         v-for="product in type.products"
                         :key="product.id"
                         v-if="product.is_active"
-                        class="flex flex-col md:flex-row gap-5 md:gap-10"
+                        class="flex flex-col md:flex-row gap-5 md:gap-10 transform transition-all duration-700 ease-in overflow-y-hidden"
+                        :class="type.expand ? 'max-h-screen' : 'max-h-0'"
                     >
                         <img :src="/storage/+product.image" class="md:w-64">
                         <div>

@@ -73,7 +73,7 @@ export default {
         second: true,
         up: '/img/up.svg',
         down: '/img/down.svg',
-        popUp: false
+        popUp: true
     }),
     computed:{
         isLarge() {

@@ -7,6 +7,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductCategoryController;
@@ -56,6 +57,7 @@ Route::get('/gallery-all', [GalleryController::class, 'all']);
 
 Route::view('/login', 'admin.login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/messages', [MessageController::class, 'store']);
 
 Route::middleware('auth')->prefix('admin')->group(function () {
 
@@ -76,6 +78,9 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     Route::post('products/status/{id}', [ProductController::class, 'activate']);
     Route::post('news/status/{id}', [NewsController::class, 'activate']);
+
+    Route::get('/messages', [MessageController::class, 'index']);
+    Route::get('/messages/{id}', [MessageController::class, 'show']);
 
     Route::get('/pwd', 'LoginController@pwd')->name('pwd');
     Route::post('/pwd', 'LoginController@pwdUpdate')->name('pwd.update');

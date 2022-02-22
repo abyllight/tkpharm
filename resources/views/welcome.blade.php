@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!--    Section Hero-->
-    <div class="py-32 lg:py-60 bg-black" style="background-image: url({{url('storage/' . $hero_bg)}})">
+    <div class="py-32 lg:py-60 bg-black" style="background-image: url({{url('storage/' . $hero_bg)}}); background-size: cover">
         <div class="max-w-6xl mx-auto px-4 flex w-full items-center">
             <div class="md:w-2/3 md:border-l md:pl-4">
                 <h1 class="font-black text-lg md:text-3xl uppercase md:leading-snug mb-5">
@@ -47,7 +47,7 @@
 
     <!--    Section Partners-->
     <section>
-        <div class="bg-cover bg-center py-16 lg:py-40" style="background-image: url({{url('storage/' . $partners_bg)}})">
+        <div class="bg-cover bg-center py-16 lg:py-40" style="background-image: url({{url('storage/' . $partners_bg)}}); background-size: cover">
             <div class="max-w-6xl mx-auto px-4">
                 <div class="flex items-center justify-between mb-16">
                     <div class="font-bold text-lg uppercase flex-shrink-0 mr-4">

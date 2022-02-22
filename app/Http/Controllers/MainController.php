@@ -59,14 +59,13 @@ class MainController extends Controller
 
         if ($request->has('image')){
             $request->validate([
-                'image' => 'image|mimes:jpeg,jpg,png|required|max:10000',
+                'image' => 'image|required|max:10000',
             ]);
 
             $image = LanguageLine::where('group', 'hero')->where('key', 'image')->first();
 
             if ($image) {
                 Storage::disk('public')->delete($image->text);
-
             }
 
             LanguageLine::updateOrCreate(
@@ -289,7 +288,7 @@ class MainController extends Controller
 
         if ($request->has('image')){
             $request->validate([
-                'image' => 'image|mimes:jpeg,jpg,png|required|max:10000',
+                'image' => 'image|required|max:10000',
             ]);
 
             $image = LanguageLine::where('group', 'partners')->where('key', 'image')->first();

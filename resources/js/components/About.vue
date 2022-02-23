@@ -25,25 +25,11 @@
 </template>
 
 <script>
-import VueSlickCarousel from 'vue-slick-carousel'
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
     name: "About",
-    components: {VueSlickCarousel},
     data: () => ({
         items: [],
-        scrollSpeed: 12,
-        settings: {
-            dots: true,
-            arrows: false,
-            slidesToShow: 1,
-            touchMove: true,
-            autoplay: true,
-            centerMode: true,
-            centerPadding: '10px',
-            focusOnSelect: true
-        }
+        scrollSpeed: 20
     }),
     created() {
         this.getAbout()

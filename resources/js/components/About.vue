@@ -29,7 +29,7 @@ export default {
     name: "About",
     data: () => ({
         items: [],
-        scrollSpeed: 20
+        scrollSpeed: 30
     }),
     created() {
         this.getAbout()

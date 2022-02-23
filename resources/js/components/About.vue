@@ -1,19 +1,26 @@
 <template>
-    <div class="py-24">
-        <VueSlickCarousel id="slider" v-if="items.length > 0" v-bind="settings">
-            <div
-                class="slide px-3"
-                v-for="item in items"
-                :key="item.id"
-            >
-                <h1 class="font-bold text-2xl md:w-3/4 md:text-3xl uppercase tracking-wider xl:leading-tight mb-5">
-                    {{item.title}}
-                </h1>
-                <p class="text-sm md:text-base md:w-3/4">
-                    {{item.sub}}
-                </p>
+    <div class="py-4 md:py-10 lg:py-16">
+        <div>
+            <div class="flex overflow-x-scroll hide-scroll-bar">
+                <div class="flex flex-shrink-0 space-x-12 md:space-x-16 lg:space-x-32">
+                    <template
+                        v-for="(item, key) in items"
+                    >
+                        <div
+                            class="w-80 md:max-w-2xl lg:max-w-3xl md:w-full"
+                        >
+                            <h1 class="font-bold text-xl md:text-4xl md:uppercase mb-5">
+                                {{item.title}}
+                            </h1>
+                            <p class="text-sm md:text-base md:w-4/5">
+                                {{item.sub}}
+                            </p>
+                        </div>
+                        <div v-if="key !== items.length-1" class="border-r"></div>
+                    </template>
+                </div>
             </div>
-        </VueSlickCarousel>
+        </div>
     </div>
 </template>
 
@@ -51,20 +58,11 @@ export default {
 }
 </script>
 <style>
-.slick-dots li button:before {
-    font-family: 'slick';
-    font-size: 16px;
-    line-height: 20px;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    content: '•'; /* <-- Вот этот символ */
-    text-align: center;
-    opacity: .75;
-    color: white;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.hide-scroll-bar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+    display: none;
 }
 </style>

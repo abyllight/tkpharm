@@ -1,7 +1,7 @@
 <template>
     <div class="py-4 md:py-10 lg:py-16">
         <div>
-            <div class="flex overflow-x-scroll hide-scroll-bar">
+            <div @wheel="scrollHorizontally" ref="scrl" class="flex overflow-y-scroll hide-scroll-bar">
                 <div class="flex flex-shrink-0 space-x-12 md:space-x-16 lg:space-x-32">
                     <template
                         v-for="(item, key) in items"
@@ -9,7 +9,7 @@
                         <div
                             class="w-80 md:max-w-2xl lg:max-w-3xl md:w-full"
                         >
-                            <h1 class="font-bold text-xl md:text-4xl md:uppercase mb-5">
+                            <h1 class="font-bold text-xl md:text-3xl md:uppercase mb-5">
                                 {{item.title}}
                             </h1>
                             <p class="text-sm md:text-base md:w-4/5">
@@ -53,6 +53,10 @@ export default {
                 .then(response => {
                     this.items = response.data.data
                 })
+        },
+        scrollHorizontally(e) {
+            e.preventDefault()
+            this.$refs.scrl.scrollLeft = this.$refs.scrl.scrollLeft + e.deltaY
         }
     }
 }

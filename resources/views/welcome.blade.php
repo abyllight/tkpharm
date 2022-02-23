@@ -57,7 +57,7 @@
                 </div>
                 <div id="partners">
                     <div class="flex flex-col md:flex-row md:justify-between gap-8">
-                        <a class="border cursor-pointer rounded w-1/2 w-full p-6 bg-black bg-opacity-60 relative hover:bg-cover hover:bg-opacity-40 hover:border-transparent transition-all ease-in-out duration-300"
+                        <a class="cursor-pointer rounded w-1/2 w-full p-6 bg-black bg-opacity-60 relative hover:bg-cover hover:bg-opacity-40 transition-all ease-in-out duration-300"
                            href="{{ $partners_link_1 }}" target="_blank">
                             <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
                                 <img src="/img/right.svg" width="24">
@@ -67,7 +67,7 @@
                                 {{ trans('partners.action_1') }}
                             </div>
                         </a>
-                        <a class="border cursor-pointer rounded w-1/2 w-full p-6 bg-black bg-opacity-60 relative hover:bg-cover hover:bg-opacity-40 hover:border-transparent transition-all ease-in-out duration-300"
+                        <a class="cursor-pointer rounded w-1/2 w-full p-6 bg-black bg-opacity-60 relative hover:bg-cover hover:bg-opacity-40 transition-all ease-in-out duration-300"
                            href="{{ $partners_link_2 }}" target="_blank">
                             <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
                                 <img src="/img/right.svg" width="24">

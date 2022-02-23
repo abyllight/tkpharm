@@ -33,6 +33,7 @@ export default {
     components: {VueSlickCarousel},
     data: () => ({
         items: [],
+        scrollSpeed: 12,
         settings: {
             dots: true,
             arrows: false,
@@ -55,8 +56,16 @@ export default {
                 })
         },
         scrollHorizontally(e) {
-            e.preventDefault()
-            this.$refs.scrl.scrollLeft = this.$refs.scrl.scrollLeft + e.deltaY
+            if (!e.deltaY) return
+            let scrollDirection = (e.deltaY > 0) ? 1 : -1;
+            let el = this.$refs.scrl
+            el.scrollLeft += this.scrollSpeed * scrollDirection
+            let scrollLeft = Math.round(el.scrollLeft)
+            let maxScrollLeft = Math.round( el.scrollWidth - el.clientWidth );
+
+            if((scrollDirection === -1  && scrollLeft > 0) || (scrollDirection === 1 && scrollLeft < maxScrollLeft )) e.preventDefault()
+
+            return true
         }
     }
 }

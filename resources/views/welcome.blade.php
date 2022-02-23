@@ -40,7 +40,9 @@
                     </div>
                     <div class="border border-top w-full"></div>
                 </div>
-                <div id="history-sample"><history-sample></history-sample></div>
+                <div id="history-sample">
+                    <history-sample></history-sample>
+                </div>
             </div>
         </div>
     </section>

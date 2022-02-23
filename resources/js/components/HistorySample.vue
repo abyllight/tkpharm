@@ -2,7 +2,7 @@
     <div class="relative">
         <div
             v-for="(item, key) in items"
-            class="flex justify-between"
+            class="flex justify-between overflow-hidden"
         >
             <div
                 :data-aos="(key+1)%2 === 0 ? 'fade-left' : 'fade-right'"

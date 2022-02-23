@@ -28,8 +28,7 @@
 export default {
     name: "About",
     data: () => ({
-        items: [],
-        scrollSpeed: 30
+        items: []
     }),
     created() {
         this.getAbout()
@@ -45,7 +44,7 @@ export default {
             if (!e.deltaY) return
             let scrollDirection = (e.deltaY > 0) ? 1 : -1;
             let el = this.$refs.scrl
-            el.scrollLeft += this.scrollSpeed * scrollDirection
+            el.scrollLeft = el.scrollLeft + e.deltaY
             let scrollLeft = Math.round(el.scrollLeft)
             let maxScrollLeft = Math.round( el.scrollWidth - el.clientWidth );
 

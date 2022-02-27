@@ -321,6 +321,7 @@
                     @enderror
                 </div>
             </div>
+
             <img src="{{ asset('storage/' .$product->image) }}" class="w-32">
             <div class="mb-6">
                 <div class="mb-1">

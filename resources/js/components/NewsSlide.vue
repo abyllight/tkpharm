@@ -35,7 +35,7 @@
                     >
                         <div class="flex flex-col p-5 md:p-8 justify-between border w-full h-40 md:h-56">
                             <div>
-                                <p class="text-sm mb-2">{{item.created_at}}</p>
+                                <p class="text-sm mb-2">{{item.published_at}}</p>
                                 <p class="font-semibold uppercase text-sm md:text-base lg:text-lg line-clamp-2 md:line-clamp-3">{{item.title}}</p>
                             </div>
 

@@ -22,12 +22,12 @@ class NewsController extends Controller
 
     public function all(): JsonResponse
     {
-        return response()->json(NewsCollection::collection(News::where('is_active', true)->orderBy('id', 'desc')->take(4)->get()));
+        return response()->json(NewsCollection::collection(News::where('is_active', true)->orderBy('published_at', 'desc')->take(4)->get()));
     }
 
     public function slide(): JsonResponse
     {
-        $collection = NewsCollection::collection(News::where('is_active', true)->orderBy('id', 'desc')->get());
+        $collection = NewsCollection::collection(News::where('is_active', true)->orderBy('published_at', 'desc')->get());
         $chunks = $collection->chunk(2);
         return response()->json($chunks->all());
     }
@@ -35,7 +35,7 @@ class NewsController extends Controller
     public function loadMore(int $id): JsonResponse
     {
         return response()->json(
-            NewsCollection::collection(News::where('is_active', true)->where('id', '<', $id)->orderBy('id', 'desc')->take(4)->get())
+            NewsCollection::collection(News::where('is_active', true)->where('id', '<', $id)->orderBy('published_at', 'desc')->take(4)->get())
         );
     }
 
@@ -59,10 +59,12 @@ class NewsController extends Controller
             'description_kz' => 'required',
             'description_en' => 'required',
             'image' => 'image|mimes:jpeg,jpg,png|required|max:10000',
+            'published_at' => 'required'
         ]);
 
         $news = new News();
         $news->is_active = true;
+        $news->published_at = $request->published_at;
         $news->image = $request->file('image')->store('news', 'public');
         $news->save();
 
@@ -107,7 +109,8 @@ class NewsController extends Controller
             'title_en' => 'required',
             'description_ru' => 'required',
             'description_kz' => 'required',
-            'description_en' => 'required'
+            'description_en' => 'required',
+            'published_at' => 'required'
         ]);
 
         if ($request->has('image')){
@@ -128,6 +131,7 @@ class NewsController extends Controller
             }
         }
 
+        $news->published_at = $request->published_at;
         $news->save();
 
         return redirect('/admin/news')->with(['message' => 'Успешно обновлено', 'alert' => 'alert-success']);

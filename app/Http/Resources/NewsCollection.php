@@ -21,6 +21,7 @@ class NewsCollection extends JsonResource
             'title' => $this->getTitle(),
             'description' => $this->getDescription(),
             'is_active' => $this->is_active,
+            'published_at' => $this->published_at,
             'created_at' => $this->created_at->format('Y.m.d'),
             'updated_at' => $this->updated_at->format('Y.m.d')
         ];

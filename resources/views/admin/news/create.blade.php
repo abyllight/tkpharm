@@ -145,6 +145,20 @@
 
                 <div class="mb-6">
                     <div class="mb-1">
+                        <label class="text-gray-500 font-medium" for="published_at">
+                            Дата публикаций
+                        </label>
+                    </div>
+                    <div>
+                        <input type="date" name="published_at" id="published_at" value="{{ old('published_at') }}">
+                        @error('published_at')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="mb-1">
                         <label class="text-gray-500 font-medium" for="image">
                             Фото
                         </label>

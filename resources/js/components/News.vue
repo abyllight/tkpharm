@@ -12,7 +12,7 @@
            >
                <div class="flex flex-col p-8 justify-between md:absolute w-full h-full z-20 border bg-news hover:bg-black hover:bg-opacity-70 hover:border-opacity-0">
                    <div>
-                       <p class="text-sm mb-3">{{n.created_at}}</p>
+                       <p class="text-sm mb-3">{{n.published_at}}</p>
                        <p class="font-semibold uppercase text-lg md:line-clamp-3">{{n.title}}</p>
                    </div>
 

@@ -32,17 +32,17 @@
                         <div
                             v-if="second"
                             class="flex flex-col font-light">
-                            <div class="mb-2">
+                            <div class="mb-2 max-w-sm">
                                 <p class="font-medium text-footer-label mb-1">{{$t('message.address')}}</p>
-                                <p>Фурманова 14А</p>
+                                <p>Республика Казахстан, Актюбинская обл., г. Актобе, р-н Астана, с. Шестихатка, ж.м. Шестихатка, зд. № 467</p>
                             </div>
                             <div class="mb-2">
                                 <p class="font-medium text-footer-label mb-1">E-mail</p>
-                                <a href="mailto:tkfarm@gmail.com">TKFARM@gmail.com</a>
+                                <a href="mailto:tkfarm@gmail.com">dir-tkpharm@mail.ru</a>
                             </div>
                             <div>
                                 <p class="font-medium text-footer-label mb-1">{{$t('message.phone')}}</p>
-                                <a href="tel:+77084224242">+7 (708) 422 - 42 - 42</a>
+                                <a href="tel:+77132217215">8 (7132) 21 72 15</a>
                             </div>
                         </div>
                     </div>

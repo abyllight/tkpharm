@@ -22,7 +22,7 @@ class ProductsCollection extends JsonResource
             'amount' => $this->amount,
             'measurement' => $this->getAmount(),
             'title' => $this->getTitle(),
-            'subtitle' => $this->getTitle(),
+            'subtitle' => $this->getSubtitle(),
             'description' => $this->getDescription(),
             'is_active' => $this->is_active,
             'created_at' => $this->created_at->format('Y.m.d'),

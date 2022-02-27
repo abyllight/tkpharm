@@ -23,7 +23,7 @@
                         <img :src="/storage/+product.image" class="md:w-64">
                         <div>
                             <div>
-                                <p class="font-light mb-1.5">{{product.amount}} {{product.measurement}}</p>
+                                <p class="font-light mb-1.5">{{product.measurement}}</p>
                                 <p class="font-semibold text-2xl uppercase mb-1">{{product.title}}</p>
                                 <p class="text-sm mb-2">{{product.subtitle}}</p>
                             </div>

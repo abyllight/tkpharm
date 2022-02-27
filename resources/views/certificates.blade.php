@@ -10,24 +10,14 @@
                 <div class="border border-top w-full"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:flex-row py-10">
-                <div>
-                    <img src="/img/cert2.jpg" class="h-72 lg:h-80 bg-center bg-cover mx-auto mb-4">
-                    <div class="border font-semibold uppercase text-sm text-center p-2 h-16">
-                        <p class="line-clamp-2">Аттестат аккредитации</p>
+                @foreach($certificates as $certificate)
+                    <div>
+                        <img src="{{'storage/'.$certificate->image}}" class="h-72 lg:h-80 bg-center bg-cover mx-auto mb-4">
+                        <div class="border font-semibold uppercase text-sm text-center p-2 h-16">
+                            <p class="line-clamp-2">{{$certificate->getTitle()}}</p>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <img src="/img/cert4.jpg" class="h-72 lg:h-80 bg-center bg-cover mx-auto mb-4">
-                    <div class="border font-semibold uppercase text-sm text-center p-2 h-16">
-                        <p class="line-clamp-2">Сертификат GMP РК на цех жидких лекарственных форм</p>
-                    </div>
-                </div>
-                <div>
-                    <img src="/img/cert5.jpg" class="h-72 lg:h-80 bg-center bg-cover mx-auto mb-4">
-                    <div class="border font-semibold uppercase text-sm text-center p-2 h-16">
-                        <p class="line-clamp-2">Сертификат GMP РК на цех жидких лекарственных форм</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

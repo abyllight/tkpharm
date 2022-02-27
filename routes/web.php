@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\HistoryController;
@@ -12,9 +13,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SearchController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-use Spatie\TranslationLoader\LanguageLine;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +38,7 @@ Route::view('/history', 'history');
 Route::get('/history-sample', [HistoryController::class, 'sample']);
 Route::get('/histories', [HistoryController::class, 'all']);
 
-Route::view('/certificates', 'certificates');
+Route::get('/certificates', [CertificateController::class, 'all']);
 
 Route::view('/management', 'management');
 
@@ -73,6 +72,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('product-categories', ProductCategoryController::class)->except(['show']);
     Route::resource('products', ProductController::class)->except(['show']);
     Route::resource('news', NewsController::class);
+    Route::resource('certificates', CertificateController::class)->except(['show']);
     Route::resource('histories', HistoryController::class)->except(['show']);
     Route::resource('gallery', GalleryController::class)->except(['show', 'edit', 'update']);
 

@@ -35,7 +35,6 @@ class ProductController extends Controller
             'description_ru' => 'required',
             'description_kz' => 'required',
             'description_en' => 'required',
-            'published_at' => 'required',
             'image' => 'image|mimes:jpeg,jpg,png|required|max:10000'
         ]);
 
@@ -43,7 +42,6 @@ class ProductController extends Controller
         $product->product_category_id = $request->category;
         $product->is_active = true;
         $product->link = $request->link;
-        $product->published_at = $request->published_at;
         $product->image = $request->file('image')->store('products', 'public');
         $product->save();
 
@@ -86,8 +84,7 @@ class ProductController extends Controller
             'subtitle_en' => 'required',
             'description_ru' => 'required',
             'description_kz' => 'required',
-            'description_en' => 'required',
-            'published_at' => 'required'
+            'description_en' => 'required'
         ]);
 
         if ($request->has('image')){
@@ -99,7 +96,6 @@ class ProductController extends Controller
         }
 
         $product->product_category_id = $request->category;
-        $product->published_at = $request->published_at;
         $product->link = $request->link;
 
         foreach ($product->i18n as $translate){

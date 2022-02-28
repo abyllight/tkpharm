@@ -36,7 +36,6 @@ Vue.component('histories', require('./components/Histories').default);
 Vue.component('history-sample', require('./components/HistorySample').default);
 Vue.component('products', require('./components/Products.vue').default);
 Vue.component('gallery', require('./components/Gallery.vue').default);
-Vue.component('search-results', require('./components/SearchResults.vue').default);
 
 new Vue({
     i18n,

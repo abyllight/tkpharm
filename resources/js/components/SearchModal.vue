@@ -4,10 +4,7 @@
             <div class="absolute top-4 left-3">
                 <img src="/img/search_black.svg" width="24">
             </div>
-            <input type="text" v-model="query" autofocus class="rounded-md z-0 h-14 w-full pl-10 pr-24 text-black focus:shadow focus:outline-none" placeholder="Введите поисковой запрос">
-            <div class="absolute top-2 right-2">
-                <button class="h-10 w-20 text-white rounded-lg text-sm bg-red-500 hover:bg-red-600" @click="search">Искать</button>
-            </div>
+            <input type="text" v-model="query" @input="search" autofocus class="rounded-md z-0 h-14 w-full pl-10 pr-3 text-black focus:shadow focus:outline-none" placeholder="Введите поисковой запрос">
             <img src="/img/close.svg" width="36" class="absolute right-0 -top-14 cursor-pointer hover:scale-110 transform" @click="close"/>
         </div>
         <div class="relative max-w-2xl w-full mt-8">
@@ -59,6 +56,10 @@ export default {
             this.$emit('close')
         },
         search(){
+            if (this.query === '') {
+                this.results = []
+                return
+            }
             this.loading = true
             axios
                 .get('/search',{

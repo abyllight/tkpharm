@@ -171,7 +171,7 @@ export default {
             slide: false,
             expandLanguages: false,
             expandSubLinks: false,
-            searchModal: true
+            searchModal: false
         }
     },
     computed: {

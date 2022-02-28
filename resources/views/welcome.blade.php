@@ -49,36 +49,38 @@
 
     <!--    Section Partners-->
     <section>
-        <div class="bg-cover bg-center py-16 lg:py-40" style="background-image: url({{url('storage/' . $partners_bg)}}); background-size: cover">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="flex items-center justify-between mb-16">
-                    <div class="font-bold text-lg uppercase flex-shrink-0 mr-4">
-                        {{trans('welcome.partners_section')}}
+        <div class="relative bg-cover bg-center py-72" style="background-image: url({{url('storage/' . $partners_bg)}}); background-size: cover">
+            <div class="absolute bg-black bg-opacity-30 inset-0 flex justify-center items-center">
+                <div class="max-w-6xl mx-auto w-full px-4">
+                    <div class="flex items-center justify-between mb-16">
+                        <div class="font-bold text-lg uppercase flex-shrink-0 mr-4">
+                            {{trans('welcome.partners_section')}}
+                        </div>
+                        <div class="border border-top w-full"></div>
                     </div>
-                    <div class="border border-top w-full"></div>
-                </div>
-                <div id="partners">
-                    <div class="flex flex-col md:flex-row md:justify-between gap-8">
-                        <a class="cursor-pointer rounded w-1/2 w-full p-6 bg-black bg-opacity-60 relative hover:bg-cover hover:bg-opacity-40 transition-all ease-in-out duration-300"
-                           href="{{ $partners_link_1 }}" target="_blank">
-                            <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                                <img src="/img/right.svg" width="24">
-                            </div>
-                            <p class="uppercase text-xs mb-1">{{ $partners_title_1 }}</p>
-                            <div class="uppercase font-bold">
-                                {{ trans('partners.action_1') }}
-                            </div>
-                        </a>
-                        <a class="cursor-pointer rounded w-1/2 w-full p-6 bg-black bg-opacity-60 relative hover:bg-cover hover:bg-opacity-40 transition-all ease-in-out duration-300"
-                           href="{{ $partners_link_2 }}" target="_blank">
-                            <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                                <img src="/img/right.svg" width="24">
-                            </div>
-                            <p class="uppercase text-xs mb-1">{{ $partners_title_2 }}</p>
-                            <div class="uppercase font-bold">
-                                {{ trans('partners.action_2') }}
-                            </div>
-                        </a>
+                    <div id="partners">
+                        <div class="flex flex-col md:flex-row md:justify-between gap-8">
+                            <a class="cursor-pointer rounded w-1/2 w-full p-6 bg-black bg-opacity-60 relative hover:bg-cover hover:bg-opacity-40 transition-all ease-in-out duration-300"
+                               href="{{ $partners_link_1 }}" target="_blank">
+                                <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                                    <img src="/img/right.svg" width="24">
+                                </div>
+                                <p class="uppercase text-xs mb-1">{{ $partners_title_1 }}</p>
+                                <div class="uppercase font-bold">
+                                    {{ trans('partners.action_1') }}
+                                </div>
+                            </a>
+                            <a class="cursor-pointer rounded w-1/2 w-full p-6 bg-black bg-opacity-60 relative hover:bg-cover hover:bg-opacity-40 transition-all ease-in-out duration-300"
+                               href="{{ $partners_link_2 }}" target="_blank">
+                                <div class="border rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                                    <img src="/img/right.svg" width="24">
+                                </div>
+                                <p class="uppercase text-xs mb-1">{{ $partners_title_2 }}</p>
+                                <div class="uppercase font-bold">
+                                    {{ trans('partners.action_2') }}
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

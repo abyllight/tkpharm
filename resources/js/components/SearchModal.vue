@@ -12,16 +12,35 @@
             <div v-if="empty">
                 По Вашему запросу ничего не найдено
             </div>
-            <div v-if="hasResults" class="w-full rounded-md flex flex-col gap-4 h-80 overflow-auto">
-                <h3 class="mb-1 font-medium text-white">Результаты поиска:</h3>
-                <div
-                    v-for="result in results"
-                    :key="result.id"
-                    class="bg-blue-500 text-white rounded-md p-4 cursor-pointer hover:bg-blue-400 flex items-start justify-between"
-                    @click="openLink(result.id)"
-                >
-                    {{result.title}}
-                    <img src="/img/right.svg" class="w-6"/>
+            <div v-if="hasNews || hasProducts" class="w-full rounded-md flex flex-col h-80 space-y-10 overflow-auto">
+                <div v-if="hasNews">
+                    <h3 class="font-medium text-lg mb-4">Новости</h3>
+                    <div class="flex flex-col space-y-4">
+                        <a
+                            v-for="item in news"
+                            :key="item.id"
+                            @click="openLink(item.link)"
+                            class="bg-blue-500 text-white rounded-md p-4 cursor-pointer hover:bg-blue-400 flex items-start justify-between"
+                        >
+                            {{item.title}}
+                            <img src="/img/right.svg" class="w-6"/>
+                        </a>
+                    </div>
+                </div>
+
+                <div v-if="hasProducts">
+                    <h3 class="font-medium text-lg mb-4">Продукты</h3>
+                    <div class="flex flex-col space-y-4">
+                        <a
+                            v-for="item in products"
+                            :key="item.id"
+                            @click="openLink(item.link)"
+                            class="bg-blue-500 text-white rounded-md p-4 cursor-pointer hover:bg-blue-400 flex items-start justify-between"
+                        >
+                            {{item.title}}
+                            <img src="/img/right.svg" class="w-6"/>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,11 +58,15 @@ export default {
     data:() => ({
         query : '',
         loading: false,
-        results: []
+        news: [],
+        products: []
     }),
     computed: {
-        hasResults(){
-            return this.results.length > 0
+        hasNews(){
+            return this.news.length > 0
+        },
+        hasProducts(){
+            return this.products.length > 0
         },
         empty(){
             return this.query === null
@@ -52,12 +75,14 @@ export default {
     methods: {
         close(){
             this.query = ''
-            this.results = []
+            this.news = []
+            this.products = []
             this.$emit('close')
         },
-        search(){
+        search() {
             if (this.query === '') {
-                this.results = []
+                this.news = []
+                this.products = []
                 return
             }
             this.loading = true
@@ -68,19 +93,22 @@ export default {
                     }
                 })
                 .then(response => {
-                    this.results = response.data.data
-                    if (this.results.length === 0) {
+                    this.news = response.data.news
+                    this.products = response.data.products
+
+                    if (this.news.length === 0 && this.products.length === 0) {
                         this.query = null
                     }
+
                     this.loading = false
                 })
                 .catch(error => {
                     console.log(error)
                 })
         },
-        openLink(id){
+        openLink(link){
             this.close()
-            window.open('/news/'+id)
+            window.open(link)
         }
     }
 }

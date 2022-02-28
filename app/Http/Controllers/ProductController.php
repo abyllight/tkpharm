@@ -35,7 +35,7 @@ class ProductController extends Controller
             'description_ru' => 'required',
             'description_kz' => 'required',
             'description_en' => 'required',
-            'image' => 'image|mimes:jpeg,jpg,png|required|max:10000'
+            'image' => 'image|required|max:10000'
         ]);
 
         $product = new Product();
@@ -89,7 +89,7 @@ class ProductController extends Controller
 
         if ($request->has('image')){
             $request->validate([
-                'image' => 'image|mimes:jpeg,jpg,png|required|max:10000',
+                'image' => 'image|required|max:10000',
             ]);
             Storage::disk('public')->delete($product->image);
             $product->image = $request->file('image')->store('products', 'public');

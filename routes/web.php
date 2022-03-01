@@ -30,7 +30,7 @@ Route::get('/locale/{locale}', [LocaleController::class, 'setLocale']);
 Route::get('/locale', [LocaleController::class, 'getLocale']);
 
 Route::get('/', [LandingController::class, 'index']);
-Route::get('/about-data', [LandingController::class, 'about']);
+Route::get('/about-data', [LandingController::class, 'tr']);
 
 Route::get('/about', [LandingController::class, 'about']);
 

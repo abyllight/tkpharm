@@ -59,4 +59,35 @@ class LandingController extends Controller
             's3' => $s3->text[$locale]
         ]);
     }
+
+    public function tr(): JsonResponse
+    {
+        $locale = App::currentLocale();
+
+        $news = [
+            'ru' => 'Новости',
+            'kz' => 'Жаңалықтар',
+            'en' => 'News'
+        ];
+
+        $read = [
+            'ru' => 'Читать далее',
+            'kz' => 'Толығырақ',
+            'en' => 'Read more'
+        ];
+
+        $show = [
+            'ru' => 'Показать больше',
+            'kz' => 'Көбірек көрсету',
+            'en' => 'Show more'
+        ];
+
+        return response()->json(
+            [
+                'news' => $news[$locale],
+                'read' => $read[$locale],
+                'show' => $show[$locale]
+            ]
+        );
+    }
 }

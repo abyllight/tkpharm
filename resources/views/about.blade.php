@@ -16,8 +16,8 @@
                         <img src="/img/gallery/g5.png" class="absolute -bottom-12 shadow-lg hidden md:block md:right-0 lg:right-10"/>
                     </div>
                     <div class="md:w-1/2">
-                        <h2 class="font-semibold text-2xl leading-tight mb-3">
-                            Собственное производство
+                        <h2 class="font-semibold text-2xl text-green-500 leading-tight mb-3">
+                            {{$t1}}
                         </h2>
                         <p class="font-light">
                             {{ $s1 }}
@@ -26,8 +26,8 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:space-x-6 md:space-y-0 py-6">
                     <div class="md:w-1/2 order-last md:order-first">
-                        <h2 class="font-semibold text-2xl leading-tight mb-3">
-                            Качество. Контроль
+                        <h2 class="font-semibold text-2xl text-green-500 leading-tight mb-3">
+                            {{$t2}}
                         </h2>
                         <p class="font-light">
                             {{ $s2 }}
@@ -43,8 +43,8 @@
                         <img src="/img/gallery/g14.png" class="mx-auto shadow-lg"/>
                     </div>
                     <div class="md:w-1/2">
-                        <h2 class="font-semibold text-2xl leading-tight mb-3">
-                            Лучшие в сфере фармацевтики
+                        <h2 class="font-semibold text-green-500 text-2xl leading-tight mb-3">
+                            {{$t3}}
                         </h2>
                         <p class="font-light">
                             {{ $s3 }}

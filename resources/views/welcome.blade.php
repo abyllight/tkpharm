@@ -15,20 +15,59 @@
     </div>
 
     <!--    Section About-->
-    <div class="bg-about py-16">
+    <div class="bg-gray-100 text-gray-900 py-16">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center justify-between mb-12 md:mb-24">
                 <div class="font-bold text-lg uppercase flex-shrink-0 mr-4">
                     {{trans('welcome.company_section')}}
                 </div>
                 <div class="border border-top w-full"></div>
             </div>
-            <section id="about">
-                <about></about>
-            </section>
+            <div class="space-y-16 md:space-y-28">
+                <div class="flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 py-6">
+                    <div class="md:w-1/2 w-full relative h-56 md:h-96">
+                        <img src="/img/gallery/g6.png" class="md:absolute mx-auto shadow-lg"/>
+                        <img src="/img/gallery/g5.png" class="absolute -bottom-12 shadow-lg hidden md:block md:right-0 lg:right-10"/>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="font-semibold text-2xl leading-tight mb-3">
+                            Собственное производство
+                        </h2>
+                        <p class="font-light">
+                            {{ $s1 }}
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center md:space-x-6 md:space-y-0 py-6">
+                    <div class="md:w-1/2 order-last md:order-first">
+                        <h2 class="font-semibold text-2xl leading-tight mb-3">
+                            Качество. Контроль
+                        </h2>
+                        <p class="font-light">
+                            {{ $s2 }}
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 w-full relative h-56 md:h-96 mb-4 md:mb-0">
+                        <img src="/img/gallery/g15.png" class="md:absolute mx-auto shadow-lg"/>
+                        <img src="/img/gallery/g1.png" class="absolute -bottom-12 shadow-lg hidden md:block md:right-0 lg:right-10"/>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 py-6">
+                    <div class="md:w-1/2 w-full relative">
+                        <img src="/img/gallery/g14.png" class="mx-auto shadow-lg"/>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="font-semibold text-2xl leading-tight mb-3">
+                            Лучшие в сфере фармацевтики
+                        </h2>
+                        <p class="font-light">
+                            {{ $s3 }}
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 
     <!--Section History-->
     <section id="history">

@@ -1,40 +1,55 @@
 @extends('layouts.app')
 @section('content')
     <!--    Section About-->
-    <div class="bg-about bg-cover bg-center py-32">
+    <div class="bg-gray-800 text-gray-50 pt-32 md:pt-56 pb-16">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center justify-between mb-12 md:mb-24">
                 <div class="font-bold text-lg uppercase flex-shrink-0 mr-4">
                     {{trans('welcome.company_section')}}
                 </div>
                 <div class="border border-top w-full"></div>
             </div>
-            <div class="py-6 lg:py-12 flex flex-col gap-12">
-                <div class="max-w-5xl">
-                    <h1 class="font-bold text-2xl uppercase tracking-wider xl:leading-tight mb-5">
-                        {{trans('company.title_1')}}
-                    </h1>
-                    <p class="font-normal text-sm md:text-base max-w-4xl">
-                        {{trans('company.subtitle_1')}}
-                    </p>
+            <div class="space-y-16 md:space-y-28">
+                <div class="flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 py-6">
+                    <div class="md:w-1/2 w-full relative h-56 md:h-96">
+                        <img src="/img/gallery/g6.png" class="md:absolute mx-auto shadow-lg"/>
+                        <img src="/img/gallery/g5.png" class="absolute -bottom-12 shadow-lg hidden md:block md:right-0 lg:right-10"/>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="font-semibold text-2xl leading-tight mb-3">
+                            Собственное производство
+                        </h2>
+                        <p class="font-light">
+                            {{ $s1 }}
+                        </p>
+                    </div>
                 </div>
-                <div class="border-t max-w-sm"></div>
-                <div class="max-w-5xl">
-                    <h1 class="font-bold text-2xl uppercase tracking-wider xl:leading-tight mb-5">
-                        {{trans('company.title_2')}}
-                    </h1>
-                    <p class="font-normal text-sm md:text-base max-w-4xl">
-                        {{trans('company.subtitle_2')}}
-                    </p>
+                <div class="flex flex-col md:flex-row items-center md:space-x-6 md:space-y-0 py-6">
+                    <div class="md:w-1/2 order-last md:order-first">
+                        <h2 class="font-semibold text-2xl leading-tight mb-3">
+                            Качество. Контроль
+                        </h2>
+                        <p class="font-light">
+                            {{ $s2 }}
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 w-full relative h-56 md:h-96 mb-4 md:mb-0">
+                        <img src="/img/gallery/g15.png" class="md:absolute mx-auto shadow-lg"/>
+                        <img src="/img/gallery/g1.png" class="absolute -bottom-12 shadow-lg hidden md:block md:right-0 lg:right-10"/>
+                    </div>
                 </div>
-                <div class="border-t max-w-sm"></div>
-                <div class="max-w-5xl">
-                    <h1 class="font-bold text-2xl uppercase tracking-wider xl:leading-tight mb-5">
-                        {{trans('company.title_3')}}
-                    </h1>
-                    <p class="font-normal text-sm md:text-base max-w-4xl">
-                        {{trans('company.subtitle_3')}}
-                    </p>
+                <div class="flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 py-6">
+                    <div class="md:w-1/2 w-full relative">
+                        <img src="/img/gallery/g14.png" class="mx-auto shadow-lg"/>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="font-semibold text-2xl leading-tight mb-3">
+                            Лучшие в сфере фармацевтики
+                        </h2>
+                        <p class="font-light">
+                            {{ $s3 }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

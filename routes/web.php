@@ -32,7 +32,7 @@ Route::get('/locale', [LocaleController::class, 'getLocale']);
 Route::get('/', [LandingController::class, 'index']);
 Route::get('/about-data', [LandingController::class, 'about']);
 
-Route::view('/about', 'about');
+Route::get('/about', [LandingController::class, 'about']);
 
 Route::view('/history', 'history');
 Route::get('/history-sample', [HistoryController::class, 'sample']);

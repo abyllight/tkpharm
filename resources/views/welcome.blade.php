@@ -69,6 +69,37 @@
         </div>
     </div>
 
+    <!-- Section Achievements   -->
+    <section id="achievement">
+        <div class="text-gray-900 bg-gray-100 py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex items-center justify-between mb-12 md:mb-20">
+                    <div class="font-bold text-lg uppercase flex-shrink-0 mr-4">
+                        {{trans('welcome.achievement_section')}}
+                    </div>
+                    <div class="border border-top w-full"></div>
+                </div>
+                <div class="w-full flex overflow-x-scroll h-96 space-x-16 md:space-x-24 hide-scroll-bar">
+                    <div class="flex-shrink-0 w-56 h-80">
+                        <img src="/img/cert/1.png" class="object-cover shadow-lg"/>
+                    </div>
+
+                    <div class="flex-shrink-0 w-56 h-80">
+                        <img src="/img/cert/2.png" class="object-cover shadow-lg"/>
+                    </div>
+
+                    <div class="flex-shrink-0 w-56 h-80">
+                        <img src="/img/cert/3.png" class="object-cover shadow-lg"/>
+                    </div>
+
+                    <div class="flex-shrink-0 w-56 h-80">
+                        <img src="/img/cert/4.png" class="object-cover shadow-lg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--Section History-->
     <section id="history">
         <div class="bg-gradient-to-b from-h-start to-h-end py-24">

@@ -10,14 +10,12 @@
     <title>TKPHARM</title>
 </head>
 <style>
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
+    .hide-scroll-bar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+    .hide-scroll-bar::-webkit-scrollbar {
+        display: none;
     }
 </style>
 <body class="font-body relative text-white">

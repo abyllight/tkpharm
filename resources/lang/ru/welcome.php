@@ -17,6 +17,7 @@ return [
     'company_section' => 'О компании',
     'history_section' => 'История компании',
     'partners_section' => 'Наши партнеры',
+    'achievement_section' => 'Наши достижения',
     'news_section' => 'Новости',
     'products_section' => 'Наша продукция',
     'gallery_section' => 'Галерея',

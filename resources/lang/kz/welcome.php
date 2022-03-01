@@ -18,6 +18,7 @@ return [
     'history_section' => 'Компания тарихы',
     'partners_section' => 'Серіктестер',
     'news_section' => 'Жаңалықтар',
+    'achievement_section' => 'Жетістіктеріміз',
     'products_section' => 'Өнімдер',
     'gallery_section' => 'Галерея',
     'read_also' => 'Оқи отырыңыз',

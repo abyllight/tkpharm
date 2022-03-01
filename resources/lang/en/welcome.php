@@ -20,6 +20,7 @@ return [
     'news_section' => 'News',
     'products_section' => 'Products',
     'gallery_section' => 'Gallery',
+    'achievement_section' => 'Achievements',
     'read_also' => 'Read also',
     'read_more' => 'Read more',
     'certificates_section' => 'Certificates',

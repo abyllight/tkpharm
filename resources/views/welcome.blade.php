@@ -64,10 +64,9 @@
                     <div data-aos="fade-left"
                          data-aos-delay="400"
                          data-aos-duration="1000"
-                         class="md:w-1/2 w-full relative md:h-96 mb-4 md:mb-0"
+                         class="md:w-1/2 mb-4 md:mb-0"
                     >
-                        <img src="/img/gallery/g14.png" class="w-56 md:w-72 mx-auto shadow-lg"/>
-<!--                        <img src="/img/gallery/g15.png" class="md:absolute shadow-lg top-16"/>-->
+                        <img src="/img/gallery/g15.png" class="shadow-lg mx-auto"/>
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 py-6">

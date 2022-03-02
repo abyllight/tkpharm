@@ -66,8 +66,8 @@
                          data-aos-duration="1000"
                          class="md:w-1/2 w-full relative h-56 md:h-96 mb-4 md:mb-0"
                     >
-                        <img src="/img/gallery/g15.png" class="md:absolute mx-auto shadow-lg"/>
-                        <img src="/img/gallery/g1.png" class="absolute -bottom-12 shadow-lg hidden md:block md:right-0 lg:right-10"/>
+                        <img src="/img/gallery/g14.png" class="md:absolute h-96 hidden md:block mx-auto shadow-lg"/>
+                        <img src="/img/gallery/g15.png" class="md:absolute -bottom-12 shadow-lg md:right-0"/>
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 py-6">
@@ -75,7 +75,7 @@
                          data-aos-delay="400"
                          data-aos-duration="1000"
                          class="md:w-1/2 w-full relative">
-                        <img src="/img/gallery/g14.png" class="mx-auto shadow-lg"/>
+                        <img src="/img/cert/cert.jpeg" class="w-72 mx-auto shadow-lg"/>
                     </div>
                     <div data-aos="fade-left"
                          data-aos-delay="400"

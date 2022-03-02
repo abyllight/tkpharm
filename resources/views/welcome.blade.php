@@ -25,11 +25,21 @@
             </div>
             <div class="space-y-16 md:space-y-28">
                 <div class="flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 py-6">
-                    <div class="md:w-1/2 w-full relative h-56 md:h-96">
+                    <div
+                        data-aos="fade-right"
+                        data-aos-delay="400"
+                        data-aos-duration="1000"
+                        class="md:w-1/2 w-full relative h-56 md:h-96"
+                    >
                         <img src="/img/gallery/g6.png" class="md:absolute mx-auto shadow-lg"/>
                         <img src="/img/gallery/g5.png" class="absolute -bottom-12 shadow-lg hidden md:block md:right-0 lg:right-10"/>
                     </div>
-                    <div class="md:w-1/2">
+                    <div
+                        data-aos="fade-left"
+                        data-aos-delay="400"
+                        data-aos-duration="1000"
+                        class="md:w-1/2"
+                    >
                         <h2 class="font-semibold text-2xl text-green-500 leading-tight mb-3">
                             {{$t1}}
                         </h2>
@@ -39,7 +49,11 @@
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:space-x-6 md:space-y-0 py-6">
-                    <div class="md:w-1/2 order-last md:order-first">
+                    <div data-aos="fade-right"
+                         data-aos-delay="400"
+                         data-aos-duration="1000"
+                         class="md:w-1/2 order-last md:order-first"
+                    >
                         <h2 class="font-semibold text-2xl text-green-500 leading-tight mb-3">
                             {{$t2}}
                         </h2>
@@ -47,16 +61,26 @@
                             {{ $s2 }}
                         </p>
                     </div>
-                    <div class="md:w-1/2 w-full relative h-56 md:h-96 mb-4 md:mb-0">
+                    <div data-aos="fade-left"
+                         data-aos-delay="400"
+                         data-aos-duration="1000"
+                         class="md:w-1/2 w-full relative h-56 md:h-96 mb-4 md:mb-0"
+                    >
                         <img src="/img/gallery/g15.png" class="md:absolute mx-auto shadow-lg"/>
                         <img src="/img/gallery/g1.png" class="absolute -bottom-12 shadow-lg hidden md:block md:right-0 lg:right-10"/>
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 py-6">
-                    <div class="md:w-1/2 w-full relative">
+                    <div data-aos="fade-right"
+                         data-aos-delay="400"
+                         data-aos-duration="1000"
+                         class="md:w-1/2 w-full relative">
                         <img src="/img/gallery/g14.png" class="mx-auto shadow-lg"/>
                     </div>
-                    <div class="md:w-1/2">
+                    <div data-aos="fade-left"
+                         data-aos-delay="400"
+                         data-aos-duration="1000"
+                         class="md:w-1/2">
                         <h2 class="font-semibold text-2xl text-green-500 leading-tight mb-3">
                             {{$t3}}
                         </h2>
@@ -80,19 +104,19 @@
                     <div class="border border-top w-full"></div>
                 </div>
                 <div class="w-full flex overflow-x-scroll h-96 space-x-16 md:space-x-24 hide-scroll-bar">
-                    <div class="flex-shrink-0 w-56 h-80">
+                    <div class="flex-shrink-0 w-48">
                         <img src="/img/cert/1.png" class="object-cover shadow-lg"/>
                     </div>
 
-                    <div class="flex-shrink-0 w-56 h-80">
+                    <div class="flex-shrink-0 w-48">
                         <img src="/img/cert/2.png" class="object-cover shadow-lg"/>
                     </div>
 
-                    <div class="flex-shrink-0 w-56 h-80">
+                    <div class="flex-shrink-0 w-48">
                         <img src="/img/cert/3.png" class="object-cover shadow-lg"/>
                     </div>
 
-                    <div class="flex-shrink-0 w-56 h-80">
+                    <div class="flex-shrink-0 w-48">
                         <img src="/img/cert/4.png" class="object-cover shadow-lg"/>
                     </div>
                 </div>

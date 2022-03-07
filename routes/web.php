@@ -49,6 +49,7 @@ Route::get('/news-load/{id}', [NewsController::class, 'loadMore']);
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('news_content');
 
 Route::view('/products', 'products');
+Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::get('/products-all', [ProductCategoryController::class, 'all']);
 
 Route::view('/gallery', 'gallery');

@@ -20,16 +20,21 @@
                         class="flex flex-col md:flex-row gap-5 md:gap-10 transform transition-all duration-700 ease-in overflow-y-hidden"
                         :class="type.expand ? 'max-h-screen' : 'max-h-0'"
                     >
-                        <img :src="/storage/+product.image" class="md:w-64">
+                        <div class="w-full md:w-72 md:h-72 flex-shrink-0">
+                            <img :src="/storage/+product.image" class="bg-cover">
+                        </div>
                         <div>
                             <div>
                                 <p class="font-light mb-1.5">{{product.measurement}}</p>
-                                <p class="font-semibold text-2xl uppercase mb-1">{{product.title}}</p>
+                                <p class="font-semibold text-xl uppercase mb-1">{{product.title}}</p>
                                 <p class="text-sm mb-2">{{product.subtitle}}</p>
                             </div>
                             <div class="border-t mb-4 w-1/2"></div>
-                            <p class="text-sm mb-6 line-clamp-4">{{product.description}}</p>
-                            <a class="flex items-center cursor-pointer font-semibold text-sm" href="#">Приобрести товар на сайте партнера <img src="/img/arrow.svg" class="w-6 ml-2"></a>
+                            <p class="text-sm mb-3 line-clamp-4">{{product.description}}</p>
+                            <a class="flex items-center cursor-pointer font-semibold text-sm mb-6" :href="'/products/'+product.id">
+                                Подробнее <img src="/img/arrow.svg" class="w-6 ml-2">
+                            </a>
+                            <a class="bg-gray-100 hover:bg-gray-50 text-gray-900 px-5 py-2.5 cursor-pointer rounded-md font-medium text-sm" :href="product.link" target="_blank">Приобрести товар</a>
                         </div>
                     </div>
                 </div>

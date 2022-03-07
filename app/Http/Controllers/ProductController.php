@@ -23,6 +23,11 @@ class ProductController extends Controller
         return view('admin.products.create', ['categories' => $categories]);
     }
 
+    public function show($id) {
+        $product = Product::find($id);
+        return view('product', ['product' => $product]);
+    }
+
     public function store(Request $request){
         $request->validate([
             'category' => 'required',

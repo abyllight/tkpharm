@@ -102,7 +102,7 @@
                     </div>
                     <div class="border border-top w-full"></div>
                 </div>
-                <div class="w-full flex overflow-x-scroll h-96 space-x-16 md:space-x-24 hide-scroll-bar">
+                <div class="w-full flex items-center overflow-x-scroll h-96 space-x-16 md:space-x-24 hide-scroll-bar">
                     <div class="flex-shrink-0 w-48">
                         <img src="/img/cert/1.png" class="object-cover shadow-lg"/>
                     </div>
@@ -117,6 +117,14 @@
 
                     <div class="flex-shrink-0 w-48">
                         <img src="/img/cert/4.png" class="object-cover shadow-lg"/>
+                    </div>
+
+                    <div class="flex-shrink-0 w-48">
+                        <img src="/img/cert/5.png" class="object-cover shadow-lg"/>
+                    </div>
+
+                    <div class="flex-shrink-0 w-48">
+                        <img src="/img/cert/6.png" class="object-cover shadow-lg"/>
                     </div>
                 </div>
             </div>

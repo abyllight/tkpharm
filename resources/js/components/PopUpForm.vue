@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="popUp" :data-aos="popUp ? 'fade-in' : 'fade-out'" class="h-screen w-full fixed bg-black bg-opacity-60 top-0 left-0 z-30 flex items-center justify-center px-3 py-2 text-white">
+        <div v-if="popUp" :data-aos="popUp ? 'fade-in' : 'fade-out'" class="h-screen w-full fixed bg-black bg-opacity-60 top-0 left-0 z-40 flex items-center justify-center px-3 py-2 text-white">
             <div :data-aos="popUp ? 'zoom-in' : 'zoom-out'" class="w-full max-w-md bg-black bg-opacity-70 rounded-xl shadow-xl relative">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-5">

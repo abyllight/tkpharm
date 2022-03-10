@@ -25,6 +25,8 @@ return [
     'read_also' => 'Читайте также',
     'read_more' => 'Читать далее',
     'management_section' => 'Руководство',
+    'management_name' => 'Туреханова Жанагуль Жайлыбековна',
+    'management_position' => 'Директор ТОО «ТК Фарм Актобе»',
     'management_bio' => '
                          <div class="font-light">
 

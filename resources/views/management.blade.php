@@ -14,8 +14,8 @@
                     <img src="/img/manager.jpg" class="bg-cover bg-center mb-3">
                 </div>
                 <div class="text-sm">
-                    <p class="font-semibold text-lg mb-0.5">Туреханова Жанагуль Жайлыбековна</p>
-                    <p class="font-light mb-3">Директор ТОО «ТК Фарм Актобе»</p>
+                    <p class="font-semibold text-lg mb-0.5">{{trans('welcome.management_name')}}</p>
+                    <p class="font-light mb-3">{{trans('welcome.management_position')}}</p>
                     {!! trans('welcome.management_bio') !!}
                 </div>
             </div>

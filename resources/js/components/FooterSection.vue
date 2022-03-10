@@ -8,7 +8,7 @@
                             class="flex justify-between items-start cursor-pointer md:cursor-auto"
                             @click="collapseFirst"
                         >
-                            <p class="font-semibold uppercase mb-4 text-lg">Навигация</p>
+                            <p class="font-semibold uppercase mb-4 text-lg">{{$t('message.navigation')}}</p>
                             <img :src="first ? up : down" width="32" class="md:hidden">
                         </div>
                         <div
@@ -34,7 +34,7 @@
                             class="flex flex-col font-light">
                             <div class="mb-2 max-w-sm">
                                 <p class="font-medium text-footer-label mb-1">{{$t('message.address')}}</p>
-                                <p>Республика Казахстан, Актюбинская обл., г. Актобе, р-н Астана, с. Шестихатка, ж.м. Шестихатка, зд. № 467</p>
+                                <p>{{$t('message.address_val')}}</p>
                             </div>
                             <div class="mb-2">
                                 <p class="font-medium text-footer-label mb-1">E-mail</p>
@@ -50,7 +50,7 @@
                 <div class="border-t border-footer-divider my-8 md:hidden"></div>
                 <div class="w-full md:w-72">
                     <h3 class="font-semibold uppercase text-xl text-center mb-3">{{$t('message.contact_us')}}</h3>
-                    <div @click="popUp = true" class="cursor-pointer w-full border uppercase bg-footer-color text-white flex justify-center py-2.5 text-sm">
+                    <div @click="openPopUp" class="cursor-pointer w-full border uppercase bg-footer-color text-white flex justify-center py-2.5 text-sm">
                         {{$t('message.contact')}}
                     </div>
                 </div>
@@ -88,6 +88,10 @@ export default {
         collapseSecond(){
             if (this.isLarge) return true
             this.second =! this.second
+        },
+        openPopUp() {
+            this.popUp = true
+            console.log('asd')
         }
     }
 }

@@ -15,6 +15,7 @@ export default {
         contact_us: 'Contact us',
         contact: 'Contact',
         address: 'Address',
+        address_val: 'Kazakhstan, Aktiubinskaya obl., Aktobe city, Astana district, Shestihatka village, Shestihatka, bld № 467',
         phone: 'Phone',
         rights: 'All rights reserves',
         name: 'Full name',

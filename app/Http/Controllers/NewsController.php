@@ -58,7 +58,7 @@ class NewsController extends Controller
             'description_ru' => 'required',
             'description_kz' => 'required',
             'description_en' => 'required',
-            'image' => 'image|mimes:jpeg,jpg,png|required|max:10000',
+            'image' => 'image|required|max:10000',
             'published_at' => 'required'
         ]);
 
@@ -115,7 +115,7 @@ class NewsController extends Controller
 
         if ($request->has('image')){
             $request->validate([
-                'image' => 'image|mimes:jpeg,jpg,png|required|max:10000',
+                'image' => 'image|required|max:10000',
             ]);
             Storage::disk('public')->delete($news->image);
             $news->image = $request->file('image')->store('news', 'public');

@@ -25,7 +25,7 @@
                         </div>
                         <div>
                             <div>
-                                <p class="font-light mb-1.5">{{product.measurement}}</p>
+                                <p class="font-light mb-1.5 line-clamp-1">{{product.measurement}}</p>
                                 <p class="font-semibold text-xl uppercase mb-1">{{product.title}}</p>
                                 <p class="text-sm mb-2">{{product.subtitle}}</p>
                             </div>

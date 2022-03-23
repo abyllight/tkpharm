@@ -27,7 +27,7 @@ class GalleryController extends Controller
     {
         $request->validate([
             'images' => 'required',
-            'images.*' => 'image|mimes:jpeg,jpg,png|required|max:10000'
+            'images.*' => 'image|required|max:10000'
         ]);
 
         $images = $request->file('images');

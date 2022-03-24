@@ -57,7 +57,7 @@ class SearchController extends Controller
             $arr[] = [
                 'id' => $first->product_id,
                 'title' => $first->title,
-                'link' => '/products'
+                'link' => '/products/' . $first->product_id
             ];
         }
 

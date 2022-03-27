@@ -27,8 +27,8 @@
                 <div class="flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 py-6">
                     <div
                         data-aos="fade-right"
-                        data-aos-delay="400"
-                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                        data-aos-duration="700"
                         class="md:w-1/2 w-full relative h-56 md:h-96"
                     >
                         <img src="/img/gallery/g6.png" class="md:absolute mx-auto shadow-lg"/>
@@ -36,8 +36,8 @@
                     </div>
                     <div
                         data-aos="fade-left"
-                        data-aos-delay="400"
-                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                        data-aos-duration="700"
                         class="md:w-1/2"
                     >
                         <h2 class="font-semibold text-2xl text-green-500 leading-tight mb-3">
@@ -50,8 +50,8 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:space-x-6 md:space-y-0 py-6">
                     <div data-aos="fade-right"
-                         data-aos-delay="400"
-                         data-aos-duration="1000"
+                         data-aos-delay="200"
+                         data-aos-duration="700"
                          class="md:w-1/2 order-last md:order-first"
                     >
                         <h2 class="font-semibold text-2xl text-green-500 leading-tight mb-3">
@@ -62,8 +62,8 @@
                         </p>
                     </div>
                     <div data-aos="fade-left"
-                         data-aos-delay="400"
-                         data-aos-duration="1000"
+                         data-aos-delay="200"
+                         data-aos-duration="700"
                          class="md:w-1/2 mb-4 md:mb-0"
                     >
                         <img src="/img/gallery/g15.png" class="shadow-lg mx-auto"/>
@@ -71,14 +71,14 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 py-6">
                     <div data-aos="fade-right"
-                         data-aos-delay="400"
-                         data-aos-duration="1000"
+                         data-aos-delay="200"
+                         data-aos-duration="700"
                          class="md:w-1/2 w-full relative">
                         <img src="/img/cert/cert.jpeg" class="w-72 mx-auto shadow-lg"/>
                     </div>
                     <div data-aos="fade-left"
-                         data-aos-delay="400"
-                         data-aos-duration="1000"
+                         data-aos-delay="200"
+                         data-aos-duration="700"
                          class="md:w-1/2">
                         <h2 class="font-semibold text-2xl text-green-500 leading-tight mb-3">
                             {{$t3}}
@@ -93,7 +93,7 @@
     </div>
 
     <!-- Section Achievements   -->
-    <section id="achievement">
+    <section id="achievements">
         <div class="text-gray-900 bg-gray-100 py-16">
             <div class="max-w-6xl mx-auto px-4">
                 <div class="flex items-center justify-between mb-12 md:mb-20">
@@ -102,31 +102,7 @@
                     </div>
                     <div class="border border-top w-full"></div>
                 </div>
-                <div class="w-full flex items-center overflow-x-auto whitespace-nowrap h-96 space-x-16 md:space-x-24 hide-scroll-bar">
-                    <div class="flex-shrink-0 w-48">
-                        <img src="/img/cert/1.jpg" class="object-cover shadow-lg"/>
-                    </div>
-
-                    <div class="flex-shrink-0 w-48">
-                        <img src="/img/cert/2.jpg" class="object-cover shadow-lg"/>
-                    </div>
-
-                    <div class="flex-shrink-0 w-48">
-                        <img src="/img/cert/3.jpg" class="object-cover shadow-lg"/>
-                    </div>
-
-                    <div class="flex-shrink-0 w-48">
-                        <img src="/img/cert/4.jpg" class="object-cover shadow-lg"/>
-                    </div>
-
-                    <div class="flex-shrink-0 w-48">
-                        <img src="/img/cert/5.jpg" class="object-cover shadow-lg"/>
-                    </div>
-
-                    <div class="flex-shrink-0 w-48">
-                        <img src="/img/cert/6.jpg" class="object-cover shadow-lg"/>
-                    </div>
-                </div>
+                <achievements></achievements>
             </div>
         </div>
     </section>
@@ -196,6 +172,10 @@
     <script>
         new Vue({
             el: '#news_slide'
+        });
+
+        new Vue({
+            el: '#achievements'
         });
 
         new Vue({

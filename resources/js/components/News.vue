@@ -64,9 +64,9 @@ export default {
         },
         loadMore(){
             this.loading = true
-            let id = this.news[this.news.length - 1].id
+            let date = this.news[this.news.length - 1].published_at
             axios
-                .get('/news-load/'+ id)
+                .get('/news-load/'+ date)
                 .then(response => {
                     let more = response.data
                     this.news.push(...more)

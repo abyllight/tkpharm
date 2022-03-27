@@ -32,10 +32,10 @@ class NewsController extends Controller
         return response()->json($chunks->all());
     }
 
-    public function loadMore(int $id): JsonResponse
+    public function loadMore($date): JsonResponse
     {
         return response()->json(
-            NewsCollection::collection(News::where('is_active', true)->where('id', '<', $id)->orderBy('published_at', 'desc')->take(4)->get())
+            NewsCollection::collection(News::where('is_active', true)->where('published_at', '<', $date)->orderBy('published_at', 'desc')->take(4)->get())
         );
     }
 

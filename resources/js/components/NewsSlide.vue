@@ -26,7 +26,7 @@
                 <div
                     v-for="(slide,index) in news"
                     :key="slide.id"
-                    class="grid grid-cols-1 md:grid-cols-2 md:gap-8 px-4 absolute inset-0 slide transition-all ease-in-out duration-1000 transform"
+                    class="grid grid-cols-1 md:grid-cols-2 md:gap-8 px-4 absolute inset-0 slidex transition-all ease-in-out duration-1000 transform"
                     :class="index === 0 ? 'translate-x-0' : 'translate-x-full'"
                 >
                     <div
@@ -83,7 +83,7 @@ export default {
                 })
         },
         prev(){
-            let active = document.querySelector('.slide.translate-x-0')
+            let active = document.querySelector('.slidex.translate-x-0')
             let prev = active.previousElementSibling;
 
             if (prev){
@@ -95,7 +95,7 @@ export default {
             }
         },
         next(){
-            let active = document.querySelector('.slide.translate-x-0')
+            let active = document.querySelector('.slidex.translate-x-0')
             let next = active.nextElementSibling;
 
             if (next){

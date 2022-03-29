@@ -32,9 +32,9 @@
                             <div class="border-t mb-4 w-1/2"></div>
                             <p class="text-sm mb-3 line-clamp-4">{{product.description}}</p>
                             <a class="flex items-center cursor-pointer font-semibold text-sm mb-6" :href="'/products/'+product.id">
-                                Подробнее <img src="/img/arrow.svg" class="w-6 ml-2">
+                                {{ more }} <img src="/img/arrow.svg" class="w-6 ml-2">
                             </a>
-                            <a class="bg-gray-100 hover:bg-gray-50 text-gray-900 px-5 py-2.5 cursor-pointer rounded-md font-medium text-sm" :href="product.link" target="_blank">Приобрести товар</a>
+                            <a class="bg-gray-100 hover:bg-gray-50 text-gray-900 px-5 py-2.5 cursor-pointer rounded-md font-medium text-sm" :href="product.link" target="_blank">{{buy}}</a>
                         </div>
                     </div>
                 </div>
@@ -51,10 +51,13 @@ export default {
     components: {Loader},
     data: () => ({
         product_types: [],
-        loading: true
+        loading: true,
+        more: '',
+        buy: ''
     }),
     mounted() {
         this.fetchProducts()
+        this.getAbout()
     },
     methods: {
         fetchProducts(){
@@ -70,7 +73,14 @@ export default {
         },
         expand(product){
             product.expand =! product.expand
-        }
+        },
+        getAbout(){
+            axios.get('/about-data')
+                .then(response => {
+                    this.more = response.data.read
+                    this.buy = response.data.buy
+                })
+        },
     }
 }
 </script>

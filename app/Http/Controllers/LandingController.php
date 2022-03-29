@@ -71,7 +71,7 @@ class LandingController extends Controller
         ];
 
         $read = [
-            'ru' => 'Читать далее',
+            'ru' => 'Подробнее',
             'kz' => 'Толығырақ',
             'en' => 'Read more'
         ];
@@ -82,11 +82,18 @@ class LandingController extends Controller
             'en' => 'Show more'
         ];
 
+        $buy = [
+            'ru' => 'Приобрести товар',
+            'kz' => 'Сатып алу',
+            'en' => 'Get a product'
+        ];
+
         return response()->json(
             [
                 'news' => $news[$locale],
                 'read' => $read[$locale],
-                'show' => $show[$locale]
+                'show' => $show[$locale],
+                'buy'  => $buy[$locale]
             ]
         );
     }

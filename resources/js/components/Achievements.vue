@@ -48,6 +48,9 @@ export default {
                 l: true
             },
             {
+                img: '/img/cert/cert.jpeg'
+            },
+            {
                 img: '/img/cert/3.jpg'
             },
             {
